@@ -22,13 +22,14 @@ public class MainFrame {
    private JFrame frame;
    private JButton player_Btn, cheering_Btn, gameInf_Btn, rank_Btn;
 
-   private MainAction mainAction;
+   //private MainAction mainAction;
    private CheerPanel cheerPanel;
    private GameInfFrame gameInfPanel;
    private PlayerFrame playerPanel;
    private RankComparePanel rankComparePanel;
    private loginFrame loginPanel;
    private BoardFrame1 boardframe1;
+   private BoardFrame2 boardframe2;
 
    public MainFrame() {
       frame = new JFrame();
@@ -73,7 +74,8 @@ public class MainFrame {
       JButton homebtn = new JButton("Home");
       homebtn.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
-            mainAction.setVisible(true);
+            boardframe1.setVisible(true);
+            boardframe2.setVisible(true);
             cheerPanel.setVisible(false);
             gameInfPanel.setVisible(false);
             playerPanel.setVisible(false);
@@ -129,7 +131,8 @@ public class MainFrame {
       
       loginbtn.addActionListener(new ActionListener() {
           public void actionPerformed(ActionEvent e) {
-             mainAction.setVisible(false);
+             boardframe1.setVisible(false);
+             boardframe2.setVisible(false);
              cheerPanel.setVisible(false);
              gameInfPanel.setVisible(false);
              playerPanel.setVisible(false);
@@ -171,7 +174,8 @@ public class MainFrame {
       player_Btn = new JButton("선수소개");
       player_Btn.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
-            mainAction.setVisible(false);
+            boardframe1.setVisible(false);
+            boardframe2.setVisible(false);
             cheerPanel.setVisible(false);
             gameInfPanel.setVisible(false);
             playerPanel.setVisible(true);
@@ -208,7 +212,8 @@ public class MainFrame {
       cheering_Btn = new JButton("응원게시판");
       cheering_Btn.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
-            mainAction.setVisible(false);
+            boardframe1.setVisible(false);
+            boardframe2.setVisible(false);
             playerPanel.setVisible(false);
             cheerPanel.setVisible(true);
             gameInfPanel.setVisible(false);            
@@ -243,7 +248,8 @@ public class MainFrame {
       gameInf_Btn = new JButton("실시간 경기정보");
       gameInf_Btn.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
-            mainAction.setVisible(false);
+            boardframe1.setVisible(false);
+            boardframe2.setVisible(false);
             playerPanel.setVisible(false);
             cheerPanel.setVisible(false);
             gameInfPanel.setVisible(true);
@@ -278,7 +284,8 @@ public class MainFrame {
       rank_Btn = new JButton("메달 랭킹 비교");
       rank_Btn.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
-            mainAction.setVisible(false);
+            boardframe1.setVisible(false);
+            boardframe2.setVisible(false);
             playerPanel.setVisible(false);
             cheerPanel.setVisible(false);
             gameInfPanel.setVisible(false);            
@@ -313,14 +320,15 @@ public class MainFrame {
    private void Initialize() {
       frameInit();
       
-      mainAction = new MainAction(frame);
+      boardframe1 = new BoardFrame1(frame);
+      boardframe2 = new BoardFrame2(frame);
       cheerPanel = new CheerPanel(frame);
       gameInfPanel =  new GameInfFrame(frame);
       playerPanel = new PlayerFrame(frame);
       rankComparePanel = new RankComparePanel(frame);
       loginPanel = new loginFrame(frame);
+     
    }
-
    public static void main(String[] args) {
       EventQueue.invokeLater(new Runnable() {
          public void run() {
