@@ -2,18 +2,18 @@ package GameInf;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class GameInfPanel extends JPanel {
-	BufferedImage img1, img2, img3;
-	
 	
 	public GameInfPanel(JFrame frame) {
 		super();
@@ -73,28 +73,32 @@ public class GameInfPanel extends JPanel {
 
 	private void OutBox() {
 		// Medal Picture
-		JLabel MedalImage = new JLabel("»çÁø ¿¹Á¤1");
+//		JLabel MedalImage = new JLabel("»çÁø ¿¹Á¤1");
+//		MedalImage.setBounds(45, 95, 450, 480);
+//
+//		MedalImage.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 35)); // Font
+//
+//		MedalImage.setForeground(Color.black); // Color
+//		MedalImage.setBackground(new Color(166, 166, 166));
+//		MedalImage.setOpaque(true);
+//
+//		MedalImage.setHorizontalAlignment(JLabel.CENTER); // Position
+//
+//		this.add(MedalImage);
+//		
+		
+		//picture (¼±¼ö »çÁø)
+		ImageIcon medalIcon = new ImageIcon("./img/game_test1.PNG");
+		
+		Image medalImg = medalIcon.getImage();
+		Image medal_changeImg = medalImg.getScaledInstance(450, 480, Image.SCALE_SMOOTH);
+		
+		ImageIcon medal_changeIcon = new ImageIcon(medal_changeImg);
+		
+		JLabel MedalImage = new JLabel(medal_changeIcon);
+		
 		MedalImage.setBounds(45, 95, 450, 480);
-
-		MedalImage.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 35)); // Font
-
-		MedalImage.setForeground(Color.black); // Color
-		MedalImage.setBackground(new Color(166, 166, 166));
-		MedalImage.setOpaque(true);
-
-		MedalImage.setHorizontalAlignment(JLabel.CENTER); // Position
-
-		
-		try {
-			img1 = ImageIO.read(new File("image/image1.png"));
-		}catch(IOException e) {
-		}
-		
-		
-		this.add(MedalImage);
-		
-		
-		
+		add(MedalImage);;
 		
 		
 		// Medal Picture

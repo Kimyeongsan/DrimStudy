@@ -23,8 +23,6 @@ import javax.swing.JTextField;
 public class PlayerPanel extends JPanel {
 	String name, event, country, medalCount;
 	
-	private PlayerImg playerImg;
-	
 	public PlayerPanel(JFrame frame) {
 		super();
 		PanelInit(frame);
@@ -168,12 +166,19 @@ public class PlayerPanel extends JPanel {
 	
 	private void OutputBox() {
 		
-		// Picture
-	    playerImg = new PlayerImg();
-	
-	    playerImg.setBounds(100, 100, 230, 250);
-	    this.add(playerImg);
-	    playerImg.setVisible(true);
+		//picture (선수 사진)
+		ImageIcon icon = new ImageIcon("./img/player_test.jpg");
+		
+		Image playerImg = icon.getImage();
+		Image changeImg = playerImg.getScaledInstance(230, 250, Image.SCALE_SMOOTH);
+		
+		ImageIcon changeIcon = new ImageIcon(changeImg);
+		
+		JLabel playerLabel = new JLabel(changeIcon);
+		
+		playerLabel.setBounds(100, 100, 230, 250);
+		add(playerLabel);;
+		
 		
 		// medal (매달)
 		JLabel medalOutput = new JLabel("2개");
