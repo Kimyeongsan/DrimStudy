@@ -2,12 +2,16 @@ package login;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 public class loginPanel extends JPanel {
 
@@ -17,7 +21,7 @@ public class loginPanel extends JPanel {
    }
 
    private void panelInit(JFrame frame) {
-      // 메인 화면 패널
+      // 로그인 화면 패널
       this.setBackground(new Color(255, 255, 255));
       this.setBounds(0, 0, 1280, 960);
       this.setLayout(null);
@@ -33,35 +37,36 @@ public class loginPanel extends JPanel {
       this.add(IDtitle);
 
       //id 글자
-      JLabel idText = new JLabel("ID");
-      idText.setBounds(250, 180, 100, 40);
-      idText.setFont(new Font("고딕", Font.BOLD, 20)); // Font
-      idText.setForeground(Color.black); // Color
-      idText.setBackground(new Color(166, 166, 166));
-      idText.setOpaque(true);
-      idText.setHorizontalAlignment(JLabel.CENTER);
-      this.add(idText);
+      JLabel idTxt = new JLabel("ID");
+      idTxt.setBounds(250, 180, 100, 40);
+      idTxt.setFont(new Font("고딕", Font.BOLD, 20)); // Font
+      idTxt.setForeground(Color.black); // Color
+      idTxt.setBackground(new Color(166, 166, 166));
+      idTxt.setOpaque(true);
+      idTxt.setHorizontalAlignment(JLabel.CENTER);
+      this.add(idTxt);
 
       //pw 글자
-      JLabel pwText = new JLabel("PW");
-      pwText.setBounds(250, 250, 100, 40);
-      pwText.setFont(new Font("고딕", Font.BOLD, 20)); // Font
-      pwText.setForeground(Color.black); // Color
-      pwText.setBackground(new Color(166, 166, 166));
-      pwText.setOpaque(true);
-      pwText.setHorizontalAlignment(JLabel.CENTER);
-      this.add(pwText);
+      JLabel pwTxt = new JLabel("PW");
+      pwTxt.setBounds(250, 250, 100, 40);
+      pwTxt.setFont(new Font("고딕", Font.BOLD, 20)); // Font
+      pwTxt.setForeground(Color.black); // Color
+      pwTxt.setBackground(new Color(166, 166, 166));
+      pwTxt.setOpaque(true);
+      pwTxt.setHorizontalAlignment(JLabel.CENTER);
+      this.add(pwTxt);
       
       //id 입력
-      JPasswordField inputID = new JPasswordField("10");
+      JTextField inputID = new JTextField("ID를 입력하세요.");
       inputID.setBounds(400, 180, 200, 40);
       inputID.setFont(new Font("고딕", Font.BOLD, 20)); // Font
       inputID.setForeground(Color.black); // Color
       inputID.setBackground(new Color(255,255,255));
+      inputID.requestFocusInWindow();
       this.add(inputID);
 
       //pw 입력
-      JPasswordField inputPW = new JPasswordField("10");
+      JPasswordField inputPW = new JPasswordField("");
       inputPW.setBounds(400, 250, 200, 40);
       inputPW.setFont(new Font("고딕", Font.BOLD, 20)); // Font
       inputPW.setForeground(Color.black); // Color
@@ -85,22 +90,41 @@ public class loginPanel extends JPanel {
       exitBtn.setBorderPainted(false);
       exitBtn.setFocusPainted(false);
       this.add(exitBtn);
+      
+      JButton regBtn = new JButton("회원가입");
+      regBtn.setFont(new Font("고딕", Font.BOLD, 14));
+      regBtn.setBackground(new Color(217, 217, 217));
+      regBtn.setBounds(700, 330, 100, 40);
+      regBtn.setBorderPainted(false);
+      regBtn.setFocusPainted(false);
+      this.add(regBtn);
+      
+      logBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String id = "hello", pw = "1234";
+				
+				// 임시 출력
+				System.out.println(id + " / " + pw );
+	
+				if (id.equals(inputID.getText()) && pw.equals(inputPW.getText())) {
+					JOptionPane.showMessageDialog(null, "환영!", "login", JOptionPane.INFORMATION_MESSAGE);
+				} 
+				// 로그인 실패
+				else if (id.equals(inputID.getText()) && pw.equals(inputPW.getText()) == false) {
+					JOptionPane.showMessageDialog(null, "비밀번호가 틀렸습니다.", "login", JOptionPane.INFORMATION_MESSAGE);
+				}
+				else {  
+					JOptionPane.showMessageDialog(null, "아님", "login", JOptionPane.INFORMATION_MESSAGE);
+				}
+			}
+      });
       /*
-    //로그인화면 컴포넌트 끝
-/*
-   logBtn.addActionListener( new ActionListener() {
-       public void actionPerformed(ActionEvent e) {
-               String id = "Rewind";
-               String pass = "1234";
-                   if(id.equals(inputID.getText()) &&  pass.equals(txtPass.getText())) {
-                           loginPanel.showMessageDialog( null, "you have logged in successfully" );
-                   } else {
-                	   loginPanel.showMessageDialog( null , " you failed to log in ");
-                   }
-       }
-} );
-*/
+      regBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+    });
+    */
+   }
 }
-}
-
-
