@@ -1,19 +1,21 @@
-package login;
+package regMember;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
-import regMember.regFrame;
-import regMember.regPanel;
-
-public class loginFrame extends JPanel {
+public class regFrame extends JPanel {
 	private JFrame frame;
-	private loginPanel loginPanel;
 	private regPanel regPanel;
 
-	public loginFrame(JFrame frame) {
+	public regFrame(JFrame frame) {
 		super();
 		FrameInit(frame);
 		PanelInit();
@@ -28,15 +30,12 @@ public class loginFrame extends JPanel {
 	}
 
 	private void PanelInit() {
-
-		loginPanel = new loginPanel(frame);
-
-		loginPanel.setBounds(80, 200, 1100, 600);
-		loginPanel.setBackground(new Color(242, 242, 242));
-		loginPanel.setBorder(null); 
 		regPanel = new regPanel(frame);
-		regPanel.setVisible(false);
 
-		this.add(loginPanel);
+		regPanel.setBounds(80, 200, 1100, 600);
+		regPanel.setBackground(new Color(242, 242, 242));
+		regPanel.setBorder(null); 
+
+		this.add(regPanel);
 	}
 }
