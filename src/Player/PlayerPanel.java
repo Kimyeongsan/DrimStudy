@@ -41,7 +41,7 @@ public class PlayerPanel extends JPanel {
 		JLabel tilteLabel = new JLabel("¼±¼ö¼Ò°³");
 		tilteLabel.setBounds(100, 20, 900, 60);
 
-		tilteLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 35)); // Font
+		tilteLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 25)); // Font
 
 		tilteLabel.setForeground(Color.white); // Color
 		tilteLabel.setBackground(Color.black);
