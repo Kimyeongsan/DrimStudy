@@ -25,7 +25,7 @@ public class BoardFrame1 extends JPanel {
 	private void FrameInit(JFrame frame) {
 
 		this.setBackground(new Color(255, 255, 255));
-		this.setBounds(0, 0, 1280, 960);
+		this.setBounds(0, 0, 1280, 340);
 
 		frame.getContentPane().add(this);
 		this.setLayout(null);
@@ -35,7 +35,7 @@ public class BoardFrame1 extends JPanel {
 
 		boardPanel1 = new BoardPanel1(frame);
 
-		boardPanel1.setBounds(80, 200, 1100, 600);
+		boardPanel1.setBounds(30, 200, 1200, 400);
 		boardPanel1.setBackground(new Color(242, 242, 242));
 		boardPanel1.setBorder(null); // 테두리 없애기
 
