@@ -1,25 +1,75 @@
 package Board;
 
-import java.awt.Color;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+public class BoardWrite {
 
+   private Connection conn;
+   private ResultSet rs;
+   
+   public BoardWrite() {
+      try {
+            String dbURL = "";
+            String dbID = "root";
+            String dbPassword = "";
+            Class.forName("");
+            conn=DriverManager.getConnection(dbURL, dbID, dbPassword);
+            
+      }catch(Exception e) {
+            e.printStackTrace();
+      }
+      
+   }
+   
+   public String getDate() {
+      String SQL = "SELECT NOW()";
+      try {
+            PreparedStatement pstmt = conn.prepareStatement(SQL);
+            rs= pstmt.executeQuery();
+            if(rs.next()) {
+                  return rs.getString(1);
+            }
+      }catch(Exception e) {
+            e.printStackTrace();
+      }
+      return "";
+   }
+   
+   public int getNext() {
+      String SQL = "SELECT ID FROM ORDER BY ID DESC";
+      try {
+         PreparedStatement pstmt = conn.prepareStatement(SQL);
+         rs= pstmt.executeQuery();
+         if(rs.next()) {
+            return rs.getInt(1)+1;
+         }
+         return 1;
+      }catch(Exception e) {
+            e.printStackTrace();
+      }
+      return -1;
+   }
+   
+   /*
+   public int write(String Title, String ID, String Content);
+      String SQL = "INSERT INTO VALUES(?, ?, ?, ?, ?, ?)";
 
-public class BoardWrite extends JPanel {
-
-	public BoardWrite(JFrame frame) {
-		super();
-		panelInit(frame);
-	}
-
-	private void panelInit(JFrame frame) {
-		// 메인 화면 패널
-		this.setBackground(Color.red);
-		this.setBounds(0, 0, 1280, 960);
-		
-		frame.getContentPane().add(this); 
-		frame.setLayout(null);
-
-	}
+      try {
+         PreparedStatement pstmt = conn.prepareStatement(SQL);
+         pstmt.setInt(1, getNext());
+         pstmt.setString(2, Title);
+         pstmt.setString(3, ID);
+         pstmt.setString(4, getDate());
+         pstmt.setString(5, Content);
+         pstmt.setInt(6, 1);
+         return pstmt.executeUpdate();
+      }catch(Exception e) {
+            e.printStackTrace();
+      }
+      return -1;
+   } */ //일부 오류가 나서 수정할 예정입니다.
+      
 }
