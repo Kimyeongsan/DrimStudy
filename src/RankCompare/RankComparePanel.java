@@ -20,7 +20,7 @@ public class RankComparePanel extends JPanel {
 
 	private void panelInit(JFrame frame) {
 		// 메인 화면 패널
-		this.setBackground(Color.orange);
+		this.setBackground(new Color(242, 242, 242));
 		this.setBounds(0, 0, 1280, 960);
 		
 		frame.getContentPane().add(this);
