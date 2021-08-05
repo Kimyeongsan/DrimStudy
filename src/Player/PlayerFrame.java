@@ -37,8 +37,7 @@ public class PlayerFrame extends JPanel {
 
 		playerPanel.setBounds(80, 200, 1100, 600);
 		playerPanel.setBackground(new Color(242, 242, 242));
-		playerPanel.setBorder(null); // 테두리 없애기
-
+		playerPanel.setBorder(null);
 		this.add(playerPanel);
 	}
 }

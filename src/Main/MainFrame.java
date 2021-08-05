@@ -41,7 +41,7 @@ public class MainFrame {
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.getContentPane().setLayout(null);
       
-      ImageIcon img = new ImageIcon("drim_img.png");
+      ImageIcon img = new ImageIcon("./img/drim_img.png");
       frame.setIconImage(img.getImage());
       
       // ∏ﬁ¿Œ Title
