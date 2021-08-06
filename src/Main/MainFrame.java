@@ -543,11 +543,12 @@ public class MainFrame {
              gameInf_Btn.setVisible(true);
              rank_Btn.setVisible(true);
              //login과 main게시판 버튼, mypage 버튼 표시
-             loginbtn.setVisible(true);
+             loginbtn.setVisible(false);
              logOutbtn.setVisible(true);
              writebtn.setVisible(false);
              c_writebtn.setVisible(false);
              myPage_Btn.setVisible(true);
+             regMembtn.setVisible(false);
              regQuitbtn.setVisible(false);
              mypgQuitbtn.setVisible(false);
              logQuitbtn.setVisible(false);
