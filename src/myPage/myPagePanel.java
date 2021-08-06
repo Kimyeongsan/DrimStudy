@@ -4,6 +4,8 @@ package myPage;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -59,6 +61,12 @@ public class myPagePanel extends JPanel {
 			introInput.setForeground(Color.black); // Color
 			introInput.setOpaque(true);
 			introInput.setHorizontalAlignment(JLabel.CENTER);
+			introInput.addMouseListener(new MouseAdapter(){
+		          @Override
+		          public void mouseClicked(MouseEvent e){
+		        	  introInput.setText("");
+		          }
+		      });
 		    this.add(introInput);
 		    
 		    //사진 등록
