@@ -14,6 +14,8 @@ import javax.swing.border.LineBorder;
 
 import Cheering.CheerPanel;
 import Cheering.cheerFrame;
+import Cheering.cheermsgFrame;
+import Cheering.cheermsgPanel;
 import GameInf.GameInfFrame;
 import Player.PlayerFrame;
 import RankCompare.RankComparePanel;
@@ -24,18 +26,21 @@ import regMember.regMemFrame;
 public class MainFrame {
    private JFrame frame;
    private JButton player_Btn, cheering_Btn, gameInf_Btn, rank_Btn;
+   private JButton writebtn, c_writebtn;
 
    //private MainAction mainAction;
    private cheerFrame CheerPanel;
    private GameInfFrame gameInfPanel;
    private PlayerFrame playerPanel;
    private RankComparePanel rankComparePanel;
-   private BoardFrame1 boardframe1;
-   private BoardFrame2 boardframe2;
+   private BoardFrame1 boardPanel1;
+   private BoardFrame2 boardPanel2;
    private loginFrame loginPanel;
    private myPageFrame myPagePanel;
    private regMemFrame regMemPanel;
+   private cheermsgFrame cheermsgPanel;
 
+   
    public MainFrame() {
       frame = new JFrame();
       Initialize();
@@ -64,7 +69,98 @@ public class MainFrame {
       tilteLabel.setHorizontalAlignment(JLabel.CENTER); // Position
 
       frame.add(tilteLabel);
-      
+     
+     // 응원 게시판 글쓰기 버튼
+     JButton c_writebtn = new JButton("응원메시지 +");
+ 	 c_writebtn.setFont(new Font("맑은고딕", Font.BOLD, 13));
+ 	 c_writebtn.setBackground(new Color(217, 217, 217));
+ 	 c_writebtn.setBounds(1085,800, 120, 30);
+ 	 c_writebtn.setBorderPainted(false);
+ 	 c_writebtn.setFocusPainted(false);
+ 	 c_writebtn.setVisible(false);
+ 	 frame.add(c_writebtn);
+ 	
+ 	 c_writebtn.addActionListener(new ActionListener() {
+ 	   	 public void actionPerformed(ActionEvent e) {
+ 	   		 boardPanel1.setVisible(false);
+             boardPanel2.setVisible(false);
+             CheerPanel.setVisible(false);
+             gameInfPanel.setVisible(false);
+             playerPanel.setVisible(false);
+             rankComparePanel.setVisible(false);
+             loginPanel.setVisible(false);
+             myPagePanel.setVisible(false);
+             cheermsgPanel.setVisible(true);
+             
+             player_Btn.setBorderPainted(false);
+             cheering_Btn.setBorderPainted(false);
+             cheering_Btn.setFocusPainted(false);
+             gameInf_Btn.setBorderPainted(false);
+             gameInf_Btn.setFocusPainted(false);
+             rank_Btn.setBorderPainted(false);
+             rank_Btn.setFocusPainted(false);
+             writebtn.setVisible(false);
+             c_writebtn.setVisible(false);
+ 		}
+ 	 });
+ 	
+ 	 c_writebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+              c_writebtn.setBackground(Color.black);
+              c_writebtn.setForeground(Color.white);
+              //player_Btn.setBorderPainted(true);
+           }
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+              c_writebtn.setBackground(new Color(217, 217, 217));
+              c_writebtn.setForeground(Color.black);
+           }
+       });
+     
+ 	 // 메인 게시물 글쓰기 버튼
+	 JButton writebtn = new JButton("글쓰기");
+	 writebtn.setFont(new Font("맑은고딕", Font.BOLD, 13));
+	 writebtn.setBackground(new Color(217, 217, 217));
+	 writebtn.setBounds(1085,742, 75, 30);
+	 writebtn.setBorderPainted(false);
+	 writebtn.setFocusPainted(false);
+	 frame.add(writebtn);
+	
+	 writebtn.addActionListener(new ActionListener() {
+	   	 public void actionPerformed(ActionEvent e) {
+	   		boardPanel1.setVisible(false);
+            boardPanel2.setVisible(false);
+            CheerPanel.setVisible(false);
+            gameInfPanel.setVisible(false);
+            playerPanel.setVisible(true);
+            rankComparePanel.setVisible(false);
+            loginPanel.setVisible(false);
+            myPagePanel.setVisible(false);
+            cheermsgPanel.setVisible(true);
+            
+            player_Btn.setBorderPainted(false);
+            cheering_Btn.setBorderPainted(false);
+            cheering_Btn.setFocusPainted(false);
+            gameInf_Btn.setBorderPainted(false);
+            gameInf_Btn.setFocusPainted(false);
+            rank_Btn.setBorderPainted(false);
+            rank_Btn.setFocusPainted(false);
+            writebtn.setVisible(false);
+            c_writebtn.setVisible(false);
+		}
+	 });
+	
+	 writebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+          public void mouseEntered(java.awt.event.MouseEvent evt) {
+             writebtn.setBackground(Color.black);
+             writebtn.setForeground(Color.white);
+             //player_Btn.setBorderPainted(true);
+          }
+          public void mouseExited(java.awt.event.MouseEvent evt) {
+             writebtn.setBackground(new Color(217, 217, 217));
+             writebtn.setForeground(Color.black);
+          }
+      });
+		 
       // Header
       
       
@@ -112,14 +208,15 @@ public class MainFrame {
       
       loginbtn.addActionListener(new ActionListener() {
           public void actionPerformed(ActionEvent e) {
-             boardframe1.setVisible(false);
-             boardframe2.setVisible(false);
+             boardPanel1.setVisible(false);
+             boardPanel2.setVisible(false);
              CheerPanel.setVisible(false);
              gameInfPanel.setVisible(false);
              playerPanel.setVisible(false);
              rankComparePanel.setVisible(false);
              loginPanel.setVisible(true);
              regMemPanel.setVisible(false);
+             cheermsgPanel.setVisible(true);
              
              myPagePanel.setVisible(false);
              
@@ -130,6 +227,8 @@ public class MainFrame {
              
              logOutbtn.setVisible(false);
              loginbtn.setVisible(false);
+             writebtn.setVisible(false);
+             c_writebtn.setVisible(false);
           }
        });
      
@@ -145,14 +244,15 @@ public class MainFrame {
       
       logOutbtn.addActionListener(new ActionListener() {
           public void actionPerformed(ActionEvent e) {
-             boardframe1.setVisible(true);
-             boardframe2.setVisible(true);
+             boardPanel1.setVisible(true);
+             boardPanel2.setVisible(true);
              CheerPanel.setVisible(false);
              gameInfPanel.setVisible(false);
              playerPanel.setVisible(false);
              rankComparePanel.setVisible(false);
              loginPanel.setVisible(false);
              myPagePanel.setVisible(false);
+             cheermsgPanel.setVisible(true);
              
              player_Btn.setVisible(true);
              cheering_Btn.setVisible(true);
@@ -161,6 +261,8 @@ public class MainFrame {
              
              logOutbtn.setVisible(false);
              loginbtn.setVisible(true);
+             writebtn.setVisible(false);
+             c_writebtn.setVisible(false);
           }
        });
       
@@ -176,14 +278,15 @@ public class MainFrame {
       
       regMembtn.addActionListener(new ActionListener() {
           public void actionPerformed(ActionEvent e) {
-             boardframe1.setVisible(false);
-             boardframe2.setVisible(false);
+             boardPanel1.setVisible(false);
+             boardPanel2.setVisible(false);
              CheerPanel.setVisible(false);
              gameInfPanel.setVisible(false);
              playerPanel.setVisible(false);
              rankComparePanel.setVisible(false);
              loginPanel.setVisible(false);
              regMemPanel.setVisible(true);
+             cheermsgPanel.setVisible(true);
              
              myPagePanel.setVisible(false);
              
@@ -194,6 +297,8 @@ public class MainFrame {
              
              logOutbtn.setVisible(false);
              loginbtn.setVisible(false);
+             writebtn.setVisible(false);
+             c_writebtn.setVisible(false);
           }
        });
       
@@ -209,14 +314,15 @@ public class MainFrame {
       
       myPage_Btn.addActionListener(new ActionListener() {
           public void actionPerformed(ActionEvent e) {
-             boardframe1.setVisible(false);
-             boardframe2.setVisible(false);
+             boardPanel1.setVisible(false);
+             boardPanel2.setVisible(false);
              CheerPanel.setVisible(false);
              gameInfPanel.setVisible(false);
              playerPanel.setVisible(false);
              rankComparePanel.setVisible(false);
              loginPanel.setVisible(false);
              myPagePanel.setVisible(true);
+             cheermsgPanel.setVisible(true);
              
              player_Btn.setVisible(false);
              cheering_Btn.setVisible(false);
@@ -225,6 +331,8 @@ public class MainFrame {
              
              loginbtn.setVisible(false);
              logOutbtn.setVisible(true);
+             writebtn.setVisible(false);
+             c_writebtn.setVisible(false);
           }
        });
       
@@ -249,14 +357,15 @@ public class MainFrame {
       
       homebtn.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
-            boardframe1.setVisible(true);
-            boardframe2.setVisible(true);
+            boardPanel1.setVisible(true);
+            boardPanel2.setVisible(true);
             CheerPanel.setVisible(false);
             gameInfPanel.setVisible(false);
             playerPanel.setVisible(false);
             rankComparePanel.setVisible(false);
             myPagePanel.setVisible(false);
             loginPanel.setVisible(false);
+            cheermsgPanel.setVisible(true);
             
             player_Btn.setBorderPainted(false);
             player_Btn.setFocusPainted(false);
@@ -273,6 +382,8 @@ public class MainFrame {
             rank_Btn.setVisible(true);
             loginbtn.setVisible(true);
             logOutbtn.setVisible(false);
+            writebtn.setVisible(true);
+            c_writebtn.setVisible(false);
          }
       });
       
@@ -292,23 +403,22 @@ public class MainFrame {
       frame.add(underLabel);
 
       menuButton(); // MenuButton 호출
-   }
-   
-   // Menu Add
-   private void menuButton() {
-      // 선수소개 이동
+      otherButton();
+      
+   // 선수소개 이동
       LineBorder black_hover = new LineBorder(Color.RED);
       player_Btn = new JButton("선수소개");
       player_Btn.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
-            boardframe1.setVisible(false);
-            boardframe2.setVisible(false);
+            boardPanel1.setVisible(false);
+            boardPanel2.setVisible(false);
             CheerPanel.setVisible(false);
             gameInfPanel.setVisible(false);
             playerPanel.setVisible(true);
             rankComparePanel.setVisible(false);
             loginPanel.setVisible(false);
             myPagePanel.setVisible(false);
+            cheermsgPanel.setVisible(true);
             
             player_Btn.setBorderPainted(true);
             cheering_Btn.setBorderPainted(false);
@@ -317,6 +427,8 @@ public class MainFrame {
             gameInf_Btn.setFocusPainted(false);
             rank_Btn.setBorderPainted(false);
             rank_Btn.setFocusPainted(false);
+            writebtn.setVisible(false);
+            c_writebtn.setVisible(false);
          }
       });
       
@@ -341,12 +453,13 @@ public class MainFrame {
       cheering_Btn = new JButton("응원게시판");
       cheering_Btn.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
-            boardframe1.setVisible(false);
-            boardframe2.setVisible(false);
+            boardPanel1.setVisible(false);
+            boardPanel2.setVisible(false);
             playerPanel.setVisible(false);
             CheerPanel.setVisible(true);
             gameInfPanel.setVisible(false);            
             rankComparePanel.setVisible(false);
+            cheermsgPanel.setVisible(true);
             
             cheering_Btn.setBorderPainted(true);
             player_Btn.setBorderPainted(false);
@@ -357,6 +470,8 @@ public class MainFrame {
             rank_Btn.setFocusPainted(false);
             loginPanel.setVisible(false);
             myPagePanel.setVisible(false);
+            writebtn.setVisible(false);
+            c_writebtn.setVisible(true);
          }
       });
       cheering_Btn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -379,8 +494,8 @@ public class MainFrame {
       gameInf_Btn = new JButton("실시간 경기정보");
       gameInf_Btn.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
-            boardframe1.setVisible(false);
-            boardframe2.setVisible(false);
+            boardPanel1.setVisible(false);
+            boardPanel2.setVisible(false);
             playerPanel.setVisible(false);
             CheerPanel.setVisible(false);
             gameInfPanel.setVisible(true);
@@ -394,6 +509,9 @@ public class MainFrame {
             rank_Btn.setFocusPainted(false);
             loginPanel.setVisible(false);
             myPagePanel.setVisible(false);
+            writebtn.setVisible(false);
+            c_writebtn.setVisible(false);
+            cheermsgPanel.setVisible(true);
          }
       });
       gameInf_Btn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -416,8 +534,8 @@ public class MainFrame {
       rank_Btn = new JButton("메달 랭킹 비교");
       rank_Btn.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
-            boardframe1.setVisible(false);
-            boardframe2.setVisible(false);
+            boardPanel1.setVisible(false);
+            boardPanel2.setVisible(false);
             playerPanel.setVisible(false);
             CheerPanel.setVisible(false);
             gameInfPanel.setVisible(false);            
@@ -431,6 +549,9 @@ public class MainFrame {
             gameInf_Btn.setFocusPainted(false);
             loginPanel.setVisible(false);
             myPagePanel.setVisible(false);
+            writebtn.setVisible(false);
+            c_writebtn.setVisible(false);
+            cheermsgPanel.setVisible(true);
          }
       });
       rank_Btn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -449,12 +570,13 @@ public class MainFrame {
       rank_Btn.setBounds(940, 130, 170, 45);
       frame.add(rank_Btn);
    }
+   
 
    private void Initialize() {
       frameInit();
       
-      boardframe1 = new BoardFrame1(frame);
-      boardframe2 = new BoardFrame2(frame);
+      boardPanel1 = new BoardFrame1(frame);
+      boardPanel2 = new BoardFrame2(frame);
       CheerPanel = new cheerFrame(frame);
       gameInfPanel =  new GameInfFrame(frame);
       playerPanel = new PlayerFrame(frame);
@@ -462,6 +584,7 @@ public class MainFrame {
       loginPanel = new loginFrame(frame);
       myPagePanel = new myPageFrame(frame);
       regMemPanel = new regMemFrame(frame);
+      cheermsgPanel = new cheermsgFrame(frame);
    }
    public static void main(String[] args) {
       EventQueue.invokeLater(new Runnable() {
@@ -477,5 +600,19 @@ public class MainFrame {
             }
          }
       });
+   
    }
+   
+   //메인 페이지 글쓰기 버튼
+   
+   // Other Button Add
+   public void otherButton() {
+     
+   }
+   
+   // Menu Add
+   public void menuButton() {
+
+   }
+      
 }

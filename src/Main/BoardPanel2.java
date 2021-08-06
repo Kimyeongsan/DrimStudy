@@ -93,6 +93,7 @@ public class BoardPanel2 extends JPanel {
 		
 		//////////////////////////////////////////////////////////////////
 		
+		/*
 		// 글쓰기 버튼
 		JButton writebtn = new JButton("글쓰기");
 		writebtn.setFont(new Font("맑은고딕", Font.BOLD, 13));
@@ -118,6 +119,7 @@ public class BoardPanel2 extends JPanel {
 	             writebtn.setForeground(Color.black);
 	          }
        });
+       */
 		
 	}
 	
