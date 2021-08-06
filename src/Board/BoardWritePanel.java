@@ -33,7 +33,7 @@ public class BoardWritePanel extends JPanel {
 	    
 	    // 작성자 글자
 	    JLabel writerTxt = new JLabel("작성자");
-	    writerTxt.setBounds(250, 100, 100, 40);
+	    writerTxt.setBounds(130, 100, 100, 40);
 	    writerTxt.setFont(new Font("고딕", Font.BOLD, 20)); // Font
 	    writerTxt.setForeground(Color.black); // Color
 	    writerTxt.setBackground(new Color(166, 166, 166));
@@ -43,7 +43,7 @@ public class BoardWritePanel extends JPanel {
 	    
 	    // 작성자 입력
 	    JTextField inputwriter = new JTextField("");
-	    inputwriter.setBounds(400, 100, 200, 40);
+	    inputwriter.setBounds(250, 100, 200, 40);
 	    inputwriter.setFont(new Font("고딕", Font.BOLD, 20)); // Font
 	    inputwriter.setForeground(Color.black); // Color
 	    inputwriter.setBackground(new Color(255,255,255));
@@ -52,7 +52,7 @@ public class BoardWritePanel extends JPanel {
 	    
 	    //작성자 표시 글자
 	    JLabel namekindTxt = new JLabel("작성자 표시");
-	    namekindTxt.setBounds(250, 100, 100, 40);
+	    namekindTxt.setBounds(500, 100, 120, 40);
 	    namekindTxt.setFont(new Font("고딕", Font.BOLD, 20)); // Font
 	    namekindTxt.setForeground(Color.black); // Color
 	    namekindTxt.setBackground(new Color(166, 166, 166));
@@ -64,7 +64,7 @@ public class BoardWritePanel extends JPanel {
 	    
 	    //작성 기간 글자
 	    JLabel wridateTxt = new JLabel("작성 기간");
-	    wridateTxt.setBounds(250, 100, 100, 40);
+	    wridateTxt.setBounds(130, 150, 100, 40);
 	    wridateTxt.setFont(new Font("고딕", Font.BOLD, 20)); // Font
 	    wridateTxt.setForeground(Color.black); // Color
 	    wridateTxt.setBackground(new Color(166, 166, 166));
@@ -76,7 +76,7 @@ public class BoardWritePanel extends JPanel {
 	    
 	    //비밀번호 글자
 	    JLabel pwTxt = new JLabel("비밀번호");
-	    pwTxt.setBounds(250, 100, 100, 40);
+	    pwTxt.setBounds(500, 150, 100, 40);
 	    pwTxt.setFont(new Font("고딕", Font.BOLD, 20)); // Font
 	    pwTxt.setForeground(Color.black); // Color
 	    pwTxt.setBackground(new Color(166, 166, 166));
@@ -86,7 +86,7 @@ public class BoardWritePanel extends JPanel {
 	    
 	    //비밀번호 입력
 	    JTextField inputpw = new JTextField("");
-	    inputpw.setBounds(400, 100, 200, 40);
+	    inputpw.setBounds(650, 150, 200, 40);
 	    inputpw.setFont(new Font("고딕", Font.BOLD, 20)); // Font
 	    inputpw.setForeground(Color.black); // Color
 	    inputpw.setBackground(new Color(255,255,255));
@@ -95,7 +95,7 @@ public class BoardWritePanel extends JPanel {
 	    
 	    //제목 글자
 	    JLabel titleTxt = new JLabel("제목");
-	    titleTxt.setBounds(250, 100, 100, 40);
+	    titleTxt.setBounds(130, 200, 100, 40);
 	    titleTxt.setFont(new Font("고딕", Font.BOLD, 20)); // Font
 	    titleTxt.setForeground(Color.black); // Color
 	    titleTxt.setBackground(new Color(166, 166, 166));
@@ -105,7 +105,7 @@ public class BoardWritePanel extends JPanel {
 	    
 	    //제목 입력
 	    JTextField inputtitle = new JTextField("");
-	    inputtitle.setBounds(400, 100, 200, 40);
+	    inputtitle.setBounds(250, 200, 600, 40);
 	    inputtitle.setFont(new Font("고딕", Font.BOLD, 20)); // Font
 	    inputtitle.setForeground(Color.black); // Color
 	    inputtitle.setBackground(new Color(255,255,255));
@@ -114,7 +114,7 @@ public class BoardWritePanel extends JPanel {
 	    
 	    //내용 글자
 	    JLabel contentTxt = new JLabel("내용");
-	    contentTxt.setBounds(250, 100, 100, 40);
+	    contentTxt.setBounds(130, 250, 100, 40);
 	    contentTxt.setFont(new Font("고딕", Font.BOLD, 20)); // Font
 	    contentTxt.setForeground(Color.black); // Color
 	    contentTxt.setBackground(new Color(166, 166, 166));
@@ -124,7 +124,7 @@ public class BoardWritePanel extends JPanel {
 	    
 	    //내용 입력
 	    JTextField inputcontent = new JTextField("");
-	    inputcontent.setBounds(400, 100, 200, 40);
+	    inputcontent.setBounds(250, 250, 600, 225);
 	    inputcontent.setFont(new Font("고딕", Font.BOLD, 20)); // Font
 	    inputcontent.setForeground(Color.black); // Color
 	    inputcontent.setBackground(new Color(255,255,255));
@@ -133,7 +133,7 @@ public class BoardWritePanel extends JPanel {
 	    
 	    //첨부파일 글자
 	    JLabel fileTxt = new JLabel("첨부파일");
-	    fileTxt.setBounds(250, 100, 100, 40);
+	    fileTxt.setBounds(130, 500, 100, 40);
 	    fileTxt.setFont(new Font("고딕", Font.BOLD, 20)); // Font
 	    fileTxt.setForeground(Color.black); // Color
 	    fileTxt.setBackground(new Color(166, 166, 166));
@@ -145,7 +145,7 @@ public class BoardWritePanel extends JPanel {
 	    JButton regisBtn = new JButton("등록");
 	    regisBtn.setFont(new Font("고딕", Font.BOLD, 14));
 	    regisBtn.setBackground(new Color(217, 217, 217));
-	    regisBtn.setBounds(700, 400, 80, 40);
+	    regisBtn.setBounds(870, 550, 80, 40);
 	    regisBtn.setBorderPainted(false);
 	    regisBtn.setFocusPainted(false);
 	    this.add(regisBtn);
