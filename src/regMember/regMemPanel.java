@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -52,6 +54,12 @@ public class regMemPanel extends JPanel{
       inputName.setForeground(Color.black); // Color
       inputName.setBackground(new Color(255,255,255));
       inputName.requestFocusInWindow();
+      inputName.addMouseListener(new MouseAdapter(){
+          @Override
+          public void mouseClicked(MouseEvent e){
+        	  inputName.setText("");
+          }
+      });
       this.add(inputName);
 
       //id 글자
@@ -65,13 +73,19 @@ public class regMemPanel extends JPanel{
       this.add(idTxt);
       
       //id 입력
-      JTextField inputID = new JTextField("ID를 입력하세요.");
-      inputID.setBounds(400, 150, 250, 40);
-      inputID.setFont(new Font("고딕", Font.BOLD, 20)); // Font
-      inputID.setForeground(Color.black); // Color
-      inputID.setBackground(new Color(255,255,255));
-      inputID.requestFocusInWindow();
-      this.add(inputID);
+      JTextField inID = new JTextField("ID를 입력하세요.");
+      inID.setBounds(400, 150, 250, 40);
+      inID.setFont(new Font("고딕", Font.BOLD, 20)); // Font
+      inID.setForeground(Color.black); // Color
+      inID.setBackground(new Color(255,255,255));
+      inID.requestFocusInWindow();
+      inID.addMouseListener(new MouseAdapter(){
+          @Override
+          public void mouseClicked(MouseEvent e){
+        	  inID.setText("");
+          }
+      });
+      this.add(inID);
       
       //pw 글자
       JLabel pwTxt = new JLabel("PW");
@@ -125,6 +139,12 @@ public class regMemPanel extends JPanel{
       inputEmail.setFont(new Font("고딕", Font.BOLD, 20)); // Font
       inputEmail.setForeground(Color.black); // Color
       inputEmail.setBackground(new Color(255,255,255));
+      inputEmail.addMouseListener(new MouseAdapter(){
+          @Override
+          public void mouseClicked(MouseEvent e){
+        	  inputEmail.setText("");
+          }
+      });
       this.add(inputEmail);
       
       //닉네임 글자
@@ -143,6 +163,12 @@ public class regMemPanel extends JPanel{
       inputNic.setFont(new Font("고딕", Font.BOLD, 20)); // Font
       inputNic.setForeground(Color.black); // Color
       inputNic.setBackground(new Color(255,255,255));
+      inputNic.addMouseListener(new MouseAdapter(){
+          @Override
+          public void mouseClicked(MouseEvent e){
+        	  inputNic.setText("");
+          }
+      });
       this.add(inputNic);
       
       //완료 버튼
@@ -158,7 +184,7 @@ public class regMemPanel extends JPanel{
          public void actionPerformed(ActionEvent e) {
             
             String myName = inputName.getText();
-            String myID = inputID.getText();
+            String myID = inID.getText();
             String myPW = inputPW.getText();
             String myPW2 = inputPW2.getText();
             String myEmail = inputEmail.getText();
