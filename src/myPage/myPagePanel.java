@@ -4,6 +4,8 @@ package myPage;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -11,6 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -53,6 +56,15 @@ public class myPagePanel extends JPanel {
 			NicInput.setOpaque(true);
 			NicInput.setHorizontalAlignment(JLabel.CENTER);
 		    this.add(NicInput);
+		    
+		  //완료 버튼
+		      JButton introBtn = new JButton("완료");
+		      introBtn.setFont(new Font("고딕", Font.BOLD, 14));
+		      introBtn.setBackground(new Color(217, 217, 217));
+		      introBtn.setBounds(780, 400, 80, 40);
+		      introBtn.setBorderPainted(false);
+		      introBtn.setFocusPainted(false);
+		      this.add(introBtn);
 			
 			//자기소개 입력
 			JTextField introInput = new JTextField("자기소개");
@@ -80,6 +92,16 @@ public class myPagePanel extends JPanel {
 			
 			regLabel.setBounds(130, 120, 190, 250);
 			add(regLabel);;
-		      
-	      }
+
+			
+			introBtn.addActionListener(new ActionListener() {
+		         public void actionPerformed(ActionEvent e) {
+		        	 String inIntro = introInput.getText();
+		 			 System.out.println(inIntro);
+		 			 
+		 			JOptionPane.showMessageDialog
+		               (null, "등록되었습니다.", "Success!", JOptionPane.INFORMATION_MESSAGE);
+		         }
+			});
 	}
+}

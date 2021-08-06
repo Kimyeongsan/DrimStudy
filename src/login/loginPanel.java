@@ -97,9 +97,12 @@ public class loginPanel extends JPanel {
 				String id = "hello", pw = "1234";
 				
 				// 임시 출력
-				System.out.println(id + " / " + pw );
+				String inID = inputID.getText();
+				String inPW = inputPW.getText();
+				
+				System.out.println(inID + " / " + inPW );
 	
-				if (id.equals(inputID.getText()) && pw.equals(inputPW.getText())) {
+				if (id.equals(inID) && pw.equals(inPW)) {
 					JOptionPane.showMessageDialog(null, "환영!", "login", JOptionPane.INFORMATION_MESSAGE);
 				} 
 				// 로그인 실패

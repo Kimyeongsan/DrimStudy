@@ -601,7 +601,7 @@ public class MainFrame {
 	             //login과 main게시판 버튼, mypage 버튼 표시
 	             loginbtn.setVisible(true);
 	             logOutbtn.setVisible(true);
-	             writebtn.setVisible(false);
+	             writebtn.setVisible(true);
 	             c_writebtn.setVisible(false);
 	             myPage_Btn.setVisible(false);
 	             regQuitbtn.setVisible(false);
@@ -657,7 +657,7 @@ public class MainFrame {
              //login과 main게시판 버튼, mypage 버튼 표시
              loginbtn.setVisible(true);
              logOutbtn.setVisible(true);
-             writebtn.setVisible(false);
+             writebtn.setVisible(true);
              c_writebtn.setVisible(false);
              myPage_Btn.setVisible(true);
              regQuitbtn.setVisible(false);
@@ -712,7 +712,7 @@ public class MainFrame {
              //login과 main게시판 버튼, mypage 버튼 표시
              loginbtn.setVisible(true);
              logOutbtn.setVisible(true);
-             writebtn.setVisible(false);
+             writebtn.setVisible(true);
              c_writebtn.setVisible(false);
              myPage_Btn.setVisible(true);
              regQuitbtn.setVisible(false);
