@@ -1,4 +1,4 @@
-package login;
+package regMember;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -11,11 +11,13 @@ import javax.swing.JPanel;
 
 import regMember.regMemPanel;
 
-public class loginFrame extends JPanel {
+public class regMemFrame extends JPanel {
 	private JFrame frame;
-	private loginPanel loginPanel;
-
-	public loginFrame(JFrame frame) {
+	private regMemPanel regMemPanel;
+	
+	JButton regBtn = new JButton("회원가입");
+    
+	public regMemFrame(JFrame frame) {
 		super();
 		FrameInit(frame);
 		PanelInit();
@@ -31,12 +33,11 @@ public class loginFrame extends JPanel {
 	}
 
 	private void PanelInit() {
-		loginPanel = new loginPanel(frame);
+		regMemPanel = new regMemPanel(frame);
 
-		loginPanel.setBounds(80, 200, 1100, 600);
-		loginPanel.setBackground(new Color(242, 242, 242));
-		loginPanel.setBorder(null); 
-
-		this.add(loginPanel);
+		regMemPanel.setBounds(80, 200, 1100, 600);
+		regMemPanel.setBackground(new Color(242, 242, 242));
+		regMemPanel.setBorder(null); 
+		this.add(regMemPanel);
 	}
 }

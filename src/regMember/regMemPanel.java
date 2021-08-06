@@ -1,4 +1,4 @@
-package login;
+package regMember;
 
 import java.awt.Color;
 import java.awt.Font;

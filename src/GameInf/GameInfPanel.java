@@ -51,13 +51,14 @@ public class GameInfPanel extends JPanel {
 	
 	private void InputBox() {
 		// 경기 선택 DropBox
+		
 		String eventList[] = { "축구", "야구", "배구" };
 
 		JComboBox eventBox = new JComboBox<Object>(eventList);
 		eventBox.setBounds(550, 35, 350, 40); 
 
 		this.add(eventBox);
-				
+		
 		// 경기 선택 버튼
 		JButton gameBtn = new JButton("경기 선택");
 		gameBtn.setBounds(920, 35, 130, 40); 
