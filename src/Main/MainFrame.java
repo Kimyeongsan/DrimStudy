@@ -92,7 +92,7 @@ public class MainFrame {
 	 JButton loginbtn = new JButton("·Î±×ÀÎ");
      loginbtn.setFont(new Font("¸¼Àº°íµñ", Font.BOLD, 13));
      loginbtn.setBackground(new Color(217, 217, 217));
-     loginbtn.setBounds(1180, 20, 88, 23);
+     loginbtn.setBounds(1168, 20, 88, 23);
      loginbtn.setBorderPainted(false);
      loginbtn.setFocusPainted(false);
      frame.add(loginbtn);
@@ -101,7 +101,7 @@ public class MainFrame {
      JButton logOutbtn = new JButton("·Î±×¾Æ¿ô");
      logOutbtn.setFont(new Font("¸¼Àº°íµñ", Font.BOLD, 13));
      logOutbtn.setBackground(new Color(217, 217, 217));
-     logOutbtn.setBounds(1180, 20, 88, 23);
+     logOutbtn.setBounds(1168, 20, 88, 23);
      logOutbtn.setBorderPainted(false);
      logOutbtn.setFocusPainted(false);
      frame.add(logOutbtn);
@@ -110,7 +110,7 @@ public class MainFrame {
      JButton regMembtn = new JButton("È¸¿ø°¡ÀÔ");
      regMembtn.setFont(new Font("¸¼Àº°íµñ", Font.BOLD, 13));
      regMembtn.setBackground(new Color(217, 217, 217));
-     regMembtn.setBounds(1000, 20, 88, 23);
+     regMembtn.setBounds(1073, 20, 88, 23);
      regMembtn.setBorderPainted(false);
      regMembtn.setFocusPainted(false);
      frame.add(regMembtn);
@@ -119,7 +119,7 @@ public class MainFrame {
      JButton myPage_Btn = new JButton("myPage");
      myPage_Btn.setFont(new Font("°íµñ", Font.BOLD, 14));
      myPage_Btn.setBackground(new Color(217, 217, 217));
-     myPage_Btn.setBounds(1090, 20, 88, 23);
+     myPage_Btn.setBounds(978, 20, 88, 23);
      myPage_Btn.setBorderPainted(false);
      myPage_Btn.setFocusPainted(false);
      frame.add(myPage_Btn);
@@ -232,6 +232,7 @@ public class MainFrame {
            regQuitbtn.setVisible(false);
            mypgQuitbtn.setVisible(false);
            logQuitbtn.setVisible(false);
+           regMembtn.setVisible(true);
 
            player_Btn.setBorderPainted(false);
            player_Btn.setFocusPainted(false);
@@ -284,6 +285,7 @@ public class MainFrame {
              regQuitbtn.setVisible(false);
              mypgQuitbtn.setVisible(false);
              logQuitbtn.setVisible(true);
+             regMembtn.setVisible(true);
 
              player_Btn.setBorderPainted(false);
              player_Btn.setFocusPainted(false);
@@ -333,10 +335,11 @@ public class MainFrame {
              logOutbtn.setVisible(true);
              writebtn.setVisible(true);
              c_writebtn.setVisible(false);
-             myPage_Btn.setVisible(true);
+             myPage_Btn.setVisible(false);
              regQuitbtn.setVisible(false);
              mypgQuitbtn.setVisible(false);
              logQuitbtn.setVisible(false);
+             regMembtn.setVisible(true);
 
              player_Btn.setBorderPainted(false);
              player_Btn.setFocusPainted(false);
@@ -389,6 +392,7 @@ public class MainFrame {
              regQuitbtn.setVisible(true);
              mypgQuitbtn.setVisible(false);
              logQuitbtn.setVisible(false);
+             regMembtn.setVisible(false);
 
              player_Btn.setBorderPainted(false);
              player_Btn.setFocusPainted(false);
@@ -441,6 +445,7 @@ public class MainFrame {
              regQuitbtn.setVisible(false);
              mypgQuitbtn.setVisible(true);
              logQuitbtn.setVisible(false);
+             regMembtn.setVisible(false);
 
              player_Btn.setBorderPainted(false);
              player_Btn.setFocusPainted(false);
@@ -496,6 +501,7 @@ public class MainFrame {
              regQuitbtn.setVisible(false);
              mypgQuitbtn.setVisible(false);
              logQuitbtn.setVisible(false);
+             regMembtn.setVisible(true);
 
              player_Btn.setBorderPainted(false);
              player_Btn.setFocusPainted(false);
@@ -551,6 +557,7 @@ public class MainFrame {
              regQuitbtn.setVisible(false);
              mypgQuitbtn.setVisible(false);
              logQuitbtn.setVisible(false);
+             regMembtn.setVisible(true);
 
              player_Btn.setBorderPainted(false);
              player_Btn.setFocusPainted(false);
@@ -604,8 +611,9 @@ public class MainFrame {
 	             c_writebtn.setVisible(false);
 	             myPage_Btn.setVisible(false);
 	             regQuitbtn.setVisible(false);
-	             mypgQuitbtn.setVisible(false);
+	             mypgQuitbtn.setVisible(true);
 	             logQuitbtn.setVisible(false);
+	             regMembtn.setVisible(true);
 
 	             player_Btn.setBorderPainted(false);
 	             player_Btn.setFocusPainted(false);
@@ -662,6 +670,7 @@ public class MainFrame {
              regQuitbtn.setVisible(false);
              mypgQuitbtn.setVisible(false);
              logQuitbtn.setVisible(false);
+             regMembtn.setVisible(true);
 
              player_Btn.setBorderPainted(false);
              player_Btn.setFocusPainted(false);
@@ -713,10 +722,11 @@ public class MainFrame {
              logOutbtn.setVisible(true);
              writebtn.setVisible(true);
              c_writebtn.setVisible(false);
-             myPage_Btn.setVisible(true);
+             myPage_Btn.setVisible(false);
              regQuitbtn.setVisible(false);
              mypgQuitbtn.setVisible(false);
              logQuitbtn.setVisible(false);
+             regMembtn.setVisible(true);
 
              player_Btn.setBorderPainted(false);
              player_Btn.setFocusPainted(false);
@@ -760,6 +770,8 @@ public class MainFrame {
             regQuitbtn.setVisible(false);
             mypgQuitbtn.setVisible(false);
             logQuitbtn.setVisible(false);
+            regMembtn.setVisible(true);
+
          }
       });   
       
@@ -806,6 +818,8 @@ public class MainFrame {
             regQuitbtn.setVisible(false);
             mypgQuitbtn.setVisible(false);
             logQuitbtn.setVisible(false);
+            regMembtn.setVisible(true);
+
          }
       });
       cheering_Btn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -850,6 +864,8 @@ public class MainFrame {
             regQuitbtn.setVisible(false);
             mypgQuitbtn.setVisible(false);
             logQuitbtn.setVisible(false);
+            regMembtn.setVisible(true);
+
          }
       });
       gameInf_Btn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -894,6 +910,8 @@ public class MainFrame {
             regQuitbtn.setVisible(false);
             mypgQuitbtn.setVisible(false);
             logQuitbtn.setVisible(false);
+            regMembtn.setVisible(true);
+
          }
       });
       rank_Btn.addMouseListener(new java.awt.event.MouseAdapter() {

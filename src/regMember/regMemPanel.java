@@ -198,30 +198,6 @@ public class regMemPanel extends JPanel{
                ", 닉 네 임 : "+myNic, "register", JOptionPane.INFORMATION_MESSAGE);
          }
       });
-      
-      /*
-      exitBtn.addActionListener(new ActionListener() {
-         public void actionPerformed(ActionEvent e) {
-            
-         }
-    });
-      
-         
-            /*
-            if (id.equals(inputID.getText()) && pw.equals(inputPW.getText())) {
-               JOptionPane.showMessageDialog(null, "환영!", "login", JOptionPane.INFORMATION_MESSAGE);
-            } 
-            // 로그인 실패
-            else if (id.equals(inputID.getText()) && pw.equals(inputPW.getText()) == false) {
-               JOptionPane.showMessageDialog(null, "비밀번호가 틀렸습니다.", "login", JOptionPane.INFORMATION_MESSAGE);
-            }
-            else {  
-               JOptionPane.showMessageDialog(null, "아님", "login", JOptionPane.INFORMATION_MESSAGE);
-            }
-         }
 
-         }
-      });*/
    }
-      
 }

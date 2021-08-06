@@ -61,7 +61,7 @@ public class myPagePanel extends JPanel {
 		      JButton introBtn = new JButton("¿Ï·á");
 		      introBtn.setFont(new Font("°íµñ", Font.BOLD, 14));
 		      introBtn.setBackground(new Color(217, 217, 217));
-		      introBtn.setBounds(780, 400, 80, 40);
+		      introBtn.setBounds(777, 400, 80, 40);
 		      introBtn.setBorderPainted(false);
 		      introBtn.setFocusPainted(false);
 		      this.add(introBtn);

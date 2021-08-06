@@ -89,7 +89,7 @@ public class loginPanel extends JPanel {
       logBtn.setBounds(500, 330, 80, 40);
       logBtn.setBorderPainted(false);
       logBtn.setFocusPainted(false);
-      this.add(logBtn);
+      this.add(logBtn);      
    
       logBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
