@@ -1,12 +1,17 @@
-/*package BoardWrite;
+package Board;
 
 import java.awt.Color;
+
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import Board.BoardWritePanel;
 
 public class BoardWriteFrame extends JPanel {
    private JFrame frame;
    private BoardWritePanel BoardWritePanel;
    
-   JButton writeBtn = new JButton("±Û¾²±â");
 
    public BoardWriteFrame(JFrame frame) {
       super();
@@ -32,4 +37,4 @@ public class BoardWriteFrame extends JPanel {
 
       this.add(BoardWritePanel);
    }
-}*/
+}
