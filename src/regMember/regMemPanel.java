@@ -2,10 +2,13 @@ package regMember;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -44,7 +47,7 @@ public class regMemPanel extends JPanel{
       
       //이름 입력
       JTextField inputName = new JTextField("이름을 입력하세요.");
-      inputName.setBounds(400, 100, 200, 40);
+      inputName.setBounds(400, 100, 250, 40);
       inputName.setFont(new Font("고딕", Font.BOLD, 20)); // Font
       inputName.setForeground(Color.black); // Color
       inputName.setBackground(new Color(255,255,255));
@@ -63,7 +66,7 @@ public class regMemPanel extends JPanel{
       
       //id 입력
       JTextField inputID = new JTextField("ID를 입력하세요.");
-      inputID.setBounds(400, 150, 200, 40);
+      inputID.setBounds(400, 150, 250, 40);
       inputID.setFont(new Font("고딕", Font.BOLD, 20)); // Font
       inputID.setForeground(Color.black); // Color
       inputID.setBackground(new Color(255,255,255));
@@ -82,14 +85,14 @@ public class regMemPanel extends JPanel{
 
       //pw 입력
       JPasswordField inputPW = new JPasswordField("");
-      inputPW.setBounds(400, 200, 200, 40);
+      inputPW.setBounds(400, 200, 250, 40);
       inputPW.setFont(new Font("고딕", Font.BOLD, 20)); // Font
       inputPW.setForeground(Color.black); // Color
       inputPW.setBackground(new Color(255,255,255));
       this.add(inputPW);
       
       //pw2 글자
-      JLabel pw2Txt = new JLabel("PW");
+      JLabel pw2Txt = new JLabel("PW 확인");
       pw2Txt.setBounds(250, 250, 100, 40);
       pw2Txt.setFont(new Font("고딕", Font.BOLD, 20)); // Font
       pw2Txt.setForeground(Color.black); // Color
@@ -100,7 +103,7 @@ public class regMemPanel extends JPanel{
 
       //pw2입력
       JPasswordField inputPW2 = new JPasswordField("");
-      inputPW2.setBounds(400, 250, 200, 40);
+      inputPW2.setBounds(400, 250, 250, 40);
       inputPW2.setFont(new Font("고딕", Font.BOLD, 20)); // Font
       inputPW2.setForeground(Color.black); // Color
       inputPW2.setBackground(new Color(255,255,255));
@@ -117,12 +120,12 @@ public class regMemPanel extends JPanel{
       this.add(emailTxt);
 
       //이메일 입력
-      JTextField emailPW = new JTextField("이메일을 입력하세요.");
-      emailPW.setBounds(400, 300, 200, 40);
-      emailPW.setFont(new Font("고딕", Font.BOLD, 20)); // Font
-      emailPW.setForeground(Color.black); // Color
-      emailPW.setBackground(new Color(255,255,255));
-      this.add(emailPW);
+      JTextField inputEmail = new JTextField("이메일을 입력하세요.");
+      inputEmail.setBounds(400, 300, 250, 40);
+      inputEmail.setFont(new Font("고딕", Font.BOLD, 20)); // Font
+      inputEmail.setForeground(Color.black); // Color
+      inputEmail.setBackground(new Color(255,255,255));
+      this.add(inputEmail);
       
       //닉네임 글자
       JLabel nicTxt = new JLabel("닉네임");
@@ -136,28 +139,72 @@ public class regMemPanel extends JPanel{
 
       //닉네임 입력
       JTextField inputNic = new JTextField("닉네임을 입력하세요.");
-      inputNic.setBounds(400, 350, 200, 40);
+      inputNic.setBounds(400, 350, 250, 40);
       inputNic.setFont(new Font("고딕", Font.BOLD, 20)); // Font
       inputNic.setForeground(Color.black); // Color
       inputNic.setBackground(new Color(255,255,255));
       this.add(inputNic);
       
-    //취소 버튼
+      //완료 버튼
       JButton regBtn = new JButton("완료");
       regBtn.setFont(new Font("고딕", Font.BOLD, 14));
       regBtn.setBackground(new Color(217, 217, 217));
-      regBtn.setBounds(500, 400, 80, 40);
+      regBtn.setBounds(500, 430, 80, 40);
       regBtn.setBorderPainted(false);
       regBtn.setFocusPainted(false);
       this.add(regBtn);
       
-    //취소 버튼
+      //취소 버튼
       JButton exitBtn = new JButton("취소");
       exitBtn.setFont(new Font("고딕", Font.BOLD, 14));
       exitBtn.setBackground(new Color(217, 217, 217));
-      exitBtn.setBounds(700, 400, 80, 40);
+      exitBtn.setBounds(600, 430, 80, 40);
       exitBtn.setBorderPainted(false);
       exitBtn.setFocusPainted(false);
       this.add(exitBtn);
+      
+      regBtn.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            
+            String myName = inputName.getText();
+            String myID = inputID.getText();
+            String myPW = inputPW.getText();
+            String myPW2 = inputPW2.getText();
+            String myEmail = inputEmail.getText();
+            String myNic = inputNic.getText();
+   
+            // 임시 출력
+            System.out.println(myName + " / " + myID  + " / " + myPW + " / " + myPW2 + " / " + myEmail + " / "+ myNic);
+            
+            JOptionPane.showMessageDialog
+               (null, "아이디 : "+myID+ ", "+"이 름 : "+myName+", 이메일 : "+myEmail+
+               ", 닉 네 임 : "+myNic, "register", JOptionPane.INFORMATION_MESSAGE);
+         }
+      });
+      
+      /*
+      exitBtn.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            
+         }
+    });
+      
+         
+            /*
+            if (id.equals(inputID.getText()) && pw.equals(inputPW.getText())) {
+               JOptionPane.showMessageDialog(null, "환영!", "login", JOptionPane.INFORMATION_MESSAGE);
+            } 
+            // 로그인 실패
+            else if (id.equals(inputID.getText()) && pw.equals(inputPW.getText()) == false) {
+               JOptionPane.showMessageDialog(null, "비밀번호가 틀렸습니다.", "login", JOptionPane.INFORMATION_MESSAGE);
+            }
+            else {  
+               JOptionPane.showMessageDialog(null, "아님", "login", JOptionPane.INFORMATION_MESSAGE);
+            }
+         }
+
+         }
+      });*/
    }
+      
 }
