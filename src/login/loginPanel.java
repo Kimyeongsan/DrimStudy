@@ -90,15 +90,7 @@ public class loginPanel extends JPanel {
       exitBtn.setBorderPainted(false);
       exitBtn.setFocusPainted(false);
       this.add(exitBtn);
-      
-      JButton regBtn = new JButton("회원가입");
-      regBtn.setFont(new Font("고딕", Font.BOLD, 14));
-      regBtn.setBackground(new Color(217, 217, 217));
-      regBtn.setBounds(700, 330, 100, 40);
-      regBtn.setBorderPainted(false);
-      regBtn.setFocusPainted(false);
-      this.add(regBtn);
-      
+   
       logBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -119,12 +111,5 @@ public class loginPanel extends JPanel {
 				}
 			}
       });
-      /*
-      regBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-    });
-    */
    }
 }

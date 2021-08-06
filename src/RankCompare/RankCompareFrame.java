@@ -1,4 +1,4 @@
-package regMember;
+package RankCompare;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -11,11 +11,11 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-public class regFrame extends JPanel {
+public class RankCompareFrame extends JPanel {
 	private JFrame frame;
-	private regPanel regPanel;
+	private RankComparePanel RankComparePanel;
 
-	public regFrame(JFrame frame) {
+	public RankCompareFrame(JFrame frame) {
 		super();
 		FrameInit(frame);
 		PanelInit();
@@ -30,12 +30,12 @@ public class regFrame extends JPanel {
 	}
 
 	private void PanelInit() {
-		regPanel = new regPanel(frame);
+		RankComparePanel = new RankComparePanel(frame);
 
-		regPanel.setBounds(80, 200, 1100, 600);
-		regPanel.setBackground(new Color(242, 242, 242));
-		regPanel.setBorder(null); 
+		RankComparePanel.setBounds(80, 200, 1100, 600);
+		RankComparePanel.setBackground(new Color(242, 242, 242));
+		RankComparePanel.setBorder(null); 
 
-		this.add(regPanel);
+		this.add(RankComparePanel);
 	}
 }

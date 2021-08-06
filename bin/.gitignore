@@ -1,3 +1,23 @@
+<<<<<<< HEAD
 /Main/
 /Player/
 /GameInf/
+=======
+<<<<<<< HEAD
+/Board/
+/GameInf/
+/Main/
+/login/
+/myPage/
+/regMember/
+/RankCompare/
+=======
+/login/
+/Board/
+/GameInf/
+/Main/
+/Player/
+/RankCompare/
+/myPage/
+>>>>>>> c7a5d8775284fff36db1fff4c9bd169a0dddd952
+>>>>>>> 0e7eb447ca24e1650c288dd299ba4fb1f088d871

@@ -14,12 +14,8 @@ public class CheerPanel extends JPanel {
 
 	private void panelInit(JFrame frame) {
 		// 메인 화면 패널
-		this.setBackground(Color.red);
-		this.setBounds(0, 0, 1280, 960);
-		
-		frame.getContentPane().add(this);
-		
-		this.setLayout(null);
-
+		this.setBackground(new Color(255, 255, 255));
+	      this.setBounds(0, 0, 1280, 960);
+	      this.setLayout(null);
 	}
 }
