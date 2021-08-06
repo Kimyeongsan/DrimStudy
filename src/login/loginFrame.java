@@ -12,31 +12,31 @@ import javax.swing.JPanel;
 import regMember.regMemPanel;
 
 public class loginFrame extends JPanel {
-	private JFrame frame;
-	private loginPanel loginPanel;
+   private JFrame frame;
+   private loginPanel loginPanel;
 
-	public loginFrame(JFrame frame) {
-		super();
-		FrameInit(frame);
-		PanelInit();
-	}
+   public loginFrame(JFrame frame) {
+      super();
+      FrameInit(frame);
+      PanelInit();
+   }
 
-	private void FrameInit(JFrame frame) {
+   private void FrameInit(JFrame frame) {
 
-		this.setBackground(new Color(255, 255, 255));
-		this.setBounds(0, 0, 1280, 960);
+      this.setBackground(new Color(255, 255, 255));
+      this.setBounds(0, 0, 1280, 960);
 
-		frame.getContentPane().add(this);
-		this.setLayout(null);
-	}
+      frame.getContentPane().add(this);
+      this.setLayout(null);
+   }
 
-	private void PanelInit() {
-		loginPanel = new loginPanel(frame);
+   private void PanelInit() {
+      loginPanel = new loginPanel(frame);
 
-		loginPanel.setBounds(80, 200, 1100, 600);
-		loginPanel.setBackground(new Color(242, 242, 242));
-		loginPanel.setBorder(null); 
+      loginPanel.setBounds(130, 260, 1050, 450);
+      loginPanel.setBackground(new Color(242, 242, 242));
+      loginPanel.setBorder(null); 
 
-		this.add(loginPanel);
-	}
+      this.add(loginPanel);
+   }
 }
