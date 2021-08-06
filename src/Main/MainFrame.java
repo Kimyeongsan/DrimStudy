@@ -24,9 +24,7 @@ import regMember.regMemFrame;
 public class MainFrame {
    private JFrame frame;
    private JButton player_Btn, cheering_Btn, gameInf_Btn, rank_Btn;
-   private JButton writebtn, c_writebtn;
 
-   //private MainAction mainAction;
    private cheerFrame CheerPanel;
    private GameInfFrame gameInfPanel;
    private PlayerFrame playerPanel;
@@ -155,10 +153,41 @@ public class MainFrame {
 	 writebtn.setFocusPainted(false);
 	 frame.add(writebtn);
 	 
+     	// reg - 취소 버튼
+	 	JButton regQuitbtn = new JButton("취소");
+	 	regQuitbtn.setFont(new Font("맑은고딕", Font.BOLD, 13));
+	 	regQuitbtn.setBackground(new Color(217, 217, 217));
+	 	regQuitbtn.setBounds(730,660, 80, 40);
+	 	regQuitbtn.setBorderPainted(false);
+	 	regQuitbtn.setFocusPainted(false);
+	 	regQuitbtn.setVisible(false);
+		 frame.add(regQuitbtn);
+		 
+		// login - 취소 버튼
+		 	JButton logQuitbtn = new JButton("취소");
+		 	logQuitbtn.setFont(new Font("맑은고딕", Font.BOLD, 13));
+		 	logQuitbtn.setBackground(new Color(217, 217, 217));
+		 	logQuitbtn.setBounds(730,590, 80, 40);
+		 	logQuitbtn.setBorderPainted(false);
+		 	logQuitbtn.setFocusPainted(false);
+		 	logQuitbtn.setVisible(false);
+			 frame.add(logQuitbtn);
+			 
+			// mypage - 취소 버튼
+			 	JButton mypgQuitbtn = new JButton("취소");
+			 	mypgQuitbtn.setFont(new Font("맑은고딕", Font.BOLD, 13));
+			 	mypgQuitbtn.setBackground(new Color(217, 217, 217));
+			 	mypgQuitbtn.setBounds(1000,630, 80, 40);
+			 	mypgQuitbtn.setBorderPainted(false);
+			 	mypgQuitbtn.setFocusPainted(false);
+			 	mypgQuitbtn.setVisible(false);
+				 frame.add(mypgQuitbtn);
+		 
 	 /*
 	  * header button action
 	  * */
 
+	 // home
 	 homebtn.addMouseListener(new java.awt.event.MouseAdapter() {
          public void mouseEntered(java.awt.event.MouseEvent evt) {
             homebtn.setBackground(new Color(255, 240, 240));
@@ -171,16 +200,36 @@ public class MainFrame {
      
      homebtn.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {
+        	// boardpanel만 표시
            boardPanel1.setVisible(true);
            boardPanel2.setVisible(true);
+           
            CheerPanel.setVisible(false);
+           cheermsgPanel.setVisible(false);
            gameInfPanel.setVisible(false);
            playerPanel.setVisible(false);
            rankComparePanel.setVisible(false);
+           
            myPagePanel.setVisible(false);
            loginPanel.setVisible(false);
-           cheermsgPanel.setVisible(true);
-           
+           regMemPanel.setVisible(false);
+
+           //메뉴버튼 표시
+           player_Btn.setVisible(true);
+           cheering_Btn.setVisible(true);
+           gameInf_Btn.setVisible(true);
+           rank_Btn.setVisible(true);
+           //login과 main게시판 버튼, mypage 버튼 표시
+           // 이후 login활성시 out버튼/비활성시 out버튼
+           loginbtn.setVisible(true);
+           logOutbtn.setVisible(true);
+           writebtn.setVisible(true);
+           c_writebtn.setVisible(false);
+           myPage_Btn.setVisible(true);
+           regQuitbtn.setVisible(false);
+           mypgQuitbtn.setVisible(false);
+           logQuitbtn.setVisible(false);
+
            player_Btn.setBorderPainted(false);
            player_Btn.setFocusPainted(false);
            cheering_Btn.setBorderPainted(false);
@@ -189,6 +238,7 @@ public class MainFrame {
            gameInf_Btn.setFocusPainted(false);
            rank_Btn.setBorderPainted(false);
            rank_Btn.setFocusPainted(false);
+<<<<<<< HEAD
            
            player_Btn.setVisible(true);
            cheering_Btn.setVisible(true);
@@ -197,12 +247,12 @@ public class MainFrame {
            loginbtn.setVisible(true);
            logOutbtn.setVisible(false);
            c_writebtn.setVisible(false);
+=======
+>>>>>>> 018e18941536320336f1fa5f894229e5e7302822
         }
      });
-     
-     
-     
-     //login버튼 눌렀을때 loginPanel
+
+     //login
      loginbtn.addMouseListener(new java.awt.event.MouseAdapter() {
         public void mouseEntered(java.awt.event.MouseEvent evt) {
            loginbtn.setBackground(new Color(255, 240, 240));
@@ -214,6 +264,7 @@ public class MainFrame {
      
      loginbtn.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
             boardPanel1.setVisible(false);
             boardPanel2.setVisible(false);
             CheerPanel.setVisible(false);
@@ -234,10 +285,49 @@ public class MainFrame {
             logOutbtn.setVisible(false);
             loginbtn.setVisible(false);
             c_writebtn.setVisible(false);
+=======
+        	// login만 표시
+             boardPanel1.setVisible(false);
+             boardPanel2.setVisible(false);
+             
+             CheerPanel.setVisible(false);
+             cheermsgPanel.setVisible(false);
+             gameInfPanel.setVisible(false);
+             playerPanel.setVisible(false);
+             rankComparePanel.setVisible(false);
+             
+             myPagePanel.setVisible(false);
+             loginPanel.setVisible(true);
+             regMemPanel.setVisible(false);
+
+             //메뉴버튼 표시
+             player_Btn.setVisible(true);
+             cheering_Btn.setVisible(true);
+             gameInf_Btn.setVisible(true);
+             rank_Btn.setVisible(true);
+
+             loginbtn.setVisible(false);
+             logOutbtn.setVisible(false);
+             writebtn.setVisible(false);
+             c_writebtn.setVisible(false);
+             myPage_Btn.setVisible(false);
+             regQuitbtn.setVisible(false);
+             mypgQuitbtn.setVisible(false);
+             logQuitbtn.setVisible(true);
+
+             player_Btn.setBorderPainted(false);
+             player_Btn.setFocusPainted(false);
+             cheering_Btn.setBorderPainted(false);
+             cheering_Btn.setFocusPainted(false);
+             gameInf_Btn.setBorderPainted(false);
+             gameInf_Btn.setFocusPainted(false);
+             rank_Btn.setBorderPainted(false);
+             rank_Btn.setFocusPainted(false);
+>>>>>>> 018e18941536320336f1fa5f894229e5e7302822
          }
       });
     
-     //logOut 버튼 눌렀을때 Home
+     //logOut
      logOutbtn.addMouseListener(new java.awt.event.MouseAdapter() {
         public void mouseEntered(java.awt.event.MouseEvent evt) {
        	 logOutbtn.setBackground(new Color(255, 240, 240));
@@ -249,6 +339,7 @@ public class MainFrame {
      
      logOutbtn.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
             boardPanel1.setVisible(true);
             boardPanel2.setVisible(true);
             CheerPanel.setVisible(false);
@@ -267,10 +358,50 @@ public class MainFrame {
             logOutbtn.setVisible(false);
             loginbtn.setVisible(true);
             c_writebtn.setVisible(false);
+=======
+        	// home만 표시
+             boardPanel1.setVisible(true);
+             boardPanel2.setVisible(true);
+             
+             CheerPanel.setVisible(false);
+             cheermsgPanel.setVisible(false);
+             gameInfPanel.setVisible(false);
+             playerPanel.setVisible(false);
+             rankComparePanel.setVisible(false);
+             
+             myPagePanel.setVisible(false);
+             loginPanel.setVisible(false);
+             regMemPanel.setVisible(false);
+
+             //메뉴버튼 표시
+             player_Btn.setVisible(true);
+             cheering_Btn.setVisible(true);
+             gameInf_Btn.setVisible(true);
+             rank_Btn.setVisible(true);
+            //login과 main게시판 버튼, mypage 버튼 표시
+             // 이후 login활성시 out버튼/비활성시 out버튼
+             loginbtn.setVisible(true);
+             logOutbtn.setVisible(true);
+             writebtn.setVisible(true);
+             c_writebtn.setVisible(false);
+             myPage_Btn.setVisible(true);
+             regQuitbtn.setVisible(false);
+             mypgQuitbtn.setVisible(false);
+             logQuitbtn.setVisible(false);
+
+             player_Btn.setBorderPainted(false);
+             player_Btn.setFocusPainted(false);
+             cheering_Btn.setBorderPainted(false);
+             cheering_Btn.setFocusPainted(false);
+             gameInf_Btn.setBorderPainted(false);
+             gameInf_Btn.setFocusPainted(false);
+             rank_Btn.setBorderPainted(false);
+             rank_Btn.setFocusPainted(false);
+>>>>>>> 018e18941536320336f1fa5f894229e5e7302822
          }
       });
      
-     //myPage버튼 눌렀을때 myPagePanel
+     //regMem
      regMembtn.addMouseListener(new java.awt.event.MouseAdapter() {
         public void mouseEntered(java.awt.event.MouseEvent evt) {
        	 regMembtn.setBackground(new Color(255, 240, 240));
@@ -282,6 +413,7 @@ public class MainFrame {
      
      regMembtn.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
             boardPanel1.setVisible(false);
             boardPanel2.setVisible(false);
             CheerPanel.setVisible(false);
@@ -302,10 +434,49 @@ public class MainFrame {
             logOutbtn.setVisible(false);
             loginbtn.setVisible(false);
             c_writebtn.setVisible(false);
+=======
+        	// regMem만 표시
+             boardPanel1.setVisible(false);
+             boardPanel2.setVisible(false);
+             
+             CheerPanel.setVisible(false);
+             cheermsgPanel.setVisible(false);
+             gameInfPanel.setVisible(false);
+             playerPanel.setVisible(false);
+             rankComparePanel.setVisible(false);
+             
+             myPagePanel.setVisible(false);
+             loginPanel.setVisible(false);
+             regMemPanel.setVisible(true);
+
+             //메뉴버튼 표시
+             player_Btn.setVisible(true);
+             cheering_Btn.setVisible(true);
+             gameInf_Btn.setVisible(true);
+             rank_Btn.setVisible(true);
+
+             loginbtn.setVisible(false);
+             logOutbtn.setVisible(false);
+             writebtn.setVisible(false);
+             c_writebtn.setVisible(false);
+             myPage_Btn.setVisible(false);
+             regQuitbtn.setVisible(true);
+             mypgQuitbtn.setVisible(false);
+             logQuitbtn.setVisible(false);
+
+             player_Btn.setBorderPainted(false);
+             player_Btn.setFocusPainted(false);
+             cheering_Btn.setBorderPainted(false);
+             cheering_Btn.setFocusPainted(false);
+             gameInf_Btn.setBorderPainted(false);
+             gameInf_Btn.setFocusPainted(false);
+             rank_Btn.setBorderPainted(false);
+             rank_Btn.setFocusPainted(false);
+>>>>>>> 018e18941536320336f1fa5f894229e5e7302822
          }
       });
      
-   //myPage버튼 눌렀을때 myPagePanel
+   //myPage
      myPage_Btn.addMouseListener(new java.awt.event.MouseAdapter() {
         public void mouseEntered(java.awt.event.MouseEvent evt) {
            loginbtn.setBackground(new Color(255, 240, 240));
@@ -317,6 +488,7 @@ public class MainFrame {
      
      myPage_Btn.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
             boardPanel1.setVisible(false);
             boardPanel2.setVisible(false);
             CheerPanel.setVisible(false);
@@ -335,40 +507,273 @@ public class MainFrame {
             loginbtn.setVisible(false);
             logOutbtn.setVisible(true);
             c_writebtn.setVisible(false);
-         }
-      });
-     
-     
-     
-     
-	 
-	 
-	 
-
- 	 c_writebtn.addActionListener(new ActionListener() {
- 	   	 public void actionPerformed(ActionEvent e) {
- 	   		 boardPanel1.setVisible(false);
+=======
+        	// mypage만 표시
+             boardPanel1.setVisible(false);
              boardPanel2.setVisible(false);
+             
              CheerPanel.setVisible(false);
+             cheermsgPanel.setVisible(false);
              gameInfPanel.setVisible(false);
              playerPanel.setVisible(false);
              rankComparePanel.setVisible(false);
+             
+             myPagePanel.setVisible(true);
              loginPanel.setVisible(false);
-             myPagePanel.setVisible(false);
              regMemPanel.setVisible(false);
-             
-             cheermsgPanel.setVisible(true);
-             
+
+             //메뉴버튼 표시
+             player_Btn.setVisible(true);
+             cheering_Btn.setVisible(true);
+             gameInf_Btn.setVisible(true);
+             rank_Btn.setVisible(true);
+             //login과 main게시판 버튼, mypage 버튼 표시
+             loginbtn.setVisible(false);
+             logOutbtn.setVisible(true);
+             writebtn.setVisible(false);
+             c_writebtn.setVisible(false);
+             myPage_Btn.setVisible(false);
+             regQuitbtn.setVisible(false);
+             mypgQuitbtn.setVisible(true);
+             logQuitbtn.setVisible(false);
+
              player_Btn.setBorderPainted(false);
+             player_Btn.setFocusPainted(false);
              cheering_Btn.setBorderPainted(false);
              cheering_Btn.setFocusPainted(false);
              gameInf_Btn.setBorderPainted(false);
              gameInf_Btn.setFocusPainted(false);
              rank_Btn.setBorderPainted(false);
              rank_Btn.setFocusPainted(false);
+>>>>>>> 018e18941536320336f1fa5f894229e5e7302822
+         }
+      });
+     
+     // 응원게시판 작성버튼
+     c_writebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+         public void mouseEntered(java.awt.event.MouseEvent evt) {
+            c_writebtn.setBackground(Color.black);
+            c_writebtn.setForeground(Color.white);
+            //player_Btn.setBorderPainted(true);
+         }
+         public void mouseExited(java.awt.event.MouseEvent evt) {
+            c_writebtn.setBackground(new Color(217, 217, 217));
+            c_writebtn.setForeground(Color.black);
+         }
+     });
+
+ 	 c_writebtn.addActionListener(new ActionListener() {
+ 	   	 public void actionPerformed(ActionEvent e) {
+ 	      	// cheermsg표시
+             boardPanel1.setVisible(false);
+             boardPanel2.setVisible(false);
+             
+             CheerPanel.setVisible(false);
+             cheermsgPanel.setVisible(true);
+             gameInfPanel.setVisible(false);
+             playerPanel.setVisible(false);
+             rankComparePanel.setVisible(false);
+             
+             myPagePanel.setVisible(false);
+             loginPanel.setVisible(false);
+             regMemPanel.setVisible(false);
+
+             //메뉴버튼 표시
+             player_Btn.setVisible(true);
+             cheering_Btn.setVisible(true);
+             gameInf_Btn.setVisible(true);
+             rank_Btn.setVisible(true);
+             //login과 main게시판 버튼, mypage 버튼 표시
+             loginbtn.setVisible(true);
+             logOutbtn.setVisible(true);
+             writebtn.setVisible(false);
              c_writebtn.setVisible(false);
+             myPage_Btn.setVisible(true);
+             regQuitbtn.setVisible(false);
+             mypgQuitbtn.setVisible(false);
+             logQuitbtn.setVisible(false);
+
+             player_Btn.setBorderPainted(false);
+             player_Btn.setFocusPainted(false);
+             cheering_Btn.setBorderPainted(false);
+             cheering_Btn.setFocusPainted(false);
+             gameInf_Btn.setBorderPainted(false);
+             gameInf_Btn.setFocusPainted(false);
+             rank_Btn.setBorderPainted(false);
+             rank_Btn.setFocusPainted(false);
  		}
  	 });
+
+ 	 //게시판글작성
+ 	 //수정 필요
+ 	writebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseEntered(java.awt.event.MouseEvent evt) {
+           writebtn.setBackground(Color.black);
+           writebtn.setForeground(Color.white);
+           //player_Btn.setBorderPainted(true);
+        }
+        public void mouseExited(java.awt.event.MouseEvent evt) {
+           writebtn.setBackground(new Color(217, 217, 217));
+           writebtn.setForeground(Color.black);
+        }
+    });
+
+	 writebtn.addActionListener(new ActionListener() {
+	   	 public void actionPerformed(ActionEvent e) {
+	     	// board표시
+             boardPanel1.setVisible(false);
+             boardPanel2.setVisible(false);
+             
+             CheerPanel.setVisible(false);
+             cheermsgPanel.setVisible(false);
+             gameInfPanel.setVisible(false);
+             playerPanel.setVisible(false);
+             rankComparePanel.setVisible(false);
+             
+             myPagePanel.setVisible(true);
+             loginPanel.setVisible(false);
+             regMemPanel.setVisible(false);
+
+             //메뉴버튼 표시
+             player_Btn.setVisible(true);
+             cheering_Btn.setVisible(true);
+             gameInf_Btn.setVisible(true);
+             rank_Btn.setVisible(true);
+             //login과 main게시판 버튼, mypage 버튼 표시
+             loginbtn.setVisible(true);
+             logOutbtn.setVisible(true);
+             writebtn.setVisible(false);
+             c_writebtn.setVisible(false);
+             myPage_Btn.setVisible(true);
+             regQuitbtn.setVisible(false);
+             mypgQuitbtn.setVisible(false);
+             logQuitbtn.setVisible(false);
+
+             player_Btn.setBorderPainted(false);
+             player_Btn.setFocusPainted(false);
+             cheering_Btn.setBorderPainted(false);
+             cheering_Btn.setFocusPainted(false);
+             gameInf_Btn.setBorderPainted(false);
+             gameInf_Btn.setFocusPainted(false);
+             rank_Btn.setBorderPainted(false);
+             rank_Btn.setFocusPainted(false);
+<<<<<<< HEAD
+=======
+		}
+	 });
+	 
+	//수정 필요
+	 regQuitbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+	        public void mouseEntered(java.awt.event.MouseEvent evt) {
+	        	regQuitbtn.setBackground(Color.black);
+	        	regQuitbtn.setForeground(Color.white);
+	           //player_Btn.setBorderPainted(true);
+	        }
+	        public void mouseExited(java.awt.event.MouseEvent evt) {
+	        	regQuitbtn.setBackground(new Color(217, 217, 217));
+	        	regQuitbtn.setForeground(Color.black);
+	        }
+	    });
+
+	 regQuitbtn.addActionListener(new ActionListener() {
+		   	 public void actionPerformed(ActionEvent e) {
+		     	// board표시
+	             boardPanel1.setVisible(true);
+	             boardPanel2.setVisible(true);
+	             
+	             CheerPanel.setVisible(false);
+	             cheermsgPanel.setVisible(false);
+	             gameInfPanel.setVisible(false);
+	             playerPanel.setVisible(false);
+	             rankComparePanel.setVisible(false);
+	             
+	             myPagePanel.setVisible(false);
+	             loginPanel.setVisible(false);
+	             regMemPanel.setVisible(false);
+
+	             //메뉴버튼 표시
+	             player_Btn.setVisible(true);
+	             cheering_Btn.setVisible(true);
+	             gameInf_Btn.setVisible(true);
+	             rank_Btn.setVisible(true);
+	             //login과 main게시판 버튼, mypage 버튼 표시
+	             loginbtn.setVisible(true);
+	             logOutbtn.setVisible(true);
+	             writebtn.setVisible(false);
+	             c_writebtn.setVisible(false);
+	             myPage_Btn.setVisible(false);
+	             regQuitbtn.setVisible(false);
+	             mypgQuitbtn.setVisible(false);
+	             logQuitbtn.setVisible(false);
+
+	             player_Btn.setBorderPainted(false);
+	             player_Btn.setFocusPainted(false);
+	             cheering_Btn.setBorderPainted(false);
+	             cheering_Btn.setFocusPainted(false);
+	             gameInf_Btn.setBorderPainted(false);
+	             gameInf_Btn.setFocusPainted(false);
+	             rank_Btn.setBorderPainted(false);
+	             rank_Btn.setFocusPainted(false);
+			}
+		 });
+	 
+	 // 응원게시판 작성버튼
+     mypgQuitbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+         public void mouseEntered(java.awt.event.MouseEvent evt) {
+       	  mypgQuitbtn.setBackground(Color.black);
+       	  mypgQuitbtn.setForeground(Color.white);
+            //player_Btn.setBorderPainted(true);
+         }
+         public void mouseExited(java.awt.event.MouseEvent evt) {
+       	  mypgQuitbtn.setBackground(new Color(217, 217, 217));
+            mypgQuitbtn.setForeground(Color.black);
+         }
+     });
+
+     //mypage 취소 버튼
+     mypgQuitbtn.addActionListener(new ActionListener() {
+ 	   	 public void actionPerformed(ActionEvent e) {
+ 	      	// cheermsg표시
+             boardPanel1.setVisible(true);
+             boardPanel2.setVisible(true);
+             
+             CheerPanel.setVisible(false);
+             cheermsgPanel.setVisible(true);
+             gameInfPanel.setVisible(false);
+             playerPanel.setVisible(false);
+             rankComparePanel.setVisible(false);
+             
+             myPagePanel.setVisible(false);
+             loginPanel.setVisible(false);
+             regMemPanel.setVisible(false);
+
+             //메뉴버튼 표시
+             player_Btn.setVisible(true);
+             cheering_Btn.setVisible(true);
+             gameInf_Btn.setVisible(true);
+             rank_Btn.setVisible(true);
+             //login과 main게시판 버튼, mypage 버튼 표시
+             loginbtn.setVisible(true);
+             logOutbtn.setVisible(true);
+             writebtn.setVisible(false);
+>>>>>>> 018e18941536320336f1fa5f894229e5e7302822
+             c_writebtn.setVisible(false);
+             myPage_Btn.setVisible(true);
+             regQuitbtn.setVisible(false);
+             mypgQuitbtn.setVisible(false);
+             logQuitbtn.setVisible(false);
+
+             player_Btn.setBorderPainted(false);
+             player_Btn.setFocusPainted(false);
+             cheering_Btn.setBorderPainted(false);
+             cheering_Btn.setFocusPainted(false);
+             gameInf_Btn.setBorderPainted(false);
+             gameInf_Btn.setFocusPainted(false);
+             rank_Btn.setBorderPainted(false);
+             rank_Btn.setFocusPainted(false);
+ 		}
+ 	 });
+<<<<<<< HEAD
  	
  	 c_writebtn.addMouseListener(new java.awt.event.MouseAdapter() {
            public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -388,6 +793,68 @@ public class MainFrame {
       
 
 
+=======
+ 	 
+ // 로그인 취소 작성버튼
+     logQuitbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseEntered(java.awt.event.MouseEvent evt) {
+       	 logQuitbtn.setBackground(Color.black);
+       	 logQuitbtn.setForeground(Color.white);
+           //player_Btn.setBorderPainted(true);
+        }
+        public void mouseExited(java.awt.event.MouseEvent evt) {
+       	 logQuitbtn.setBackground(new Color(217, 217, 217));
+       	 logQuitbtn.setForeground(Color.black);
+        }
+    });
+
+     logQuitbtn.addActionListener(new ActionListener() {
+	   	 public void actionPerformed(ActionEvent e) {
+	   	// cheermsg표시
+             boardPanel1.setVisible(true);
+             boardPanel2.setVisible(true);
+             
+             CheerPanel.setVisible(false);
+             cheermsgPanel.setVisible(true);
+             gameInfPanel.setVisible(false);
+             playerPanel.setVisible(false);
+             rankComparePanel.setVisible(false);
+             
+             myPagePanel.setVisible(false);
+             loginPanel.setVisible(false);
+             regMemPanel.setVisible(false);
+
+             //메뉴버튼 표시
+             player_Btn.setVisible(true);
+             cheering_Btn.setVisible(true);
+             gameInf_Btn.setVisible(true);
+             rank_Btn.setVisible(true);
+             //login과 main게시판 버튼, mypage 버튼 표시
+             loginbtn.setVisible(true);
+             logOutbtn.setVisible(true);
+             writebtn.setVisible(false);
+             c_writebtn.setVisible(false);
+             myPage_Btn.setVisible(true);
+             regQuitbtn.setVisible(false);
+             mypgQuitbtn.setVisible(false);
+             logQuitbtn.setVisible(false);
+
+             player_Btn.setBorderPainted(false);
+             player_Btn.setFocusPainted(false);
+             cheering_Btn.setBorderPainted(false);
+             cheering_Btn.setFocusPainted(false);
+             gameInf_Btn.setBorderPainted(false);
+             gameInf_Btn.setFocusPainted(false);
+             rank_Btn.setBorderPainted(false);
+             rank_Btn.setFocusPainted(false);
+		}
+	 });
+	
+	 /*
+	  * 메뉴 버튼
+	  * */
+	 
+>>>>>>> 018e18941536320336f1fa5f894229e5e7302822
    // 선수소개 이동
       LineBorder black_hover = new LineBorder(Color.RED);
       player_Btn = new JButton("선수소개");
@@ -411,8 +878,11 @@ public class MainFrame {
             rank_Btn.setBorderPainted(false);
             rank_Btn.setFocusPainted(false);
             c_writebtn.setVisible(false);
+            regQuitbtn.setVisible(false);
+            mypgQuitbtn.setVisible(false);
+            logQuitbtn.setVisible(false);
          }
-      });
+      });   
       
       player_Btn.addMouseListener(new java.awt.event.MouseAdapter() {
          public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -453,6 +923,9 @@ public class MainFrame {
             loginPanel.setVisible(false);
             myPagePanel.setVisible(false);
             c_writebtn.setVisible(true);
+            regQuitbtn.setVisible(false);
+            mypgQuitbtn.setVisible(false);
+            logQuitbtn.setVisible(false);
          }
       });
       cheering_Btn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -492,6 +965,9 @@ public class MainFrame {
             myPagePanel.setVisible(false);
             c_writebtn.setVisible(false);
             cheermsgPanel.setVisible(true);
+            regQuitbtn.setVisible(false);
+            mypgQuitbtn.setVisible(false);
+            logQuitbtn.setVisible(false);
          }
       });
       gameInf_Btn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -531,6 +1007,9 @@ public class MainFrame {
             myPagePanel.setVisible(false);
             c_writebtn.setVisible(false);
             cheermsgPanel.setVisible(true);
+            regQuitbtn.setVisible(false);
+            mypgQuitbtn.setVisible(false);
+            logQuitbtn.setVisible(false);
          }
       });
       rank_Btn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -619,6 +1098,10 @@ public class MainFrame {
       });
    
    }
+<<<<<<< HEAD
    
       
+=======
+
+>>>>>>> 018e18941536320336f1fa5f894229e5e7302822
 }

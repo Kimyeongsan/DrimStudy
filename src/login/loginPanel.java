@@ -81,15 +81,6 @@ public class loginPanel extends JPanel {
       logBtn.setBorderPainted(false);
       logBtn.setFocusPainted(false);
       this.add(logBtn);
-
-      //취소 버튼
-      JButton exitBtn = new JButton("취소");
-      exitBtn.setFont(new Font("고딕", Font.BOLD, 14));
-      exitBtn.setBackground(new Color(217, 217, 217));
-      exitBtn.setBounds(600, 330, 80, 40);
-      exitBtn.setBorderPainted(false);
-      exitBtn.setFocusPainted(false);
-      this.add(exitBtn);
    
       logBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
