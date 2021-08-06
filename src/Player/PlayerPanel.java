@@ -124,13 +124,14 @@ public class PlayerPanel extends JPanel {
 
 		
 		// 종목 입력
+		
 		String eventList[] = { "축구", "야구", "배구" };
 
 		JComboBox eventBox = new JComboBox<Object>(eventList);
 		eventBox.setBounds(515, 170, 235, 40);
 
 		this.add(eventBox);
-
+        
 		
 		// 국가입력
 		String countryList[] = { "대한민국", "중국", "미국" };
