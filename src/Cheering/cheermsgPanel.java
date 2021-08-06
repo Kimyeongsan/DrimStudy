@@ -4,11 +4,14 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class cheermsgPanel extends JPanel {
 
@@ -44,6 +47,7 @@ public class cheermsgPanel extends JPanel {
  		
  		
  	    // 내용작성
+ 		/*
 		JLabel content = new JLabel("내용작성");
 		content.setBounds(330, 110, 420, 420);
 
@@ -56,6 +60,24 @@ public class cheermsgPanel extends JPanel {
 		content.setHorizontalAlignment(JLabel.CENTER); // Position
 
 		this.add(content);
+		*/
+		JTextField content = new JTextField("내용작성");
+		content.setBounds(330, 110, 420, 420);
+		content.setFont(new Font("맑은 고딕", Font.BOLD, 15)); // Font
+
+		content.setForeground(Color.black); // Color
+		content.setBackground(new Color(166, 166, 166));
+		content.setOpaque(true);
+		content.setHorizontalAlignment(JLabel.CENTER); // Position
+
+		this.add(content);
+		
+		content.addMouseListener(new MouseAdapter(){
+	          @Override
+	          public void mouseClicked(MouseEvent e){
+	             content.setText("");
+	          }
+	    });
 		
 		
 		// input 결과물 출력 (응원메시지 작성)
@@ -75,14 +97,14 @@ public class cheermsgPanel extends JPanel {
 		// 적용버튼 리스너
 		btnPostcheer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				/*
-				String search;
+				
+				String postCheer;
 
-				search = (String) s1.getText();
+				postCheer = (String) content.getText();
 				
 				// 임시 출력
-				System.out.println(search);
-				*/
+				System.out.println(postCheer);
+				
 			}
 		});
 		

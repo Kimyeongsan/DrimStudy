@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -131,6 +133,12 @@ public class BoardPanel2 extends JPanel {
 
 		this.add(s1);
 		
+		s1.addMouseListener(new MouseAdapter(){
+	          @Override
+	          public void mouseClicked(MouseEvent e){
+	             s1.setText("");
+	          }
+	    });
 		// input 결과물 출력
 		JButton btnSearch = new JButton("검색");
 		btnSearch.setBounds(1060, 0, 68, 30);
