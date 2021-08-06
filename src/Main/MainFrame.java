@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
 
+import Board.BoardWriteFrame;
 import Cheering.cheerFrame;
 import Cheering.cheermsgFrame;
 import GameInf.GameInfFrame;
@@ -35,6 +36,7 @@ public class MainFrame {
    private myPageFrame myPagePanel;
    private regMemFrame regMemPanel;
    private cheermsgFrame cheermsgPanel;
+   private BoardWriteFrame BoardWritePanel;
    
    public MainFrame() {
 	      frame = new JFrame();
@@ -55,6 +57,7 @@ public class MainFrame {
 	      myPagePanel = new myPageFrame(frame);
 	      regMemPanel = new regMemFrame(frame);
 	      cheermsgPanel = new cheermsgFrame(frame);
+	      BoardWritePanel = new BoardWriteFrame(frame);
 	   }
 
    // Main Frame
@@ -203,7 +206,7 @@ public class MainFrame {
         	// boardpanel만 표시
            boardPanel1.setVisible(true);
            boardPanel2.setVisible(true);
-           
+           BoardWritePanel.setVisible(false);
            CheerPanel.setVisible(false);
            cheermsgPanel.setVisible(false);
            gameInfPanel.setVisible(false);
@@ -256,7 +259,7 @@ public class MainFrame {
         	// login만 표시
              boardPanel1.setVisible(false);
              boardPanel2.setVisible(false);
-             
+             BoardWritePanel.setVisible(false);
              CheerPanel.setVisible(false);
              cheermsgPanel.setVisible(false);
              gameInfPanel.setVisible(false);
@@ -308,7 +311,7 @@ public class MainFrame {
         	// home만 표시
              boardPanel1.setVisible(true);
              boardPanel2.setVisible(true);
-             
+             BoardWritePanel.setVisible(false);
              CheerPanel.setVisible(false);
              cheermsgPanel.setVisible(false);
              gameInfPanel.setVisible(false);
@@ -361,7 +364,7 @@ public class MainFrame {
         	// regMem만 표시
              boardPanel1.setVisible(false);
              boardPanel2.setVisible(false);
-             
+             BoardWritePanel.setVisible(false);
              CheerPanel.setVisible(false);
              cheermsgPanel.setVisible(false);
              gameInfPanel.setVisible(false);
@@ -413,7 +416,7 @@ public class MainFrame {
         	// mypage만 표시
              boardPanel1.setVisible(false);
              boardPanel2.setVisible(false);
-             
+             BoardWritePanel.setVisible(false);
              CheerPanel.setVisible(false);
              cheermsgPanel.setVisible(false);
              gameInfPanel.setVisible(false);
@@ -524,14 +527,13 @@ public class MainFrame {
 	     	// board표시
              boardPanel1.setVisible(false);
              boardPanel2.setVisible(false);
-             
+             BoardWritePanel.setVisible(true);
              CheerPanel.setVisible(false);
              cheermsgPanel.setVisible(false);
              gameInfPanel.setVisible(false);
              playerPanel.setVisible(false);
              rankComparePanel.setVisible(false);
-             
-             myPagePanel.setVisible(true);
+             myPagePanel.setVisible(false);
              loginPanel.setVisible(false);
              regMemPanel.setVisible(false);
 
@@ -579,7 +581,7 @@ public class MainFrame {
 		     	// board표시
 	             boardPanel1.setVisible(true);
 	             boardPanel2.setVisible(true);
-	             
+	             BoardWritePanel.setVisible(false);
 	             CheerPanel.setVisible(false);
 	             cheermsgPanel.setVisible(false);
 	             gameInfPanel.setVisible(false);
@@ -635,7 +637,7 @@ public class MainFrame {
  	      	// cheermsg표시
              boardPanel1.setVisible(true);
              boardPanel2.setVisible(true);
-             
+             BoardWritePanel.setVisible(false);
              CheerPanel.setVisible(false);
              cheermsgPanel.setVisible(true);
              gameInfPanel.setVisible(false);
@@ -690,7 +692,7 @@ public class MainFrame {
 	   	// cheermsg표시
              boardPanel1.setVisible(true);
              boardPanel2.setVisible(true);
-             
+             BoardWritePanel.setVisible(false);
              CheerPanel.setVisible(false);
              cheermsgPanel.setVisible(true);
              gameInfPanel.setVisible(false);
@@ -745,7 +747,7 @@ public class MainFrame {
             loginPanel.setVisible(false);
             myPagePanel.setVisible(false);
             cheermsgPanel.setVisible(true);
-            
+            BoardWritePanel.setVisible(false);
             player_Btn.setBorderPainted(true);
             cheering_Btn.setBorderPainted(false);
             cheering_Btn.setFocusPainted(false);
@@ -789,7 +791,7 @@ public class MainFrame {
             gameInfPanel.setVisible(false);            
             rankComparePanel.setVisible(false);
             cheermsgPanel.setVisible(true);
-            
+            BoardWritePanel.setVisible(false);
             cheering_Btn.setBorderPainted(true);
             player_Btn.setBorderPainted(false);
             player_Btn.setFocusPainted(false);
@@ -841,6 +843,7 @@ public class MainFrame {
             rank_Btn.setFocusPainted(false);
             loginPanel.setVisible(false);
             myPagePanel.setVisible(false);
+            BoardWritePanel.setVisible(false);
             writebtn.setVisible(false);
             c_writebtn.setVisible(false);
             cheermsgPanel.setVisible(true);
@@ -884,6 +887,7 @@ public class MainFrame {
             gameInf_Btn.setFocusPainted(false);
             loginPanel.setVisible(false);
             myPagePanel.setVisible(false);
+            BoardWritePanel.setVisible(false);
             writebtn.setVisible(false);
             c_writebtn.setVisible(false);
             cheermsgPanel.setVisible(true);
