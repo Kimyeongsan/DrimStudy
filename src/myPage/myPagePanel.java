@@ -64,14 +64,14 @@ public class myPagePanel extends JPanel {
 		    //사진 등록
 			ImageIcon icon = new ImageIcon("./img/header.png");
 			
-			Image playerImg = icon.getImage();
-			Image changeImg = playerImg.getScaledInstance(200, 250, Image.SCALE_SMOOTH);
+			Image regImg = icon.getImage();
+			Image changeImg = regImg.getScaledInstance(200, 250, Image.SCALE_SMOOTH);
 			ImageIcon changeIcon = new ImageIcon(changeImg);
 			
-			JLabel playerLabel = new JLabel(changeIcon);
+			JLabel regLabel = new JLabel(changeIcon);
 			
-			playerLabel.setBounds(130, 120, 190, 250);
-			add(playerLabel);;
+			regLabel.setBounds(130, 120, 190, 250);
+			add(regLabel);;
 		      
 	      }
 	}
