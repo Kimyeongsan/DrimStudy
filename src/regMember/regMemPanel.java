@@ -154,15 +154,6 @@ public class regMemPanel extends JPanel{
       regBtn.setFocusPainted(false);
       this.add(regBtn);
       
-      //취소 버튼
-      JButton exitBtn = new JButton("취소");
-      exitBtn.setFont(new Font("고딕", Font.BOLD, 14));
-      exitBtn.setBackground(new Color(217, 217, 217));
-      exitBtn.setBounds(600, 430, 80, 40);
-      exitBtn.setBorderPainted(false);
-      exitBtn.setFocusPainted(false);
-      this.add(exitBtn);
-      
       regBtn.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
             
