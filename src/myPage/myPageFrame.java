@@ -32,7 +32,7 @@ public class myPageFrame extends JPanel {
 	private void PanelInit() {
 		myPagePanel = new myPagePanel(frame);
 
-		myPagePanel.setBounds(80, 200, 1100, 600);
+		myPagePanel.setBounds(130, 230, 1050, 520);
 		myPagePanel.setBackground(new Color(242, 242, 242));
 		myPagePanel.setBorder(null); 
 
