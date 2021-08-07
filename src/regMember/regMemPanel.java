@@ -202,19 +202,19 @@ public class regMemPanel extends JPanel{
             String myEmail = inputEmail.getText();
             String myNic = inputNic.getText();
             
-            if(myPW == myPW2) {
+            if(myPW.equals(myPW2)) {
    
             // 임시 출력
             System.out.println(myName + " / " + myID  + " / " + myPW + " / " + myPW2 + " / " + myEmail + " / "+ myNic);
             
             JOptionPane.showMessageDialog
-               (null, "아이디 : "+myID+ ", "+"이 름 : "+myName+", 이메일 : "+myEmail+
-               ", 닉 네 임 : "+myNic, "register", JOptionPane.INFORMATION_MESSAGE);
+               (null, "아이디 : "+myID+ "\n이 름 : "+myName+"\n이메일 : "+myEmail+
+               "\n닉 네 임 : "+myNic, "회원가입 완료", JOptionPane.INFORMATION_MESSAGE);
             //return ischkUser();
             
             } else { //비밀번호 틀림
             	JOptionPane.showMessageDialog
-                (null, "비밀번호가 틀립니다.", "회원가입 실패", JOptionPane.INFORMATION_MESSAGE);
+                (null, "비밀번호가 틀립니다.", "회원가입 실패", JOptionPane.ERROR_MESSAGE);
             }
          }
       });

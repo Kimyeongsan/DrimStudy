@@ -107,10 +107,10 @@ public class loginPanel extends JPanel {
 				} 
 				// 로그인 실패
 				else if (id.equals(inputID.getText()) && pw.equals(inputPW.getText()) == false) {
-					JOptionPane.showMessageDialog(null, "비밀번호가 틀렸습니다.", "login", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "비밀번호가 틀렸습니다.", "login", JOptionPane.ERROR_MESSAGE);
 				}
 				else {  
-					JOptionPane.showMessageDialog(null, "아님", "login", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "아님", "login", JOptionPane.ERROR_MESSAGE);
 				}
 			}
       });
