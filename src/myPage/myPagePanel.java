@@ -48,7 +48,7 @@ public class myPagePanel extends JPanel {
 		    this.add(nicInput);
 	  		
 	  	   // 이름 입력
-		    //DB 회원 - 닉네임
+		    //DB 회원 - 닉네임 불러오기
 			JTextField NicInput = new JTextField("");
 			NicInput.setBounds(535, 120, 400, 40);
 			NicInput.setFont(new Font("고딕", Font.BOLD, 20)); // Font

@@ -21,7 +21,7 @@ public class regMemPanel extends JPanel{
       panelInit(frame);
    }
 
-   private void panelInit(JFrame frame) {
+   public void panelInit(JFrame frame) {
       // 로그인 화면 패널
       this.setBackground(new Color(255, 255, 255));
       this.setBounds(0, 0, 1280, 960);
@@ -103,6 +103,12 @@ public class regMemPanel extends JPanel{
       inputPW.setFont(new Font("고딕", Font.BOLD, 20)); // Font
       inputPW.setForeground(Color.black); // Color
       inputPW.setBackground(new Color(255,255,255));
+      inputPW.addMouseListener(new MouseAdapter(){
+          @Override
+          public void mouseClicked(MouseEvent e){
+        	  inputPW.setText("");
+          }
+      });
       this.add(inputPW);
       
       //pw2 글자
@@ -121,6 +127,12 @@ public class regMemPanel extends JPanel{
       inputPW2.setFont(new Font("고딕", Font.BOLD, 20)); // Font
       inputPW2.setForeground(Color.black); // Color
       inputPW2.setBackground(new Color(255,255,255));
+      inputPW2.addMouseListener(new MouseAdapter(){
+          @Override
+          public void mouseClicked(MouseEvent e){
+        	  inputPW2.setText("");
+          }
+      });
       this.add(inputPW2);
       
       //이메일 글자
@@ -189,6 +201,8 @@ public class regMemPanel extends JPanel{
             String myPW2 = inputPW2.getText();
             String myEmail = inputEmail.getText();
             String myNic = inputNic.getText();
+            
+            if(myPW == myPW2) {
    
             // 임시 출력
             System.out.println(myName + " / " + myID  + " / " + myPW + " / " + myPW2 + " / " + myEmail + " / "+ myNic);
@@ -196,8 +210,15 @@ public class regMemPanel extends JPanel{
             JOptionPane.showMessageDialog
                (null, "아이디 : "+myID+ ", "+"이 름 : "+myName+", 이메일 : "+myEmail+
                ", 닉 네 임 : "+myNic, "register", JOptionPane.INFORMATION_MESSAGE);
+            //return ischkUser();
+            
+            } else { //비밀번호 틀림
+            	JOptionPane.showMessageDialog
+                (null, "비밀번호가 틀립니다.", "회원가입 실패", JOptionPane.INFORMATION_MESSAGE);
+            }
          }
       });
-
+      
+      
    }
 }

@@ -119,7 +119,7 @@ public class MainFrame {
      JButton myPage_Btn = new JButton("myPage");
      myPage_Btn.setFont(new Font("°íµñ", Font.BOLD, 14));
      myPage_Btn.setBackground(new Color(217, 217, 217));
-     myPage_Btn.setBounds(978, 20, 88, 23);
+     myPage_Btn.setBounds(972, 20, 94, 23);
      myPage_Btn.setBorderPainted(false);
      myPage_Btn.setFocusPainted(false);
      frame.add(myPage_Btn);
@@ -128,7 +128,7 @@ public class MainFrame {
      JButton homebtn = new JButton("Home");
      homebtn.setFont(new Font("°íµñ", Font.BOLD, 14));
      homebtn.setBackground(new Color(217, 217, 217));
-     homebtn.setBounds(10, 20, 75, 23);
+     homebtn.setBounds(10, 20, 88, 23);
      homebtn.setBorderPainted(false);
      homebtn.setFocusPainted(false);
      frame.add(homebtn);
