@@ -1,14 +1,6 @@
 package Player;
 
-import java.io.IOException;
-import java.util.Iterator;
-
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-
-public class PlayerParser {
+public class PlayerParser {/*
 	String url = "https://olympics.com/tokyo-2020/olympic-games/ko/results/";
 	Document doc = null;     
 	
@@ -29,7 +21,7 @@ public class PlayerParser {
 		while (ie1.hasNext()) {
 			System.out.println(ie1.next().text()+"\t"+ie2.next().text());
 		}
-	}
+	}*/
 }
 
 
