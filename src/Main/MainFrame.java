@@ -5,11 +5,15 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import javax.swing.border.LineBorder;
 
 import Board.BoardWriteFrame;
@@ -20,6 +24,7 @@ import Player.PlayerFrame;
 import RankCompare.RankComparePanel;
 import login.loginFrame;
 import myPage.myPageFrame;
+import myPage.myPagePanel;
 import regMember.regMemFrame;
 
 public class MainFrame {
@@ -186,6 +191,27 @@ public class MainFrame {
 			 	mypgQuitbtn.setVisible(false);
 				 frame.add(mypgQuitbtn);
 		 
+				 
+				 //임시로 놔두는 mypagepanel 자기소개란!!!!!
+				   //자기소개 입력
+			     JTextArea introInput = new JTextArea("");
+			     
+					introInput.setBounds(465, 405, 605, 200);
+					introInput.setFont(new Font("고딕", Font.BOLD, 20)); // Font
+					introInput.setForeground(Color.black); // Color
+					introInput.setOpaque(true);
+					introInput.setLineWrap(true);
+					introInput.setEditable(true);
+					frame.add(introInput);
+					
+					  //완료 버튼
+				      JButton introBtn = new JButton("완료");
+				      introBtn.setFont(new Font("고딕", Font.BOLD, 14));
+				      introBtn.setBackground(new Color(217, 217, 217));
+				      introBtn.setBounds(915, 630, 80, 40);
+				      introBtn.setBorderPainted(false);
+				      introBtn.setFocusPainted(false);
+				      frame.add(introBtn);
 	 /*
 	  * header button action
 	  * */
@@ -233,6 +259,9 @@ public class MainFrame {
            mypgQuitbtn.setVisible(false);
            logQuitbtn.setVisible(false);
            regMembtn.setVisible(true);
+           
+           introInput.setVisible(false);
+           introBtn.setVisible(false);
 
            player_Btn.setBorderPainted(false);
            player_Btn.setFocusPainted(false);
@@ -286,6 +315,9 @@ public class MainFrame {
              mypgQuitbtn.setVisible(false);
              logQuitbtn.setVisible(true);
              regMembtn.setVisible(true);
+             
+             introInput.setVisible(false);
+             introBtn.setVisible(false);
 
              player_Btn.setBorderPainted(false);
              player_Btn.setFocusPainted(false);
@@ -340,6 +372,9 @@ public class MainFrame {
              mypgQuitbtn.setVisible(false);
              logQuitbtn.setVisible(false);
              regMembtn.setVisible(true);
+             
+             introInput.setVisible(false);
+             introBtn.setVisible(false);
 
              player_Btn.setBorderPainted(false);
              player_Btn.setFocusPainted(false);
@@ -393,6 +428,9 @@ public class MainFrame {
              mypgQuitbtn.setVisible(false);
              logQuitbtn.setVisible(false);
              regMembtn.setVisible(false);
+             
+             introInput.setVisible(false);
+             introBtn.setVisible(false);
 
              player_Btn.setBorderPainted(false);
              player_Btn.setFocusPainted(false);
@@ -446,6 +484,9 @@ public class MainFrame {
              mypgQuitbtn.setVisible(true);
              logQuitbtn.setVisible(false);
              regMembtn.setVisible(false);
+             
+             introInput.setVisible(true);
+             introBtn.setVisible(true);
 
              player_Btn.setBorderPainted(false);
              player_Btn.setFocusPainted(false);
@@ -502,6 +543,9 @@ public class MainFrame {
              mypgQuitbtn.setVisible(false);
              logQuitbtn.setVisible(false);
              regMembtn.setVisible(true);
+             
+             introInput.setVisible(false);
+             introBtn.setVisible(false);
 
              player_Btn.setBorderPainted(false);
              player_Btn.setFocusPainted(false);
@@ -559,6 +603,9 @@ public class MainFrame {
              mypgQuitbtn.setVisible(false);
              logQuitbtn.setVisible(false);
              regMembtn.setVisible(true);
+             
+             introInput.setVisible(false);
+             introBtn.setVisible(false);
 
              player_Btn.setBorderPainted(false);
              player_Btn.setFocusPainted(false);
@@ -615,6 +662,9 @@ public class MainFrame {
 	             mypgQuitbtn.setVisible(true);
 	             logQuitbtn.setVisible(false);
 	             regMembtn.setVisible(true);
+	             
+	             introInput.setVisible(false);
+	             introBtn.setVisible(false);
 
 	             player_Btn.setBorderPainted(false);
 	             player_Btn.setFocusPainted(false);
@@ -627,11 +677,12 @@ public class MainFrame {
 			}
 		 });
 	 
-	 // 응원게시판 작성버튼
+
      mypgQuitbtn.addMouseListener(new java.awt.event.MouseAdapter() {
          public void mouseEntered(java.awt.event.MouseEvent evt) {
        	  mypgQuitbtn.setBackground(Color.black);
        	  mypgQuitbtn.setForeground(Color.white);
+
             //player_Btn.setBorderPainted(true);
          }
          public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -672,6 +723,11 @@ public class MainFrame {
              mypgQuitbtn.setVisible(false);
              logQuitbtn.setVisible(false);
              regMembtn.setVisible(true);
+             
+             introInput.setVisible(false);
+             introBtn.setVisible(false);
+             
+             introInput.setText("");//취소버튼 누르면 내용 리셋
 
              player_Btn.setBorderPainted(false);
              player_Btn.setFocusPainted(false);
@@ -681,8 +737,21 @@ public class MainFrame {
              gameInf_Btn.setFocusPainted(false);
              rank_Btn.setBorderPainted(false);
              rank_Btn.setFocusPainted(false);
+             
  		}
  	 });
+     
+
+     introBtn.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+        	 String inIntro = introInput.getText();
+ 			 System.out.println(inIntro);
+ 			 
+ 			JOptionPane.showMessageDialog
+               (null, "등록되었습니다.", "Success!", JOptionPane.INFORMATION_MESSAGE);
+         }
+	});
+     
  	 
  // 로그인 취소 작성버튼
      logQuitbtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -696,6 +765,7 @@ public class MainFrame {
        	 logQuitbtn.setForeground(Color.black);
         }
     });
+
 
      logQuitbtn.addActionListener(new ActionListener() {
 	   	 public void actionPerformed(ActionEvent e) {
@@ -728,6 +798,9 @@ public class MainFrame {
              mypgQuitbtn.setVisible(false);
              logQuitbtn.setVisible(false);
              regMembtn.setVisible(true);
+             
+             introInput.setVisible(false);
+             introBtn.setVisible(false);
 
              player_Btn.setBorderPainted(false);
              player_Btn.setFocusPainted(false);
@@ -772,6 +845,8 @@ public class MainFrame {
             mypgQuitbtn.setVisible(false);
             logQuitbtn.setVisible(false);
             regMembtn.setVisible(true);
+            introInput.setVisible(false);
+            introBtn.setVisible(false);
 
          }
       });   
@@ -820,6 +895,8 @@ public class MainFrame {
             mypgQuitbtn.setVisible(false);
             logQuitbtn.setVisible(false);
             regMembtn.setVisible(true);
+            introInput.setVisible(false);
+            introBtn.setVisible(false);
 
          }
       });
@@ -866,6 +943,8 @@ public class MainFrame {
             mypgQuitbtn.setVisible(false);
             logQuitbtn.setVisible(false);
             regMembtn.setVisible(true);
+            introInput.setVisible(false);
+            introBtn.setVisible(false);
 
          }
       });
@@ -912,6 +991,8 @@ public class MainFrame {
             mypgQuitbtn.setVisible(false);
             logQuitbtn.setVisible(false);
             regMembtn.setVisible(true);
+            introInput.setVisible(false);
+            introBtn.setVisible(false);
 
          }
       });

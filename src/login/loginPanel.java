@@ -23,6 +23,10 @@ public class loginPanel extends JPanel {
       super();
       panelInit(frame);
    }
+   
+   
+   //textField 전부 mainFrame으로 옮겨서
+   //취소버튼이 리셋버튼기능을 하게하기!!!!!
 
    private void panelInit(JFrame frame) {
       // 로그인 화면 패널

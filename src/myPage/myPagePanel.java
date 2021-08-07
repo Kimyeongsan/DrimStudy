@@ -2,7 +2,6 @@
 package myPage;
 
 import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -16,28 +15,15 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class myPagePanel extends JPanel {
-	JTextField introInput = new JTextField("자기소개");
-
+	
 	public myPagePanel(JFrame frame) {
 	      super();
 	      panelInit(frame);
-	      
-	        //자기소개 입력
-			introInput.setBounds(330, 170, 605, 200);
-			introInput.setFont(new Font("고딕", Font.BOLD, 20)); // Font
-			introInput.setForeground(Color.black); // Color
-			introInput.setOpaque(true);
-			introInput.setHorizontalAlignment(JLabel.CENTER);
-			introInput.addMouseListener(new MouseAdapter(){
-		          @Override
-		          public void mouseClicked(MouseEvent e){
-		        	  introInput.setText("");
-		          }
-		      });
-		    this.add(introInput, FlowLayout.CENTER);
 	   }
 	
 	private void panelInit(JFrame frame) {
@@ -75,19 +61,22 @@ public class myPagePanel extends JPanel {
 			NicInput.setHorizontalAlignment(JLabel.CENTER);
 		    this.add(NicInput);
 		    
-		  //완료 버튼
-		      JButton introBtn = new JButton("완료");
-		      introBtn.setFont(new Font("고딕", Font.BOLD, 14));
-		      introBtn.setBackground(new Color(217, 217, 217));
-		      introBtn.setBounds(777, 400, 80, 40);
-		      introBtn.setBorderPainted(false);
-		      introBtn.setFocusPainted(false);
-		      this.add(introBtn);
-		      
-		      int cnt = 0;
 
-			
-		    
+		      
+		      //int cnt = 0;
+
+		      
+				//칸을 mainFrame으로 옮겨보기!!!!
+				
+				//자동스크롤
+				//JScrollPane scrollPane = new JScrollPane(introInput);
+				//scrollPane.setVerticalScrollBarPolicy(scrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+				
+		        //scrollPane.setBounds(12, 10, 471, 389);
+		        //frame.getContentPane().add(scrollPane);
+				
+				//this.add(scrollPane); //화면에 추가
+
 		    //사진 등록
 			ImageIcon icon = new ImageIcon("./img/header.png");
 			
@@ -101,14 +90,7 @@ public class myPagePanel extends JPanel {
 			add(regLabel);;
 
 			
-			introBtn.addActionListener(new ActionListener() {
-		         public void actionPerformed(ActionEvent e) {
-		        	 String inIntro = introInput.getText();
-		 			 System.out.println(inIntro);
-		 			 
-		 			JOptionPane.showMessageDialog
-		               (null, "등록되었습니다.", "Success!", JOptionPane.INFORMATION_MESSAGE);
-		         }
-			});
 	}
+	
+	
 }
