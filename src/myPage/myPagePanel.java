@@ -2,6 +2,7 @@
 package myPage;
 
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -18,10 +19,27 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class myPagePanel extends JPanel {
+	JTextField introInput = new JTextField("자기소개");
+
 	public myPagePanel(JFrame frame) {
 	      super();
 	      panelInit(frame);
+	      
+	        //자기소개 입력
+			introInput.setBounds(330, 170, 605, 200);
+			introInput.setFont(new Font("고딕", Font.BOLD, 20)); // Font
+			introInput.setForeground(Color.black); // Color
+			introInput.setOpaque(true);
+			introInput.setHorizontalAlignment(JLabel.CENTER);
+			introInput.addMouseListener(new MouseAdapter(){
+		          @Override
+		          public void mouseClicked(MouseEvent e){
+		        	  introInput.setText("");
+		          }
+		      });
+		    this.add(introInput, FlowLayout.CENTER);
 	   }
+	
 	private void panelInit(JFrame frame) {
 	      // myPage 화면 패널
 	      this.setBackground(new Color(255, 255, 255));
@@ -65,21 +83,10 @@ public class myPagePanel extends JPanel {
 		      introBtn.setBorderPainted(false);
 		      introBtn.setFocusPainted(false);
 		      this.add(introBtn);
+		      
+		      int cnt = 0;
+
 			
-			//자기소개 입력
-			JTextField introInput = new JTextField("자기소개");
-			introInput.setBounds(330, 170, 605, 200);
-			introInput.setFont(new Font("고딕", Font.BOLD, 20)); // Font
-			introInput.setForeground(Color.black); // Color
-			introInput.setOpaque(true);
-			introInput.setHorizontalAlignment(JLabel.CENTER);
-			introInput.addMouseListener(new MouseAdapter(){
-		          @Override
-		          public void mouseClicked(MouseEvent e){
-		        	  introInput.setText("");
-		          }
-		      });
-		    this.add(introInput);
 		    
 		    //사진 등록
 			ImageIcon icon = new ImageIcon("./img/header.png");
