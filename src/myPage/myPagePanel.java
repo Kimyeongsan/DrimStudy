@@ -65,9 +65,6 @@ public class myPagePanel extends JPanel {
 		      
 		      //int cnt = 0;
 
-		      
-				//칸을 mainFrame으로 옮겨보기!!!!
-				
 				//자동스크롤
 				//JScrollPane scrollPane = new JScrollPane(introInput);
 				//scrollPane.setVerticalScrollBarPolicy(scrollPane.VERTICAL_SCROLLBAR_ALWAYS);
