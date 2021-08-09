@@ -9,7 +9,6 @@ import java.util.Calendar;
 import java.awt.Font;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -19,6 +18,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+
 
 public class BoardWritePanel extends JPanel {
 	public BoardWritePanel(JFrame frame) {
@@ -310,6 +317,9 @@ public class BoardWritePanel extends JPanel {
 	    fileTxt.setOpaque(true);
 	    fileTxt.setHorizontalAlignment(JLabel.CENTER);
 	    this.add(fileTxt);
+	    
+	    //첨부파일 업로드
+	    
 	    
 	    //등록 버튼
 	    JButton regisBtn = new JButton("등록");
