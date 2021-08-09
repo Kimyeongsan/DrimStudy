@@ -7,6 +7,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -172,6 +176,7 @@ public class MainFrame {
      inputName.setBackground(new Color(255,255,255));
      inputName.requestFocusInWindow();
      frame.add(inputName);
+     inputName.setColumns(10);
      
    //id 입력
      JTextField inID = new JTextField("ID를 입력하세요.");
@@ -181,6 +186,7 @@ public class MainFrame {
      inID.setBackground(new Color(255,255,255));
      inID.requestFocusInWindow();
      frame.add(inID);
+     inID.setColumns(10);
      
      //pw 입력
      JPasswordField inPW = new JPasswordField("");
@@ -189,6 +195,7 @@ public class MainFrame {
      inPW.setForeground(Color.black); // Color
      inPW.setBackground(new Color(255,255,255));
      frame.add(inPW);
+     inPW.setColumns(10);
      
    //pw2입력
      JPasswordField inPW2 = new JPasswordField("");
@@ -205,6 +212,7 @@ public class MainFrame {
      inputEmail.setForeground(Color.black); // Color
      inputEmail.setBackground(new Color(255,255,255));
      frame.add(inputEmail);
+     inputEmail.setColumns(10);
      
      //닉네임 입력
      JTextField inputNic = new JTextField("닉네임을 입력하세요.");
@@ -213,6 +221,8 @@ public class MainFrame {
      inputNic.setForeground(Color.black); // Color
      inputNic.setBackground(new Color(255,255,255));
      frame.add(inputNic);
+     inputNic.setColumns(10);
+     
      	// reg - 취소 버튼
 	 	JButton regQuitbtn = new JButton("취소");
 	 	regQuitbtn.setFont(new Font("맑은고딕", Font.BOLD, 13));
@@ -939,16 +949,31 @@ public class MainFrame {
             String myNic = inputNic.getText();
             
             //비밀번호와 비밀번호 확인 입력값이 같으면
+            Connection connection;
+			try {
+				connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/drimDB", "root", "drim1234");
+				String query = "INSERT INTO account values('" + myName + "','" + myID + "','" + myPW + "','" +
+	            		myEmail + "','" + myNic + "')";
 
-              if(myPW.equals(myPW2) && !myPW.equals("")) {
-            	   
-                 // 임시 출력
-                 System.out.println(myName + " / " + myID  + " / " + myPW + " / " + myPW2 + " / " + myEmail + " / "+ myNic);
+	            Statement sta = connection.createStatement();
+	            int x = sta.executeUpdate(query);
+	            
+	              if(myPW.equals(myPW2) && !myPW.equals("") && x != 0) {
+	            	   
+	                 // 임시 출력
+	                 System.out.println(myName + " / " + myID  + " / " + myPW + " / " + myPW2 + " / " + myEmail + " / "+ myNic);
+	                 
+	                 JOptionPane.showMessageDialog
+	                    (null, "아이디 : "+myID+ "\n이 름 : "+myName+"\n이메일 : "+myEmail+
+	                    "\n닉 네 임 : "+myNic, "회원가입 완료", JOptionPane.INFORMATION_MESSAGE);
+	                 connection.close();
+
+            
+//	                    connection.close();
+//(Exception exception) {
+//	                    exception.printStackTrace();
+//	                }
                  
-                 JOptionPane.showMessageDialog
-                    (null, "아이디 : "+myID+ "\n이 름 : "+myName+"\n이메일 : "+myEmail+
-                    "\n닉 네 임 : "+myNic, "회원가입 완료", JOptionPane.INFORMATION_MESSAGE);
-
                  boardPanel1.setVisible(false);
                  boardPanel2.setVisible(false);
                  BoardWritePanel.setVisible(false);
@@ -1017,8 +1042,8 @@ public class MainFrame {
                	  inID.setText("ID를 입력하세요.");
                	  inPW2.setText("");
              	  inPW.setText("");
-             	  
-                 } 
+	              }
+
               else if (myPW.equals("")) {
             	  JOptionPane.showMessageDialog
                   (null, "비밀번호를 입력하세요.", "회원가입 실패", JOptionPane.ERROR_MESSAGE);
@@ -1030,8 +1055,13 @@ public class MainFrame {
                     inPW.setText("");
                     inPW2.setText("");
                  }
+         } 
+         catch (SQLException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
          }
-      });
+         }});
+			
      
 	//회원가입 패널 내 취소버튼
 	 regQuitbtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1488,141 +1518,20 @@ public class MainFrame {
 		             
 		             inputPW.setText("");
 		             inputID.setText("ID를 입력하세요.");
-				} 
+		             
+
+		             }
 				// 로그인 실패
 				else if (id.equals(inputID.getText()) && pw.equals(inputPW.getText()) == false) {
 					JOptionPane.showMessageDialog(null, "비밀번호가 틀렸습니다.", "login", JOptionPane.ERROR_MESSAGE);
 					
-					boardPanel1.setVisible(false);
-		             boardPanel2.setVisible(false);
-		             BoardWritePanel.setVisible(false);
-		             CheerPanel.setVisible(false);
-		             cheermsgPanel.setVisible(false);
-		             gameInfPanel.setVisible(false);
-		             playerPanel.setVisible(false);
-		             rankComparePanel.setVisible(false);
-		             
-		             myPagePanel.setVisible(false);
-		             loginPanel.setVisible(true);
-		             regMemPanel.setVisible(false);
-
-		             //메뉴버튼 표시
-		             player_Btn.setVisible(true);
-		             cheering_Btn.setVisible(true);
-		             gameInf_Btn.setVisible(true);
-		             rank_Btn.setVisible(true);
-
-		             //header버튼
-		             loginbtn.setVisible(false);
-		             logOutbtn.setVisible(false);
-		             myPage_Btn.setVisible(false);
-		             regMembtn.setVisible(true);
-		             
-		             //메인패널
-		             writebtn.setVisible(false);
-		             
-		             //cheer패널
-		             c_writebtn.setVisible(false);
-
-		             //reg패널
-		             regQuitbtn.setVisible(false);
-		             inputName.setVisible(false);
-		             //inID.setVisible(false);
-		             //inPW.setVisible(false);
-		             inPW2.setVisible(false);
-		             inputEmail.setVisible(false);
-		             inputNic.setVisible(false);
-		             regBtn.setVisible(false);
-		             
-		             //마이페이지 패널
-		             mypgQuitbtn.setVisible(false);
-		             introInput.setVisible(false);
-		             introBtn.setVisible(false);
-
-		             //로그인 패널
-		             logQuitbtn.setVisible(true);
-		             inputID.setVisible(true);
-		             inputPW.setVisible(true);
-		             logBtn.setVisible(true);
-
-		             //메뉴버튼
-		             player_Btn.setBorderPainted(false);
-		             player_Btn.setFocusPainted(false);
-		             cheering_Btn.setBorderPainted(false);
-		             cheering_Btn.setFocusPainted(false);
-		             gameInf_Btn.setBorderPainted(false);
-		             gameInf_Btn.setFocusPainted(false);
-		             rank_Btn.setBorderPainted(false);
-		             rank_Btn.setFocusPainted(false);
 		             
 		             inputPW.setText("");
 				}
 				else {  
-					JOptionPane.showMessageDialog(null, "아님", "login", JOptionPane.ERROR_MESSAGE);
-					
-					boardPanel1.setVisible(false);
-		             boardPanel2.setVisible(false);
-		             BoardWritePanel.setVisible(false);
-		             CheerPanel.setVisible(false);
-		             cheermsgPanel.setVisible(false);
-		             gameInfPanel.setVisible(false);
-		             playerPanel.setVisible(false);
-		             rankComparePanel.setVisible(false);
+					JOptionPane.showMessageDialog(null, "회원이 아닙니다.", "login", JOptionPane.ERROR_MESSAGE);
 		             
-		             myPagePanel.setVisible(false);
-		             loginPanel.setVisible(true);
-		             regMemPanel.setVisible(false);
-
-		             //메뉴버튼 표시
-		             player_Btn.setVisible(true);
-		             cheering_Btn.setVisible(true);
-		             gameInf_Btn.setVisible(true);
-		             rank_Btn.setVisible(true);
-
-		             //header버튼
-		             loginbtn.setVisible(false);
-		             logOutbtn.setVisible(false);
-		             myPage_Btn.setVisible(false);
-		             regMembtn.setVisible(true);
-		             
-		             //메인패널
-		             writebtn.setVisible(false);
-		             
-		             //cheer패널
-		             c_writebtn.setVisible(false);
-
-		             //reg패널
-		             regQuitbtn.setVisible(false);
-		             inputName.setVisible(false);
-		             //inID.setVisible(false);
-		             //inPW.setVisible(false);
-		             inPW2.setVisible(false);
-		             inputEmail.setVisible(false);
-		             inputNic.setVisible(false);
-		             regBtn.setVisible(false);
-		             
-		             //마이페이지 패널
-		             mypgQuitbtn.setVisible(false);
-		             introInput.setVisible(false);
-		             introBtn.setVisible(false);
-
-		             //로그인 패널
-		             logQuitbtn.setVisible(true);
-		             inputID.setVisible(true);
-		             inputPW.setVisible(true);
-		             logBtn.setVisible(true);
-
-		             //메뉴버튼
-		             player_Btn.setBorderPainted(false);
-		             player_Btn.setFocusPainted(false);
-		             cheering_Btn.setBorderPainted(false);
-		             cheering_Btn.setFocusPainted(false);
-		             gameInf_Btn.setBorderPainted(false);
-		             gameInf_Btn.setFocusPainted(false);
-		             rank_Btn.setBorderPainted(false);
-		             rank_Btn.setFocusPainted(false);
-		             
-		             inputPW.setText("");
+		             inputPW.setText("ID를 입력하세요.");
 		             inputID.setText("");
 				}
 				 
