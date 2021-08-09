@@ -1,9 +1,17 @@
 package Board;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Calendar;
 import java.awt.Font;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -13,6 +21,7 @@ public class BoardWritePanel extends JPanel {
 	public BoardWritePanel(JFrame frame) {
 		super();
 		panelInit(frame);
+		
 	}
 	
 	private void panelInit(JFrame frame) {
@@ -73,6 +82,127 @@ public class BoardWritePanel extends JPanel {
 	    this.add(wridateTxt);
 	    
 	    /*캘린더 기능 추가 예정*/
+	    Font fnt = new Font("굴림체", Font.BOLD, 20);
+	    
+	    JPanel selectPane = new JPanel();
+	    	JButton preyBtn = new JButton("<-");
+	    	JButton nextBtn = new JButton("->");
+	    	JComboBox<Integer> yearCombo = new JComboBox<Integer>();
+		    JComboBox<Integer> monthCombo = new JComboBox<Integer>();
+		    JLabel yearLBI = new JLabel("년");
+		    JLabel monthLBI = new JLabel("월");
+	    
+	    JPanel centerPane = new JPanel(new BorderLayout());
+	    	JPanel titlePane = new JPanel(new GridLayout(1, 7));
+	    	String title[] = {"일", "월", "화", "수", "목", "금", "토"};
+	    JPanel dayPane = new JPanel(new GridLayout(0, 7));
+	    
+	    Calendar date;
+	    int year;
+	    int month;
+	    
+	    public CalendarSwing() {
+	    	super("달력");
+	    	date = Calendar.getInstance();
+	    	year = date.get(Calendar.YEAR);
+	    	month = date.get(Calendar.MONTH)+1;
+	    	
+	    	selectPane.setBackground(new Color(150, 200, 200));
+	    	selectPane.add(preyBtn); preyBtn.setFont(fnt);
+	    	selectPane.add(yearCombo); yearCombo.setFont(fnt);
+	    	selectPane.add(yearLBI); yearLBI.setFont(fnt);
+	    	selectPane.add(monthCombo); monthCombo.setFont(fnt);
+	    	selectPane.add(monthLBI); monthLBI.setFont(fnt);
+	    	selectPane.add(newxtBtn); nextBtn.setFont(fnt);
+	    	
+	    	add(BorderLayout.NORTH, selectPane);
+	    	
+	    	setYear();
+	    	setMonth();
+	    	
+	    	setCalendarTitle();
+	    	centerPane.add(BorderLayout.NORTH, titlePane);
+	    	add(centerPane);
+	    	
+	    	centerPane.add(dayPane);
+	    	setDay();
+	    	
+	    	preyBtn.addActionListener(this);
+	    	nextBtn.addActionListener(this);
+	    	yearCombo.addItemListerner(this);
+	    	monthCombo.addItemListener(this);
+	    	
+	    	setSize(400, 300);
+	    	setVisible(true);
+	    	setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+	    }
+	    
+	    public void setDay() {
+	    	date.set(year, month-1, 1);
+	    	int week = date.get(Calendar.DAY_OF_WEEK);
+	    	int lastDay = date.getActualMaximum(Calendar.DATE);
+	    	
+	    	for(int s=1; s<week; s++) {
+	    		JLabel lbl = new JLabel(" ");
+	    		dayPane.add(lbl);
+	    	}
+	    	
+	    	for(int day=1; day<=lastDay; day++) {
+	    		JLabel lbl = new JLabel(String.valueOf(day), JLabel.CENTER);
+	    		lbl.setFont(fnt);
+	    		date.set(Calendar.Date, day);
+	    			int w = date.get(Calendar.DAY_OF_WEEK);
+	    			if(w ==1) lbl.setForeground(Color.red);
+	    			if(w ==7) lbl.setForeground(Color.blue);
+	    			dayPane.add(lbl);
+	    	}
+	    }
+	    
+	    public void setCalendarTitle() {
+	    	for(int i = 0; i < title.length; i++) {
+	    		JLabel lbl = new JLabel(title[i], JLabel.CENTER);
+	    		lbl.setFont(fnt);
+	    		if(i ==0) lbl.setForeground(Color.red);
+	    		if(i ==6) lbl.setForeground(Color.blue);
+	    		titlePane.add(lbl);
+	    	}
+	    }
+	    
+	    public void setYear() {
+	    	for(int i = year-50; i < year+20; i++) {
+	    		yearCombo.addItem(i);
+	    	}
+	    	yearCombo.setSelectedItem(year);
+	    }
+	    
+	    public void setMonth() {
+	    	for(int i = 1; i <= 12; i++) {
+	    		monthCombo.addItem(i);
+	    	}
+	    	monthCombo.setSelectedItem(month);
+	    }
+	    
+	    public void itemStateChanged(ItemEvent e) {
+	    	year = (int)yearCombo.getSelectedItem();
+	    	month = (int)monthCombo.getSelectedItem();
+	    	
+	    	dayPane.setVisible(false);
+	    	dayPane.removeAll();
+	    	setDay();
+	    	dayPane.setVisible(true);
+	    }
+	    
+	    public void actionPerformed(ActionEvent ae) {
+	    	Object obj = ae.getSource();
+	    	if(obj == prevBtn) {
+	    		prevMonth();
+	    		setDayReset();
+	    	}else if(obj == nextBtn) {
+	    		nextMonth();
+	    		setDayReset();
+	    	}
+	    }
+	    private void setDayReset()
 	    
 	    //비밀번호 글자
 	    JLabel pwTxt = new JLabel("비밀번호");

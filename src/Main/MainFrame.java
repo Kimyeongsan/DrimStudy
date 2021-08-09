@@ -803,9 +803,9 @@ public class MainFrame {
 	     	// board표시
           	 boardPanel1.setVisible(false);
              boardPanel2.setVisible(false);
-             BoardWritePanel.setVisible(false);
+             BoardWritePanel.setVisible(true);
              CheerPanel.setVisible(false);
-             cheermsgPanel.setVisible(true);
+             cheermsgPanel.setVisible(false);
              gameInfPanel.setVisible(false);
              playerPanel.setVisible(false);
              rankComparePanel.setVisible(false);
@@ -822,8 +822,8 @@ public class MainFrame {
 
              //header버튼
              loginbtn.setVisible(false);
-             logOutbtn.setVisible(false);
-             myPage_Btn.setVisible(false);
+             logOutbtn.setVisible(true);
+             myPage_Btn.setVisible(true);
              regMembtn.setVisible(false);
              
              //메인패널
