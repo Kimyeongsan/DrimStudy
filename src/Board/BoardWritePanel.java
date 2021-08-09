@@ -69,7 +69,13 @@ public class BoardWritePanel extends JPanel {
 	    namekindTxt.setHorizontalAlignment(JLabel.CENTER);
 	    this.add(namekindTxt);
 	    
-	    /* 드롭다운/콤보박스 기능 예정 */
+	    //작성자 표시 종류 선택(드롭박스)
+	    String[] optionsToChoose = {"이름", "닉네임", "익명"};
+	    JComboBox<String> nameoptions = new JComboBox<>(optionsToChoose);
+	    nameoptions.setBounds(650, 100, 200, 40);
+	    JLabel jLabel = new JLabel();
+	    jLabel.setBounds(90, 100, 400, 100);
+	    this.add(nameoptions);
 	    
 	    //작성 기간 글자
 	    JLabel wridateTxt = new JLabel("작성 기간");
@@ -82,7 +88,7 @@ public class BoardWritePanel extends JPanel {
 	    this.add(wridateTxt);
 	    
 	    /*캘린더 기능 추가 예정*/
-	    Font fnt = new Font("굴림체", Font.BOLD, 20);
+	    /*Font fnt = new Font("굴림체", Font.BOLD, 20);
 	    
 	    JPanel selectPane = new JPanel();
 	    	JButton preyBtn = new JButton("<-");
@@ -202,7 +208,38 @@ public class BoardWritePanel extends JPanel {
 	    		setDayReset();
 	    	}
 	    }
-	    private void setDayReset()
+	    private void setDayReset() {
+	    	yearCombo.removeItemListener(this);
+	    	monthCombo.removeItemListener(this);
+	    	
+	    	yearCombo.setSelectedItem(year);
+	    	monthCombo.setSelectedItem(month);
+	    	
+	    	dayPane.setVisible(false);
+	    	dayPane.removeAll();
+	    	setDay();
+	    	dayPane.setVisible(true);
+	    	
+	    	yearCombo.addItemListener(this);
+	    	monthCombo.addItemListener(this);
+	    }
+	    public void prevMonth() {
+	    	if(month==1) {
+	    		year--;
+	    		month=12;
+	    	}else {
+	    		month--;
+	    	}
+	    }
+	    public void nextMonth() {
+	    	if(month==12) {
+	    		year++;
+	    		month=1;
+	    	}else {
+	    		month++;
+	    	}
+	    }*/
+	    
 	    
 	    //비밀번호 글자
 	    JLabel pwTxt = new JLabel("비밀번호");
@@ -280,6 +317,11 @@ public class BoardWritePanel extends JPanel {
 	    regisBtn.setFocusPainted(false);
 	    this.add(regisBtn);
 	      
+	}
+
+	private void add(String[] optionsToChoose) {
+		// TODO Auto-generated method stub
+		
 	}
 }
 
