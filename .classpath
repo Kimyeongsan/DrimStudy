@@ -6,6 +6,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/dell/Downloads/jsoup-1.14.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Drimsys/eclipse-workspace/DrimStudy/.settings/jsoup-1.14.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
