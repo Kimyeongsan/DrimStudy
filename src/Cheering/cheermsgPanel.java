@@ -108,8 +108,6 @@ public class cheermsgPanel extends JPanel {
 			}
 		});
 
-		//버튼을 mainframe으로 옮기거나 버튼값을 cheerpanel로 줄수있는 방법!!ㅠㅠㅠ
-		
 		// 배경색 변경 버튼
 		JButton btnChangeColor = new JButton("배경색 선택");
 		btnChangeColor.setBounds(110, 150, 100, 30);

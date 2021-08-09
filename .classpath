@@ -6,6 +6,9 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/Drimsys/eclipse-workspace/DrimStudy/.settings/jsoup-1.14.1.jar"/>
+=======
+>>>>>>> b7986192011a432cd22fb28a5aa81dbf27a8c804
 	<classpathentry kind="output" path="bin"/>
 </classpath>
