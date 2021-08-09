@@ -6,7 +6,11 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/Drimsys/Downloads/jsoup-1.14.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Drimsys/Downloads/mysql-connector-java-8.0.25.jar"/>
+=======
+	<classpathentry kind="lib" path=".settings/jsoup-1.14.1.jar"/>
+>>>>>>> 115ef65edb9a8a20d578688e9df5bbefe34098b7
 	<classpathentry kind="output" path="bin"/>
 </classpath>
