@@ -951,7 +951,7 @@ public class MainFrame {
             //비밀번호와 비밀번호 확인 입력값이 같으면
             Connection connection;
 			try {
-				connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/drimDB", "root", "drim1234");
+				connection = DriverManager.getConnection("jdbc:mysql://192.168.123.57/drimDB", "test1", "drim1234");
 				String query = "INSERT INTO account values('" + myName + "','" + myID + "','" + myPW + "','" +
 	            		myEmail + "','" + myNic + "')";
 

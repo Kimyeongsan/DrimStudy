@@ -90,7 +90,7 @@ public class BoardWritePanel extends JPanel {
 	    wridateTxt.setHorizontalAlignment(JLabel.CENTER);
 	    this.add(wridateTxt);
 	    
-	    //작성 기간 선택(캘린더 연결 - 프레임 추가 예정)
+	    //작성 기간 선택(캘린더 연결 프레임 추가 예정)
 	    JButton CalendarBtn = new JButton("일정선택");
 	    CalendarBtn.setFont(new Font("고딕", Font.BOLD, 14));
 	    CalendarBtn.setBackground(new Color(217, 217, 217));
@@ -175,7 +175,7 @@ public class BoardWritePanel extends JPanel {
 	    fileBtn.setFocusPainted(false);
 	    this.add(fileBtn);
 	    
-	    //첨부파일 내용표시 (기능 삽입하면서 일부 수정할 예정)
+	    //첨부파일 내용표시 (기능 삽입하면서 일부 수정 예정)
 	    JTextField inputfile = new JTextField("");
 	    inputfile.setBounds(340, 510, 500, 30);
 	    inputfile.setFont(new Font("고딕", Font.BOLD, 20)); // Font
