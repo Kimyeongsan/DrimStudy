@@ -10,13 +10,10 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-<<<<<<< HEAD
+
 	<classpathentry kind="lib" path=".settings/mysql-connector-java-8.0.25.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Drimsys/eclipse-workspace/DrimStudy/.settings/selenium-java-3.141.59/client-combined-3.141.59.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Drimsys/eclipse-workspace/DrimStudy/.settings/selenium-java-3.141.59/client-combined-3.141.59-sources.jar"/>
-=======
-	<classpathentry kind="lib" path=".settings/jsoup-1.14.1.jar"/>
-	<classpathentry kind="lib" path=".settings/mysql-connector-java-8.0.25.jar"/>
->>>>>>> 077ddfa5951b896549d868bc2b5827e2b074f2d9
+	<classpathentry kind="lib" path=".settings/selenium-java-3.141.59/client-combined-3.141.59.jar"/>
+	<classpathentry kind="lib" path=".settings/selenium-java-3.141.59/client-combined-3.141.59-sources.jar"/>
+
 	<classpathentry kind="output" path="bin"/>
 </classpath>
