@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.logging.Logger;
 
 public class BoardDAO {
-	private Logger log = Logger.getLogger(this.getClass());
 	
 	Connection cn = null;
 	PreparedStatement ps = null;

@@ -2,6 +2,7 @@ package Board;
 
 public class BoardDTO {
    private int bno;
+   private int seq;
    private String name;
    private String title;
    private String password;
@@ -11,8 +12,7 @@ public class BoardDTO {
    private int count;
    private String writer;
    private String writeday;
-   private int pos;
-   private int depth;
+   private int readcount;
 
    public int getBno() {
       return bno;
@@ -20,6 +20,14 @@ public class BoardDTO {
    
    public void setBno(int bno) {
       this.bno = bno;
+   }
+   
+   public int getSeq() {
+	   return seq;
+   }
+   
+   public void setSeq(int seq) {
+	   this.seq = seq;
    }
 
    public String getTitle() {
@@ -54,12 +62,12 @@ public class BoardDTO {
       this.content = content;
    }
 
-   public int getCount() {
-      return count;
+   public int getReadCount() {
+      return readcount;
    }
    
-   public void setCount(int count) {
-      this.count = count;
+   public void setReadCount(int readcount) {
+      this.readcount = readcount;
    }
    
    public String getWriter() {
@@ -84,22 +92,6 @@ public class BoardDTO {
 
    public void setRegdate(String regdate) {
       this.regDate = regdate;
-   }
-   
-   public int getPos() {
-      return pos;
-   }
-   
-   public void setPos(int pos) {
-      this.pos = pos;
-   }
-   
-   public int getDepth() {
-      return depth;
-   }
-   
-   public void setDepth(int depth) {
-      this.depth = depth;
    }
    
 }
