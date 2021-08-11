@@ -1,15 +1,16 @@
 package Board;
 
-import java.sql.Date;
-
 public class BoardDTO {
    private int bno;
    private String name;
    private String title;
+   private String password;
    private String content;
+   private String regDate;
+   private int Date;
    private int count;
    private String writer;
-   private Date regdate;
+   private String writeday;
    private int pos;
    private int depth;
 
@@ -27,6 +28,14 @@ public class BoardDTO {
 
    public void setTitle(String title) {
       this.title = title;
+   }
+   
+   public String getPassword() {
+	   return password;
+   }
+   
+   public void setPassword(String password) {
+	   this.password = password;
    }
    
    public String getName() {
@@ -60,13 +69,21 @@ public class BoardDTO {
    public void setWriter(String writer) {
       this.writer = writer;
    }
-
-   public Date getRegdate() {
-      return regdate;
+   
+   public String getWriteday() {
+	   return writeday;
+   }
+   
+   public void setWriteday(String writeday) {
+	   this.writeday = writeday;
    }
 
-   public void setRegdate(Date regdate) {
-      this.regdate = regdate;
+   public String getRegdate() {
+      return regDate;
+   }
+
+   public void setRegdate(String regdate) {
+      this.regDate = regdate;
    }
    
    public int getPos() {
