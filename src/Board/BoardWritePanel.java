@@ -2,7 +2,9 @@ package Board;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
@@ -19,12 +21,23 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import Main.MainFrame;
+
 
 public class BoardWritePanel extends JPanel {
+	private JFrame frame;
+	private JButton CalendarBtn;
+	
+	private CalendarFrame CalendarFrame;
+	
 	public BoardWritePanel(JFrame frame) {
 		super();
 		panelInit(frame);
 		
+	}
+	
+	private void Initialize() {
+		CalendarFrame = new CalendarFrame(frame);
 	}
 	
 	private void panelInit(JFrame frame) {
@@ -90,7 +103,7 @@ public class BoardWritePanel extends JPanel {
 	    wridateTxt.setHorizontalAlignment(JLabel.CENTER);
 	    this.add(wridateTxt);
 	    
-	    //작성 기간 선택(캘린더 연결 프레임 추가 예정)
+	    //작성 기간 선택(CalendarFrame 연결 - 일부 수정 필요)
 	    JButton CalendarBtn = new JButton("일정선택");
 	    CalendarBtn.setFont(new Font("고딕", Font.BOLD, 14));
 	    CalendarBtn.setBackground(new Color(217, 217, 217));
@@ -98,6 +111,21 @@ public class BoardWritePanel extends JPanel {
 	    CalendarBtn.setBorderPainted(false);
 	    CalendarBtn.setFocusPainted(false);
 	    this.add(CalendarBtn);
+	    
+	    CalendarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+	        public void mouseEntered(java.awt.event.MouseEvent evt) {
+	           CalendarBtn.setBackground(new Color(255, 240, 240));
+	        }
+	        public void mouseExited(java.awt.event.MouseEvent evt) {
+	           CalendarBtn.setBackground(new Color(217, 217, 217));
+	        }
+	     });
+	     
+	     CalendarBtn.addActionListener(new ActionListener() {
+	         public void actionPerformed(ActionEvent e) {
+	        	 CalendarFrame.setVisible(true);
+	         }
+	      });
 	    
 	    //비밀번호 글자
 	    JLabel pwTxt = new JLabel("비밀번호");
@@ -197,7 +225,19 @@ public class BoardWritePanel extends JPanel {
 
 	private void add(String[] optionsToChoose) {
 		// TODO Auto-generated method stub
-		
+		EventQueue.invokeLater(new Runnable() {
+	    	  public void run() {
+	              try {
+	                 CalendarFrame window = new CalendarFrame(frame);
+
+	                 ((JComponent) window.frame).setVisible(true);
+//	                 window.frame.setResizable(false);
+	                 ((Window) window.frame).setLocationRelativeTo(null);
+	              } catch (Exception e) {
+	                 e.printStackTrace();
+	              }
+	         }
+	      });
 	}
 }
 
