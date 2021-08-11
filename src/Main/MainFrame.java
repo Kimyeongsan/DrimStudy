@@ -51,7 +51,7 @@ public class MainFrame {
    
    public MainFrame() {
          frame = new JFrame();
-         Initialize();
+         
       }
    
    //초기화
@@ -69,10 +69,19 @@ public class MainFrame {
          regMemPanel = new regMemFrame(frame);
          cheermsgPanel = new cheermsgFrame(frame);
          BoardWritePanel = new BoardWriteFrame(frame);
+         funcBtn btn= new funcBtn();
+         funcBtn text= new funcBtn();
+         funcBtn pw= new funcBtn();
+         funVisible btnVisible = new funVisible();
+         btnVisible.mainVisible(boardPanel1, boardPanel2, CheerPanel, BoardWritePanel, cheermsgPanel,
+                 gameInfPanel, playerPanel, rankComparePanel, myPagePanel, loginPanel, regMemPanel,
+                 player_Btn, cheering_Btn, gameInf_Btn, rank_Btn);
+       
       }
 
    // Main Frame
    private void frameInit() {
+
       frame.setTitle("Drim Olympic");
       frame.setBounds(100, 100, 1280, 960);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -519,6 +528,7 @@ public class MainFrame {
       });   
       btnEffect.menubtnEffect(player_Btn, 190, 130, 150, 45);
       frame.add(player_Btn);
+      
       // 응원게시판 이동
       cheering_Btn = new JButton("응원게시판");
       cheering_Btn.addActionListener(new ActionListener() {
@@ -526,7 +536,7 @@ public class MainFrame {
             btnVisible.cheeringVisible(boardPanel1, boardPanel2, CheerPanel, BoardWritePanel, cheermsgPanel,
                     gameInfPanel, playerPanel, rankComparePanel, myPagePanel, loginPanel, regMemPanel,
                     player_Btn, cheering_Btn, gameInf_Btn, rank_Btn);
-            btnVisible.menubtnVisible(loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn, 
+            btnVisible.cheeringbtnVisible(loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn, 
                   regQuitbtn, inID, inputEmail, inPW2, inputNic, regBtn, logQuitbtn, logBtn, inputName, 
                   inPW, mypgQuitbtn, inputPW, inputID, introInput, introBtn);
          }
@@ -586,8 +596,9 @@ public class MainFrame {
       EventQueue.invokeLater(new Runnable() {
          public void run() {
               try {
+            	  
                  MainFrame window = new MainFrame();
-
+                 window.Initialize();
                  window.frame.setVisible(true);
 //                 window.frame.setResizable(false);
                  window.frame.setLocationRelativeTo(null);
