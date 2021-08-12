@@ -103,7 +103,7 @@ public class BoardWritePanel extends JPanel {
 	    wridateTxt.setHorizontalAlignment(JLabel.CENTER);
 	    this.add(wridateTxt);
 	    
-	    //작성 기간 선택(CalendarFrame 연결 - 일부 수정 필요)
+	    //작성 기간 선택(CalendarFrame 연결 - 수정 필요)
 	    JButton CalendarBtn = new JButton("일정선택");
 	    CalendarBtn.setFont(new Font("고딕", Font.BOLD, 14));
 	    CalendarBtn.setBackground(new Color(217, 217, 217));
@@ -112,20 +112,24 @@ public class BoardWritePanel extends JPanel {
 	    CalendarBtn.setFocusPainted(false);
 	    this.add(CalendarBtn);
 	    
-	    CalendarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-	        public void mouseEntered(java.awt.event.MouseEvent evt) {
-	           CalendarBtn.setBackground(new Color(255, 240, 240));
-	        }
-	        public void mouseExited(java.awt.event.MouseEvent evt) {
-	           CalendarBtn.setBackground(new Color(217, 217, 217));
-	        }
-	     });
-	     
-	     CalendarBtn.addActionListener(new ActionListener() {
+	    CalendarBtn.addActionListener(new ActionListener() {
 	         public void actionPerformed(ActionEvent e) {
-	        	 CalendarFrame.setVisible(true);
+	        	 CalendarFrame c = new CalendarFrame(frame);
+	        	 c.setVisible(true);
 	         }
 	      });
+		
+		
+	    CalendarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+         public void mouseEntered(java.awt.event.MouseEvent evt) {
+        	 CalendarBtn.setBackground(Color.black);
+        	 CalendarBtn.setForeground(Color.white);
+         }
+         public void mouseExited(java.awt.event.MouseEvent evt) {
+        	 CalendarBtn.setBackground(new Color(242,242,242));
+        	 CalendarBtn.setForeground(Color.black);
+        }
+       });
 	    
 	    //비밀번호 글자
 	    JLabel pwTxt = new JLabel("비밀번호");
@@ -221,23 +225,6 @@ public class BoardWritePanel extends JPanel {
 	    regisBtn.setFocusPainted(false);
 	    this.add(regisBtn);
 	      
-	}
-
-	private void add(String[] optionsToChoose) {
-		// TODO Auto-generated method stub
-		EventQueue.invokeLater(new Runnable() {
-	    	  public void run() {
-	              try {
-	                 CalendarFrame window = new CalendarFrame(frame);
-
-	                 ((JComponent) window.frame).setVisible(true);
-//	                 window.frame.setResizable(false);
-	                 ((Window) window.frame).setLocationRelativeTo(null);
-	              } catch (Exception e) {
-	                 e.printStackTrace();
-	              }
-	         }
-	      });
 	}
 }
 

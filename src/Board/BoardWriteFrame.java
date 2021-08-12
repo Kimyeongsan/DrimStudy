@@ -6,8 +6,6 @@ import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import Board.BoardWritePanel;
-
 public class BoardWriteFrame extends JPanel {
    private JFrame frame;
    private BoardWritePanel BoardWritePanel;
@@ -20,7 +18,7 @@ public class BoardWriteFrame extends JPanel {
    }
    
    private void FrameInit(JFrame frame) {
-
+	   
       this.setBackground(new Color(255, 255, 255));
       this.setBounds(0, 0, 1280, 960);
 
