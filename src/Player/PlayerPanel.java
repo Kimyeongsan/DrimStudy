@@ -23,6 +23,8 @@ import javax.swing.JTextField;
 public class PlayerPanel extends JPanel {
 	String name, event, country, medalCount;
 	
+	private PlayerParser playerParser; 
+	
 	public PlayerPanel(JFrame frame) {
 		super();
 		PanelInit(frame);
@@ -256,6 +258,8 @@ public class PlayerPanel extends JPanel {
 		content.setHorizontalAlignment(JLabel.CENTER); // Position
 
 		this.add(content);
+		
+		playerParser = new PlayerParser();
 		
 		
 	}

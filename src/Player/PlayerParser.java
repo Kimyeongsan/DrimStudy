@@ -3,22 +3,80 @@ package Player;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
-
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class PlayerParser {
-	String url = "https://olympics.com/tokyo-2020/olympic-games/ko/results/all-sports/athletes.htm";
+	public static final String WEB_DRIVER_ID = "webdriver.chrome.driver"; // 드라이버 ID
+	public static final String WEB_DRIVER_PATH = "src/chromedriver.exe"; // 드라이버 경로
 
-	String event_temp = null;   // 종목
-	String county_temp = null;  // 나라
-	String name_temp = null;    // 선수이름
-	
-	public PlayerParser(ArrayList<PlayerVO> PD) {
-		
+	public PlayerParser() {
 
-		System.out.println("Crawling complete");
+		try {
+			System.setProperty(WEB_DRIVER_ID, WEB_DRIVER_PATH);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("headless");
+
+		WebDriver driver = new ChromeDriver(options);
+
+		// 이동을 원하는 url
+		String url = "https://www.naver.com";
+		driver.get(url);
+
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+		}
+
+		List<WebElement> el1 = driver.findElements(By.className("nav"));
+
+		for (int i = 0; i < el1.size(); i++) {
+			// nav 클래스의 객체 중 "뉴스"라는 텍스트를 가진 WebElement를 클릭한다.
+			if (el1.get(i).getText().equals("뉴스")) {
+				el1.get(i).click();
+				break;
+			}
+		}
+
+		// 1초 대기
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+		}
+
+		// iT/과학뉴스를 담은 div
+		WebElement el2 = driver.findElement(By.id("section_it"));
+
+		// div속에서 strong태그를 가진 모든 element를 받아온다.
+		List<WebElement> el3 = el2.findElements(By.tagName("strong"));
+
+		int count = 0;
+		for (int i = 0; i < el3.size(); i++) {
+			// 뉴스의 제목을 모두 출력한다.
+			System.out.println(++count + "번 뉴스: " + el3.get(i).getText());
+		}
+
+		try {
+			// 드라이버가 null이 아니라면
+			if (driver != null) {
+				// 드라이버 연결 종료
+				driver.close(); // 드라이버 연결 해제
+
+				// 프로세스 종료
+				driver.quit();
+			}
+		} catch (Exception e) {
+			throw new RuntimeException(e.getMessage());
+		}
 
 	}
 }
-
-
