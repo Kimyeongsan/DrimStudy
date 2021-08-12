@@ -222,22 +222,5 @@ public class BoardWritePanel extends JPanel {
 	    this.add(regisBtn);
 	      
 	}
-
-	private void add(String[] optionsToChoose) {
-		// TODO Auto-generated method stub
-		EventQueue.invokeLater(new Runnable() {
-	    	  public void run() {
-	              try {
-	                 CalendarFrame window = new CalendarFrame(frame);
-
-	                 ((JComponent) window.frame).setVisible(true);
-//	                 window.frame.setResizable(false);
-	                 ((Window) window.frame).setLocationRelativeTo(null);
-	              } catch (Exception e) {
-	                 e.printStackTrace();
-	              }
-	         }
-	      });
-	}
 }
 

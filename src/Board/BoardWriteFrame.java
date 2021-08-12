@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import Board.BoardWritePanel;
+import Board.CalendarFrame;
 
 public class BoardWriteFrame extends JPanel {
    private JFrame frame;
