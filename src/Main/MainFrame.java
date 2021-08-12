@@ -74,7 +74,7 @@ public class MainFrame {
          funcBtn pw= new funcBtn();
          funVisible btnVisible = new funVisible();
          btnVisible.mainVisible(boardPanel1, boardPanel2, CheerPanel, BoardWritePanel, cheermsgPanel,
-                 gameInfPanel, playerPanel, rankComparePanel, myPagePanel, loginPanel, regMemPanel,
+        		 gameInfPanel, playerPanel, rankComparePanel, myPagePanel, loginPanel, regMemPanel,
                  player_Btn, cheering_Btn, gameInf_Btn, rank_Btn);
        
       }
@@ -320,7 +320,6 @@ public class MainFrame {
      });
 
      //게시판글작성
-     //수정 필요
      btnEffect.btnMouseEffect(writebtn);
     writebtn.addActionListener(new ActionListener() {
           public void actionPerformed(ActionEvent e) {
@@ -332,6 +331,7 @@ public class MainFrame {
                   inPW, mypgQuitbtn, inputPW, inputID, introInput, introBtn);
       }
     });
+    
     
     //회원가입
     //회원가입 입력창 초기화
