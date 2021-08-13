@@ -101,7 +101,7 @@ public class funVisible {
          PlayerFrame playerPanel, RankComparePanel rankComparePanel, myPageFrame myPagePanel,
          loginFrame loginPanel, regMemFrame regMemPanel, JButton player_Btn, JButton cheering_Btn, 
          JButton gameInf_Btn, JButton rank_Btn) {
-      boardPanel1.setVisible(false);
+        boardPanel1.setVisible(false);
         boardPanel2.setVisible(false);
         BoardWritePanel.setVisible(false);
         CheerPanel.setVisible(false);
@@ -437,7 +437,7 @@ public class funVisible {
       JTextField inputEmail, JPasswordField inPW2, JTextField inputNic, JButton regBtn,
       JButton logQuitbtn, JButton logBtn, JTextField inputName, JPasswordField inPW, JButton mypgQuitbtn,
       JPasswordField inputPW, JTextField inputID, JTextArea introInput, JButton introBtn) {
-    	//메인패널
+       //메인패널
           writebtn.setVisible(false);
           
           //cheer패널
