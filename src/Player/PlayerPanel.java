@@ -259,7 +259,7 @@ public class PlayerPanel extends JPanel {
 
 		this.add(content);
 		
-		playerParser = new PlayerParser();
+//		playerParser = new PlayerParser();
 		
 		
 	}
