@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -19,7 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class GameInfPanel extends JPanel {
-	String event, news;
+	String event, news, rank;
 	
 	GameSchedule_Parsing gameSchedule_Parsing ;
 	GameRank_Parsing gameRank_Parsing;
@@ -29,7 +30,10 @@ public class GameInfPanel extends JPanel {
 		super();
 		PanelInit(frame);
 		InputBox();
-		OutputBox();
+	}
+
+	public GameInfPanel() {
+		// TODO Auto-generated constructor stub
 	}
 
 	private void PanelInit(JFrame frame) {
@@ -55,7 +59,6 @@ public class GameInfPanel extends JPanel {
 	
 	private void InputBox() {
 		// 경기 선택 DropBox
-		
 		String eventList[] = { "축구", "야구", "배구" };
 
 		JComboBox eventBox = new JComboBox<Object>(eventList);
@@ -87,14 +90,16 @@ public class GameInfPanel extends JPanel {
 			}
 		});
 		
+		
 		// 이름 입력
-		JTextField newsInput = new JTextField("ex)김연경 스메쉬");
+		JTextField newsInput = new JTextField("김연경");
 		newsInput.setBounds(550, 315, 350, 40);
 
 		this.add(newsInput);
 		
 		// 뉴스 검색 버튼
 		JButton newsBtn = new JButton("검색");
+		
 		newsBtn.setBounds(920, 315, 130, 40); 
 
 		newsBtn.setFont(new Font("맑은 고딕", Font.BOLD, 20)); // Font
@@ -112,16 +117,16 @@ public class GameInfPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				
 				news = (String) newsInput.getText();
-
-				// 임시 출력
-				System.out.println(news);
+				gameNews_Parsing = new GameNews_Parsing(news);  // Parsing Data 호출 
 			}
 		});
 		
 	}
 
-	private void OutputBox() {
-		// Medal Picture  <- 추후 사진 말고 Parsing Modeling 예정 
+	
+	
+	public void OutputBox(SearchDAO s) {
+		//////////////////////
 		
 		gameRank_Parsing = new GameRank_Parsing();
 		
@@ -138,7 +143,7 @@ public class GameInfPanel extends JPanel {
 		add(MedalImage);;
 		
 		
-		// Medal Picture  <- 추후 사진 말고 Parsing Modeling 예정
+		//////////////////////
 		
 		gameSchedule_Parsing = new GameSchedule_Parsing();  // Parsing Data 호출
 		
@@ -155,11 +160,12 @@ public class GameInfPanel extends JPanel {
 
 		this.add(planImage);
 
+		//////////////////////
 		
-		// Medal Picture <- 추후 사진 말고 Parsing Modeling 예정 
-		gameNews_Parsing = new GameNews_Parsing();  // Parsing Data 호출 
+		JLabel newsImage = new JLabel(s.getNews());
 		
-		JLabel newsImage = new JLabel("사진 예정3");
+		System.out.println(s.getNews() + "잘된거 맞음?");
+		
 		newsImage.setBounds(550, 375, 500, 200);
 
 		newsImage.setFont(new Font("맑은 고딕", Font.BOLD, 35)); // Font
