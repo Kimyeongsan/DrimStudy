@@ -101,7 +101,7 @@ public class funVisible {
          PlayerFrame playerPanel, RankComparePanel rankComparePanel, myPageFrame myPagePanel,
          loginFrame loginPanel, regMemFrame regMemPanel, JButton player_Btn, JButton cheering_Btn, 
          JButton gameInf_Btn, JButton rank_Btn) {
-      boardPanel1.setVisible(false);
+        boardPanel1.setVisible(false);
         boardPanel2.setVisible(false);
         BoardWritePanel.setVisible(false);
         CheerPanel.setVisible(false);
@@ -431,6 +431,38 @@ public class funVisible {
                rank_Btn.setFocusPainted(false);
                loginPanel.setVisible(false);
                myPagePanel.setVisible(false);
+      }
+      public void cheeringbtnVisible(JButton loginbtn, JButton logOutbtn, JButton myPage_Btn,
+      JButton regMembtn, JButton writebtn, JButton c_writebtn, JButton regQuitbtn, JTextField inID, 
+      JTextField inputEmail, JPasswordField inPW2, JTextField inputNic, JButton regBtn,
+      JButton logQuitbtn, JButton logBtn, JTextField inputName, JPasswordField inPW, JButton mypgQuitbtn,
+      JPasswordField inputPW, JTextField inputID, JTextArea introInput, JButton introBtn) {
+       //메인패널
+          writebtn.setVisible(false);
+          
+          //cheer패널
+          c_writebtn.setVisible(true);
+
+          //reg패널
+          regQuitbtn.setVisible(false);
+          inputName.setVisible(false);
+          inID.setVisible(false);
+          inPW.setVisible(false);
+          inPW2.setVisible(false);
+          inputEmail.setVisible(false);
+          inputNic.setVisible(false);
+          regBtn.setVisible(false);
+          
+          //마이페이지 패널
+          mypgQuitbtn.setVisible(false);
+          introInput.setVisible(false);
+          introBtn.setVisible(false);
+
+          //로그인 패널
+          logQuitbtn.setVisible(false);
+          inputID.setVisible(false);
+          inputPW.setVisible(false);
+          logBtn.setVisible(false);
       }
       //랭킹게시판
       public void rankVisible(BoardFrame1 boardPanel1, BoardFrame2 boardPanel2, cheerFrame CheerPanel,

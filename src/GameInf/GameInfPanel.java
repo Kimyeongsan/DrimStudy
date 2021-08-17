@@ -21,6 +21,10 @@ import javax.swing.JTextField;
 public class GameInfPanel extends JPanel {
 	String event, news;
 	
+	GameSchedule_Parsing gameSchedule_Parsing ;
+	GameRank_Parsing gameRank_Parsing;
+	GameNews_Parsing gameNews_Parsing;
+	
 	public GameInfPanel(JFrame frame) {
 		super();
 		PanelInit(frame);
@@ -118,6 +122,9 @@ public class GameInfPanel extends JPanel {
 
 	private void OutputBox() {
 		// Medal Picture  <- 추후 사진 말고 Parsing Modeling 예정 
+		
+		gameRank_Parsing = new GameRank_Parsing();
+		
 		ImageIcon medalIcon = new ImageIcon("./img/game_test1.PNG");
 		
 		Image medalImg = medalIcon.getImage();
@@ -131,7 +138,10 @@ public class GameInfPanel extends JPanel {
 		add(MedalImage);;
 		
 		
-		// Medal Picture  <- 추후 사진 말고 Parsing Modeling 예정 
+		// Medal Picture  <- 추후 사진 말고 Parsing Modeling 예정
+		
+		gameSchedule_Parsing = new GameSchedule_Parsing();  // Parsing Data 호출
+		
 		JLabel planImage = new JLabel("사진 예정2");
 		planImage.setBounds(550, 95, 500, 200);
 
@@ -147,6 +157,8 @@ public class GameInfPanel extends JPanel {
 
 		
 		// Medal Picture <- 추후 사진 말고 Parsing Modeling 예정 
+		gameNews_Parsing = new GameNews_Parsing();  // Parsing Data 호출 
+		
 		JLabel newsImage = new JLabel("사진 예정3");
 		newsImage.setBounds(550, 375, 500, 200);
 

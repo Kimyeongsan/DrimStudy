@@ -5,10 +5,6 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -23,6 +19,8 @@ import javax.swing.border.LineBorder;
 import Board.BoardWriteFrame;
 import Cheering.cheerFrame;
 import Cheering.cheermsgFrame;
+import Database.ConnectionDB;
+import Database.RegisterDB;
 import GameInf.GameInfFrame;
 import MainFunction.funVisible;
 import MainFunction.funcBtn;
@@ -32,6 +30,8 @@ import RankCompare.RankComparePanel;
 import login.loginFrame;
 import myPage.myPageFrame;
 import regMember.regMemFrame;
+
+import regMember.funcRegisterChk;
 
 public class MainFrame {
    private JFrame frame;
@@ -51,7 +51,7 @@ public class MainFrame {
    
    public MainFrame() {
          frame = new JFrame();
-         Initialize();
+         
       }
    
    //초기화
@@ -69,10 +69,17 @@ public class MainFrame {
          regMemPanel = new regMemFrame(frame);
          cheermsgPanel = new cheermsgFrame(frame);
          BoardWritePanel = new BoardWriteFrame(frame);
+
+         funVisible btnVisible = new funVisible();
+         btnVisible.mainVisible(boardPanel1, boardPanel2, CheerPanel, BoardWritePanel, cheermsgPanel,
+                 gameInfPanel, playerPanel, rankComparePanel, myPagePanel, loginPanel, regMemPanel,
+                 player_Btn, cheering_Btn, gameInf_Btn, rank_Btn);
+       
       }
 
    // Main Frame
    private void frameInit() {
+
       frame.setTitle("Drim Olympic");
       frame.setBounds(100, 100, 1280, 960);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -333,69 +340,49 @@ public class MainFrame {
     btnVisible.clickIniti(inputNic);
     btnVisible.clickIniti(inputName);
      
-     //확인
-     btnEffect.btnMouseEffect(regBtn);
-     regBtn.addActionListener(new ActionListener() {
-         public void actionPerformed(ActionEvent e) {
-             
-            String myName = inputName.getText();
-            String myID = inID.getText();
-            String myPW = inPW.getText();
-            String myPW2 = inPW2.getText();
-            String myEmail = inputEmail.getText();
-            String myNic = inputNic.getText();
+    //확인
+    btnEffect.btnMouseEffect(regBtn);
+    regBtn.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
             
-            //비밀번호와 비밀번호 확인 입력값이 같으면
-            Connection connection;
-         try {
-            connection = DriverManager.getConnection("jdbc:mysql://192.168.123.57/drimDB", "test1", "drim1234");
-            String query = "INSERT INTO account values('" + myName + "','" + myID + "','" + myPW + "','" +
-                     myEmail + "','" + myNic + "')";
-
-               Statement sta = connection.createStatement();
-               int x = sta.executeUpdate(query);
-               
-                 if(myPW.equals(myPW2) && !myPW.equals("") && x != 0) {
-                     
-                    // 임시 출력
-                    System.out.println(myName + " / " + myID  + " / " + myPW + " / " + myPW2 + " / " + myEmail + " / "+ myNic);
-                    
-                    JOptionPane.showMessageDialog
-                       (null, "아이디 : "+myID+ "\n이 름 : "+myName+"\n이메일 : "+myEmail+
-                       "\n닉 네 임 : "+myNic, "회원가입 완료", JOptionPane.INFORMATION_MESSAGE);
-                    connection.close();
-
-               btnVisible.loginVisible(boardPanel1, boardPanel2, CheerPanel, BoardWritePanel, cheermsgPanel,
-                          gameInfPanel, playerPanel, rankComparePanel, myPagePanel, loginPanel, regMemPanel,
-                          player_Btn, cheering_Btn, gameInf_Btn, rank_Btn);
-               btnVisible.loginbtnVisible(loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn, 
-                    regQuitbtn, inID, inputEmail, inPW2, inputNic, regBtn, logQuitbtn, logBtn, inputName, 
-                    inPW, mypgQuitbtn, inputPW, inputID, introInput, introBtn);
-                 btnVisible.initiText(inputName, inputEmail, inputNic, inID, inPW2, inPW2, inputPW, inputID);
-                 }
-
-              else if (myPW.equals("")) {
-                 JOptionPane.showMessageDialog
-                  (null, "비밀번호를 입력하세요.", "회원가입 실패", JOptionPane.ERROR_MESSAGE);
-              }
-              else { //비밀번호 틀림
-                    JOptionPane.showMessageDialog
-                     (null, "비밀번호가 틀립니다.", "회원가입 실패", JOptionPane.ERROR_MESSAGE);
-                    
-                    inPW.setText("");
-                    inPW2.setText("");
-                 }
-         } 
-         catch (SQLException e1) {
-      // TODO Auto-generated catch block
-      e1.printStackTrace();
+           String myName = inputName.getText();
+           String myID = inID.getText();
+           String myPW = inPW.getText();
+           String myPW2 = inPW2.getText();
+           String myEmail = inputEmail.getText();
+           String myNic = inputNic.getText();
+           RegisterDB registerDB = new RegisterDB();
+           boolean DBbool = true;
+           // 임시 출력
+           System.out.println(myName + " / " + myID  + " / " + myPW + " / " + myPW2 + " / " + myEmail + " / "+ myNic);
+                      
+           //회원가입
+           String[] arrCol = {"ID", "email", "nicName"};
+           String[] arrMY = {myID, myEmail, myNic};
+           int i = 0;
+           funcRegisterChk register = new funcRegisterChk();
+           DBbool = register.ChkRegister(myName, myID, myPW, myPW2, myEmail, myNic, arrCol[i], arrMY[i]);
+        
+           //로그인화면으로 전환
+           if(DBbool) {
+             btnVisible.loginVisible(boardPanel1, boardPanel2, CheerPanel, BoardWritePanel, cheermsgPanel,
+                   gameInfPanel, playerPanel, rankComparePanel, myPagePanel, loginPanel, regMemPanel,
+                   player_Btn, cheering_Btn, gameInf_Btn, rank_Btn);
+           btnVisible.loginbtnVisible(loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn, 
+             regQuitbtn, inID, inputEmail, inPW2, inputNic, regBtn, logQuitbtn, logBtn, inputName, 
+             inPW, mypgQuitbtn, inputPW, inputID, introInput, introBtn);
+           btnVisible.initiText(inputName, inputEmail, inputNic, inID, inPW, inPW2, inputPW, inputID);
+           }
+           else {
+              inPW.setText("");
+               inPW2.setText("");
+           }
          }
-         }});
-         
-     
+      });
+
    //회원가입 패널 내 취소버튼
      btnEffect.btnMouseEffect(regQuitbtn);
-    regQuitbtn.addActionListener(new ActionListener() {
+     regQuitbtn.addActionListener(new ActionListener() {
              public void actionPerformed(ActionEvent e) {
                btnVisible.mainVisible(boardPanel1, boardPanel2, CheerPanel, BoardWritePanel, cheermsgPanel,
                     gameInfPanel, playerPanel, rankComparePanel, myPagePanel, loginPanel, regMemPanel,
@@ -409,7 +396,6 @@ public class MainFrame {
        });
     
     //마이페이지
-
    //mypage 취소 버튼
      btnEffect.btnMouseEffect(mypgQuitbtn);   
      mypgQuitbtn.addActionListener(new ActionListener() {
@@ -422,7 +408,6 @@ public class MainFrame {
                    regQuitbtn, inID, inputEmail, inPW2, inputNic, regBtn, logQuitbtn, logBtn, inputName, 
                    inPW, mypgQuitbtn, inputPW, inputID, introInput, introBtn);        
              introInput.setText("");
-             
        }
      });
    //mypage 자기소개 완료 버튼
@@ -433,13 +418,11 @@ public class MainFrame {
               
              String inIntro = introInput.getText();
           System.out.println(inIntro);
-          
          JOptionPane.showMessageDialog
               (null, "등록되었습니다.", "Success!", JOptionPane.INFORMATION_MESSAGE); 
            }
      });
-     
-     
+
      //로그인
  // 로그인 취소 작성버튼
      btnVisible.clickIniti(inputID);
@@ -464,7 +447,6 @@ public class MainFrame {
          public void actionPerformed(ActionEvent e) {
             
             String id = "hello", pw = "1234";
-            
             // 임시 출력
             String inID = inputID.getText();
             String inPW = inputPW.getText();
@@ -485,8 +467,6 @@ public class MainFrame {
             // 로그인 실패
             else if (id.equals(inputID.getText()) && pw.equals(inputPW.getText()) == false) {
                JOptionPane.showMessageDialog(null, "비밀번호가 틀렸습니다.", "login", JOptionPane.ERROR_MESSAGE);
-               
-                   
                    inputPW.setText("");
             }
             else {  
@@ -494,11 +474,9 @@ public class MainFrame {
                    
                    inputPW.setText("");
                    inputID.setText("ID를 입력하세요.");
-            }
-             
+            } 
          }
-   });
-     
+   });     
 
     /*
      * 메뉴 버튼
@@ -519,6 +497,7 @@ public class MainFrame {
       });   
       btnEffect.menubtnEffect(player_Btn, 190, 130, 150, 45);
       frame.add(player_Btn);
+      
       // 응원게시판 이동
       cheering_Btn = new JButton("응원게시판");
       cheering_Btn.addActionListener(new ActionListener() {
@@ -526,7 +505,7 @@ public class MainFrame {
             btnVisible.cheeringVisible(boardPanel1, boardPanel2, CheerPanel, BoardWritePanel, cheermsgPanel,
                     gameInfPanel, playerPanel, rankComparePanel, myPagePanel, loginPanel, regMemPanel,
                     player_Btn, cheering_Btn, gameInf_Btn, rank_Btn);
-            btnVisible.menubtnVisible(loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn, 
+            btnVisible.cheeringbtnVisible(loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn, 
                   regQuitbtn, inID, inputEmail, inPW2, inputNic, regBtn, logQuitbtn, logBtn, inputName, 
                   inPW, mypgQuitbtn, inputPW, inputID, introInput, introBtn);
          }
@@ -545,7 +524,6 @@ public class MainFrame {
             btnVisible.menubtnVisible(loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn, 
                   regQuitbtn, inID, inputEmail, inPW2, inputNic, regBtn, logQuitbtn, logBtn, inputName, 
                   inPW, mypgQuitbtn, inputPW, inputID, introInput, introBtn);
-
          }
       });
       btnEffect.menubtnEffect(gameInf_Btn, 690, 130, 190, 45);
@@ -569,25 +547,21 @@ public class MainFrame {
       // Footer
       JLabel underLabel = new JLabel("㈜ 드림시스  ⓒ 명지대 인턴 프로젝트");
       underLabel.setFont(new Font("맑은고딕", Font.PLAIN, 13));
-
       underLabel.setForeground(Color.black);
       underLabel.setBackground(new Color(204, 204, 204));
-
       underLabel.setOpaque(true);
-
       underLabel.setHorizontalAlignment(JLabel.CENTER);
       underLabel.setBounds(0, 880, 1280, 40);
-
       frame.add(underLabel);
    }
-   
-   
+
    public static void main(String[] args) {
       EventQueue.invokeLater(new Runnable() {
          public void run() {
               try {
+                 
                  MainFrame window = new MainFrame();
-
+                 window.Initialize();
                  window.frame.setVisible(true);
 //                 window.frame.setResizable(false);
                  window.frame.setLocationRelativeTo(null);
@@ -596,7 +570,5 @@ public class MainFrame {
               }
          }
       });
-   
    }
-
 }
