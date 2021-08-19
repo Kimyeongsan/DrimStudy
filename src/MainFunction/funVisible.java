@@ -350,6 +350,42 @@ public class funVisible {
             rank_Btn.setBorderPainted(false);
             rank_Btn.setFocusPainted(false);
       }
+      
+      //글작성패널
+      public void cheermsgvisible(BoardFrame1 boardPanel1, BoardFrame2 boardPanel2, cheerFrame CheerPanel,
+            BoardWriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
+            PlayerFrame playerPanel, RankComparePanel rankComparePanel, myPageFrame myPagePanel,
+            loginFrame loginPanel, regMemFrame regMemPanel, JButton player_Btn, JButton cheering_Btn, 
+            JButton gameInf_Btn, JButton rank_Btn) {
+         boardPanel1.setVisible(false);
+            boardPanel2.setVisible(false);
+            BoardWritePanel.setVisible(false);
+            CheerPanel.setVisible(false);
+            cheermsgPanel.setVisible(true);
+            gameInfPanel.setVisible(false);
+            playerPanel.setVisible(false);
+            rankComparePanel.setVisible(false);
+            
+            myPagePanel.setVisible(false);
+            loginPanel.setVisible(false);
+            regMemPanel.setVisible(false);
+
+            //메뉴버튼 표시
+            player_Btn.setVisible(true);
+            cheering_Btn.setVisible(true);
+            gameInf_Btn.setVisible(true);
+            rank_Btn.setVisible(true);
+            
+            //메뉴버튼
+            player_Btn.setBorderPainted(false);
+            player_Btn.setFocusPainted(false);
+            cheering_Btn.setBorderPainted(false);
+            cheering_Btn.setFocusPainted(false);
+            gameInf_Btn.setBorderPainted(false);
+            gameInf_Btn.setFocusPainted(false);
+            rank_Btn.setBorderPainted(false);
+            rank_Btn.setFocusPainted(false);
+      }
 
       public void menubtnVisible( JButton loginbtn, JButton logOutbtn, JButton myPage_Btn,
             JButton regMembtn, JButton writebtn, JButton c_writebtn, JButton regQuitbtn, JTextField inID, 

@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,10 +14,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import Database.cheermsgDB;
+
 public class cheermsgPanel extends JPanel {
 
 	
 	int count =0;
+	String color = null;
 	
 	public cheermsgPanel(JFrame frame) {
 		super();
@@ -79,34 +83,6 @@ public class cheermsgPanel extends JPanel {
 	          }
 	    });
 		
-		
-		// input 결과물 출력 (응원메시지 작성)
-		// 등록버튼
-		JButton btnPostcheer = new JButton("등록");
-		btnPostcheer.setBounds(690, 540, 90, 34);
-		btnPostcheer.setFont(new Font("맑은 고딕", Font.BOLD, 16)); // Font
-		btnPostcheer.setBackground(new Color(230,230,230));
-		btnPostcheer.setForeground(Color.black);
-		btnPostcheer.setBorderPainted(false);
-	    btnPostcheer.setFocusPainted(false);
-	    btnPostcheer.setBorderPainted(true);
-		
-		this.add(btnPostcheer);
-				
-				
-		// 적용버튼 리스너
-		btnPostcheer.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				String postCheer;
-
-				postCheer = (String) content.getText();
-				
-				// 임시 출력
-				System.out.println(postCheer);
-				
-			}
-		});
 
 		// 배경색 변경 버튼
 		JButton btnChangeColor = new JButton("배경색 선택");
@@ -175,36 +151,42 @@ public class cheermsgPanel extends JPanel {
 		redbtn.addActionListener(new ActionListener() {
 	         public void actionPerformed(ActionEvent e) {
 	        	 content.setBackground(new Color(247,146,129));
+	        	 color = "RED";
 	         }
 	    });
 		
 		yellowbtn.addActionListener(new ActionListener() {
 	         public void actionPerformed(ActionEvent e) {
 	        	 content.setBackground(new Color(255,255,0));
+	        	 color = "YELLOW";
 	         }
 	    });
 		
 		orangebtn.addActionListener(new ActionListener() {
 	         public void actionPerformed(ActionEvent e) {
 	        	 content.setBackground(new Color(255,192,0));
+	        	 color = "ORANGE";
 	         }
 	    });
 		
 		skybluebtn.addActionListener(new ActionListener() {
 	         public void actionPerformed(ActionEvent e) {
 	        	 content.setBackground(new Color(105,216,255));
+	        	 color = "SKYBLUE";
 	         }
 	    });
 		
 		greenbtn.addActionListener(new ActionListener() {
 	         public void actionPerformed(ActionEvent e) {
 	        	 content.setBackground(new Color(85,241,59));
+	        	 color = "GREEN";
 	         }
 	    });
 		
 		whitebtn.addActionListener(new ActionListener() {
 	         public void actionPerformed(ActionEvent e) {
 	        	 content.setBackground(new Color(166, 166, 166));
+	        	 color = "WHITE";
 	         }
 	    });
 		
@@ -243,6 +225,47 @@ public class cheermsgPanel extends JPanel {
              btnChangeColor.setForeground(Color.black);
          }
         });
+        
+        // input 결과물 출력 (응원메시지 작성)
+ 		// 등록버튼
+ 		JButton btnPostcheer = new JButton("등록");
+ 		btnPostcheer.setBounds(690, 540, 90, 34);
+ 		btnPostcheer.setFont(new Font("맑은 고딕", Font.BOLD, 16)); // Font
+ 		btnPostcheer.setBackground(new Color(230,230,230));
+ 		btnPostcheer.setForeground(Color.black);
+ 		btnPostcheer.setBorderPainted(false);
+ 	    btnPostcheer.setFocusPainted(false);
+ 	    btnPostcheer.setBorderPainted(true);
+ 		
+ 		this.add(btnPostcheer);
+ 				
+ 				
+ 		// 적용버튼 리스너
+ 		 btnPostcheer.addActionListener(new ActionListener() {
+ 			 public void actionPerformed(ActionEvent e) {
+ 				
+ 			 	//connectDB cDB = new connectDB();
+ 			 	String postCheer;
+ 			 	postCheer = (String) content.getText();
+ 			 	
+ 			 	//MsgVO data = new MsgVO();
+ 			 	//data.setColor(color);
+ 			 	ArrayList<cheermsgVO> list = new ArrayList<cheermsgVO>(); // 게터세터를 받아줄 배열을 먼저 만들어줌
+ 			 	cheermsgVO data = new cheermsgVO(); // 해당 클래스를 호출
+ 			 	
+ 			 	data.setColor(color); // 해당 클래스에 데이터를 SET
+ 			 	data.setCheertext(postCheer); // 해당 클래스에 데이터를 SET
+ 			 	
+ 			 	list.add(data); // data를 list에 저장시켜줌
+ 			 	
+ 			 	cheermsgDB s = new cheermsgDB(); // DB함수를 호출
+ 			 	s.sendDB(data); // 해당 함수에 data를 보내줌
+ 			 	
+ 				// 임시 출력
+ 			 	System.out.println(data.getColor() + data.getCheertext());
+ 				
+ 			 }
+ 	      });
 		
 	}
 }

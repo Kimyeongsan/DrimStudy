@@ -32,6 +32,7 @@ import myPage.myPageFrame;
 import regMember.regMemFrame;
 
 import regMember.funcRegisterChk;
+import Database.LoginDB;
 
 public class MainFrame {
    private JFrame frame;
@@ -179,36 +180,36 @@ public class MainFrame {
      text.funcTextField(inputNic, 510, 580, 250, 40);
      frame.add(inputNic);
      
-        // 취소 버튼
-       JButton regQuitbtn = new JButton("취소");
-       btn.funcbtn(regQuitbtn, 900, 660, 80, 40, false);
-       frame.add(regQuitbtn);
+     // 취소 버튼
+     JButton regQuitbtn = new JButton("취소");
+     btn.funcbtn(regQuitbtn, 900, 660, 80, 40, false);
+     frame.add(regQuitbtn);
 
-      //완료 버튼
-       JButton regBtn = new JButton("완료");
-       btn.funcbtn(regBtn, 800, 660, 80, 40, false);
-       frame.add(regBtn);
+     //완료 버튼
+     JButton regBtn = new JButton("완료");
+     btn.funcbtn(regBtn, 800, 660, 80, 40, false);
+     frame.add(regBtn);
  
        //로그인
-      // login - 취소 버튼
-      JButton logQuitbtn = new JButton("취소");
-      btn.funcbtn(logQuitbtn, 730, 590, 80, 40, false);
-       frame.add(logQuitbtn);
-          
-      //확인 버튼
-      JButton logBtn = new JButton("확인");
-      btn.funcbtn(logBtn, 630, 590, 80, 40, false);
-      frame.add(logBtn);      
+     // login - 취소 버튼
+     JButton logQuitbtn = new JButton("취소");
+     btn.funcbtn(logQuitbtn, 730, 590, 80, 40, false);
+     frame.add(logQuitbtn);
+      
+     //확인 버튼
+     JButton logBtn = new JButton("확인");
+     btn.funcbtn(logBtn, 630, 590, 80, 40, false);
+     frame.add(logBtn);      
             
-   //id 입력
-    JTextField inputID = new JTextField("ID를 입력하세요.");
-    text.funcTextField(inputID, 500, 439, 400, 40);
-   frame.add(inputID);
+     //id 입력
+     JTextField inputID = new JTextField("ID를 입력하세요.");
+     text.funcTextField(inputID, 500, 439, 400, 40);
+     frame.add(inputID);
             
-   //pw 입력
-   JPasswordField inputPW = new JPasswordField("");
+    //pw 입력
+    JPasswordField inputPW = new JPasswordField("");
     pw.funcTextField(inputPW, 500, 512, 400, 40);
-   frame.add(inputPW);
+    frame.add(inputPW);
             
    //마이페이지    
    // mypage - 취소 버튼
@@ -308,7 +309,7 @@ public class MainFrame {
      btnEffect.btnMouseEffect(c_writebtn);
      c_writebtn.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent e) {
-              btnVisible.boardWriteVisible(boardPanel1, boardPanel2, CheerPanel, BoardWritePanel, cheermsgPanel, 
+              btnVisible.cheermsgvisible(boardPanel1, boardPanel2, CheerPanel, BoardWritePanel, cheermsgPanel, 
                     gameInfPanel, playerPanel, rankComparePanel, myPagePanel, loginPanel, regMemPanel, 
                     player_Btn, cheering_Btn, gameInf_Btn, rank_Btn); 
              btnVisible.menubtnVisible(loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn, 
@@ -445,16 +446,17 @@ public class MainFrame {
      btnEffect.btnMouseEffect(logBtn);   
      logBtn.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
-            
-            String id = "hello", pw = "1234";
-            // 임시 출력
             String inID = inputID.getText();
-            String inPW = inputPW.getText();
+             String inPW = inputPW.getText();
+             
+            boolean DBbool = true;
+            
+            LoginDB login = new LoginDB();
+            DBbool = login.getLoginSelect(inID, inPW);
             
             System.out.println(inID + " / " + inPW );
    
-            if (id.equals(inID) && pw.equals(inPW)) {
-               JOptionPane.showMessageDialog(null, "환영!", "login", JOptionPane.INFORMATION_MESSAGE);
+            if (DBbool) {
                btnVisible.mainVisible(boardPanel1, boardPanel2, CheerPanel, BoardWritePanel, cheermsgPanel,
                        gameInfPanel, playerPanel, rankComparePanel, myPagePanel, loginPanel, regMemPanel,
                        player_Btn, cheering_Btn, gameInf_Btn, rank_Btn);
@@ -464,19 +466,12 @@ public class MainFrame {
                    inputPW.setText("");
                    inputID.setText("ID를 입력하세요.");
                    }
-            // 로그인 실패
-            else if (id.equals(inputID.getText()) && pw.equals(inputPW.getText()) == false) {
-               JOptionPane.showMessageDialog(null, "비밀번호가 틀렸습니다.", "login", JOptionPane.ERROR_MESSAGE);
-                   inputPW.setText("");
+            else {
+                JOptionPane.showMessageDialog(null, "회원정보가 존재하지 않습니다.", "login 실패", JOptionPane.ERROR_MESSAGE);
+            inputPW.setText("");
             }
-            else {  
-               JOptionPane.showMessageDialog(null, "회원이 아닙니다.", "login", JOptionPane.ERROR_MESSAGE);
-                   
-                   inputPW.setText("");
-                   inputID.setText("ID를 입력하세요.");
-            } 
          }
-   });     
+   });   
 
     /*
      * 메뉴 버튼
