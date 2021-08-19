@@ -1,80 +1,105 @@
 package GameInf;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class GameNews_Parsing {
-	Game_Parser game_Parser;
-	WebDriver driver;
-	WebElement apply_btn, news_btn, title, content;
-	
-	ArrayList<SearchDAO> list = new ArrayList<SearchDAO>();
-	SearchDAO searchDAO = new SearchDAO();
-	
-	String url = "https://www.naver.com";
+public class GameNews_Parsing extends JPanel{
+   Game_Parser game_Parser;
+   WebDriver driver;
+   WebElement apply_btn, news_btn, title, content;
+   
+   String url = "https://www.naver.com";
+   
+   private String Fd;
+   private String Ud;
 
-	GameNews_Parsing(String news) {
-		game_Parser = new Game_Parser();
-		Parsing_Data_init(news);
-	}
+   public void setFd(String x) {
+      this.Fd = x;
+   }
 
-	private void Parsing_Data_init(String news) {
+   public void setUd(String x) {
+      this.Ud = x;
+   }
+   
+   GameNews_Parsing() {
+      game_Parser = new Game_Parser();
+   }
 
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("headless");
+   
+   public void Parsing_Data_init(String news) {
 
-		driver = new ChromeDriver(options);
-		driver.get(url);
+      ChromeOptions options = new ChromeOptions();
+      options.addArguments("headless");
 
-		// 검색창 입력
-		WebElement search = driver.findElement(By.id("query"));
-		search.clear();
-		search.sendKeys(news);
+      driver = new ChromeDriver(options);
+      driver.get(url);
 
-		// 검색 버튼 클릭
-		apply_btn = driver.findElement(By.id("search_btn"));
-		apply_btn.click();
-		
-		// 뉴스 클릭
-		news_btn = driver.findElement(By.xpath("//*[@id=\"lnb\"]/div[1]/div/ul/li[7]"));
-		news_btn.click();
+      // 검색창 입력
+      WebElement search = driver.findElement(By.id("query"));
+      search.clear();
+      search.sendKeys(news);
 
-		// 첫번째 뉴스에서 제목과 내용 받아옴
-		title = driver.findElement(By.xpath("//*[@id=\"sp_nws1\"]/div[1]/div/a"));
-		content = driver.findElement(By.xpath("//*[@id=\"sp_nws1\"]/div[1]/div/div[2]"));
-		
-		searchDAO.setNews(title.getText(), content.getText());
-		
-		list.add(searchDAO);
-		
-//	 	drimstudyDB s = new drimstudyDB(); // DB함수를 호출
-//	 	s.sendDB(data); // 해당 함수에 data를 보내
-		
-		GameInfPanel s = new GameInfPanel();
-		s.OutputBox(searchDAO);
-		
-		
-		// 임시 출력
-		System.out.println(title.getText() + "\n" + content.getText());
+      // 검색 버튼 클릭
+      apply_btn = driver.findElement(By.id("search_btn"));
+      apply_btn.click();
+      
+      // 뉴스 클릭
+      news_btn = driver.findElement(By.xpath("//*[@id=\"lnb\"]/div[1]/div/ul/li[7]"));
+      news_btn.click();
 
-		try {
-			if (driver != null) {
-				driver.close();
-				driver.quit();
-			}
+      // 첫번째 뉴스에서 제목과 내용 받아옴
+      title = driver.findElement(By.xpath("//*[@id=\"sp_nws1\"]/div[1]/div/a"));
+      content = driver.findElement(By.xpath("//*[@id=\"sp_nws1\"]/div[1]/div/div[2]"));
+      
+      Fd = title.getText();
+      Ud = content.getText();
+      
+      setFd(Fd);
+      setUd(Ud);
 
-		} catch (Exception e) {
-			throw new RuntimeException(e.getMessage());
-		}
+//      System.out.println(title.getText() + " \n" + content.getText());
+      
+      
+      
+      JLabel newsImage = new JLabel();
+      newsImage.setText(title.getText() + " \n" + content.getText());
+      
+      newsImage.setBounds(550, 375, 500, 200);
+      newsImage.setFont(new Font("맑은 고딕", Font.BOLD, 35)); // Font
+      newsImage.setForeground(Color.black); // Color
+      
 
-	}
+      try {
+         if (driver != null) {
+            driver.close();
+            driver.quit();
+         }
 
+      } catch (Exception e) {
+         throw new RuntimeException(e.getMessage());
+      }
+
+   }
+   
+   @Override
+   public void paintComponent(Graphics g) {
+      super.paintComponent(g);
+
+      g.setColor(Color.BLACK);
+      g.drawString(Fd + " \n" + Ud, 5, 50);
+      
+      System.out.println(Fd + " \n" + Ud + "asdasdasdas");
+      g.setColor(new Color(140, 155, 255));
+   }
+   
 }

@@ -17,14 +17,10 @@ public class SearchDAO {
 	}
 	
 	public String getNews() {
-		return Title + "\n "+ Content;
+		return news;
 	}
 	
-	public void setNews(String title, String content) {
-		this.Title = title;
-		this.Content = content;
-	}
-
+	
 	public void setSchedule(String scheduleSearch) {
 		this.schedule = scheduleSearch;
 	}
@@ -32,4 +28,21 @@ public class SearchDAO {
 	public void setRank(String rankSearch) {
 		this.rank = rankSearch;
 	}
+
+	public void setNews(String news) {
+		this.news = news;
+	}
+	
+	
+	// News Part
+	
+	public String getNewsContent() {
+		return Title + "\n "+ Content;
+	}
+	
+	public void setNewsContent(String title, String content) {
+		this.Title = title;
+		this.Content = content;
+	}
+
 }
