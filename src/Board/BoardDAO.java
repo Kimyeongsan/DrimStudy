@@ -17,11 +17,61 @@ public class BoardDAO {
    
    public BoardDAO() {
       try {
-            Class.forName("oracle.jdbc.OracleDriver");
-      }catch(ClassNotFoundException e) {
+    	  String dbURL = "jdbc:drimstudy://192.168.123.57:3306/boardwrite";
+    	  String dbID = "test1";
+    	  String dbPassword = "drim1234";
+    	  Class.forName("org.drimstudy.jdbc.Driver");
+    	  cn = DriveManager.getConnection(dbURL, dbID, dbPassword);
+      }catch (Exception e) {
             e.printStackTrace();
       }
       
+   }
+   
+   public String getDate() {
+	   String sql = "select now()";
+	   try {
+		   PreparedStatement pstmt = cn.prepareStatement(sql);
+		   rs = pstmt.executeQuery();
+		   if(rs.next()) {
+			   return rs.getString(1);
+		   }
+	   }catch (Exception e) {
+		   e.printStackTrace();
+	   }
+	   return "";
+   }
+   
+   public int getNext() {
+	   String sql = "select ID from board order by ID desc";
+	   try {
+		   PreparedStatement pstmt = cn.prepareStatement(sql);
+		   rs = pstmt.executeQuery();
+		   if(rs.next()) {
+			   return rs.getInt(1) + 1;
+		   }
+		   return 1;
+	   }catch (Exception e) {
+		   e.printStackTrace();
+	   }
+	   return -1;
+   }
+   
+   public int write(String title, String ID, String content) {
+	   String sql = "insert into board values(?, ?, ?, ?, ?, ?)";
+	   try {
+		   PreparedStatement pstmt = cn.prepareStatement(sql);
+		  pstmt.setInt(1, getNext());
+		  pstmt.setString(2, title);
+		  pstmt.setString(3, ID);
+		  pstmt.setString(4, getDate());
+		  pstmt.setString(5, content);
+		  pstmt.setInt(6, 1);
+		  return pstmt.executeUpdate();
+	   }catch (Exception e) {
+		   e.printStackTrace();
+	   }
+	   return -1;
    }
    
    public boolean insertBoard(BoardDTO boardDto) {
