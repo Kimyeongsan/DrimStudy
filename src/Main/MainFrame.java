@@ -32,6 +32,7 @@ import myPage.myPageFrame;
 import regMember.regMemFrame;
 
 import regMember.funcRegisterChk;
+import Database.LoginDB;
 
 public class MainFrame {
    private JFrame frame;
@@ -445,16 +446,17 @@ public class MainFrame {
      btnEffect.btnMouseEffect(logBtn);   
      logBtn.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
-            
-            String id = "hello", pw = "1234";
-            // 임시 출력
             String inID = inputID.getText();
-            String inPW = inputPW.getText();
+             String inPW = inputPW.getText();
+             
+            boolean DBbool = true;
+            
+            LoginDB login = new LoginDB();
+            DBbool = login.getLoginSelect(inID, inPW);
             
             System.out.println(inID + " / " + inPW );
    
-            if (id.equals(inID) && pw.equals(inPW)) {
-               JOptionPane.showMessageDialog(null, "환영!", "login", JOptionPane.INFORMATION_MESSAGE);
+            if (DBbool) {
                btnVisible.mainVisible(boardPanel1, boardPanel2, CheerPanel, BoardWritePanel, cheermsgPanel,
                        gameInfPanel, playerPanel, rankComparePanel, myPagePanel, loginPanel, regMemPanel,
                        player_Btn, cheering_Btn, gameInf_Btn, rank_Btn);
@@ -464,19 +466,12 @@ public class MainFrame {
                    inputPW.setText("");
                    inputID.setText("ID를 입력하세요.");
                    }
-            // 로그인 실패
-            else if (id.equals(inputID.getText()) && pw.equals(inputPW.getText()) == false) {
-               JOptionPane.showMessageDialog(null, "비밀번호가 틀렸습니다.", "login", JOptionPane.ERROR_MESSAGE);
-                   inputPW.setText("");
+            else {
+                JOptionPane.showMessageDialog(null, "회원정보가 존재하지 않습니다.", "login 실패", JOptionPane.ERROR_MESSAGE);
+            inputPW.setText("");
             }
-            else {  
-               JOptionPane.showMessageDialog(null, "회원이 아닙니다.", "login", JOptionPane.ERROR_MESSAGE);
-                   
-                   inputPW.setText("");
-                   inputID.setText("ID를 입력하세요.");
-            } 
          }
-   });     
+   });   
 
     /*
      * 메뉴 버튼
