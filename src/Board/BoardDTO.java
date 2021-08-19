@@ -4,7 +4,7 @@ public class BoardDTO {
    String UserID;
    String writer;
    String wridate;
-   int pw;
+   String pw;
    String title;
    String content;
    String file;
@@ -33,11 +33,11 @@ public class BoardDTO {
 	   this.wridate = wridate;
    }
    
-   public int getpw() {
+   public String getpw() {
 	   return pw;
    }
    
-   public void setpw(int pw) {
+   public void setpw(String pw) {
       this.pw = pw;
    }
 

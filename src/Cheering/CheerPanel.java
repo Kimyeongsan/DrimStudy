@@ -12,6 +12,8 @@ import javax.swing.JTextField;
 
 public class CheerPanel extends JPanel {
 
+	private cheermsgFrame cheermsgFrame;
+	
 	public CheerPanel(JFrame frame) {
 		super();
 		//cheermsgPanel과 연결하기

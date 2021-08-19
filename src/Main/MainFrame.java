@@ -319,9 +319,8 @@ public class MainFrame {
      });
 
      //게시판글작성
-     //수정 필요
      btnEffect.btnMouseEffect(writebtn);
-    writebtn.addActionListener(new ActionListener() {
+     writebtn.addActionListener(new ActionListener() {
           public void actionPerformed(ActionEvent e) {
             btnVisible.boardWriteVisible(boardPanel1, boardPanel2, CheerPanel, BoardWritePanel, cheermsgPanel,
                   gameInfPanel, playerPanel, rankComparePanel, myPagePanel, loginPanel, regMemPanel,

@@ -7,11 +7,13 @@ import java.awt.GridLayout;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Calendar;
+import java.util.ArrayList;
 import java.awt.Font;
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 
+import javax.swing.AbstractButton;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -27,18 +29,11 @@ import Database.BoardDB;
 
 public class BoardWritePanel extends JPanel {
 	private JFrame frame;
-	private JButton CalendarBtn;
-	
-	private CalendarFrame CalendarFrame;
 	
 	public BoardWritePanel(JFrame frame) {
 		super();
 		panelInit(frame);
 		
-	}
-	
-	private void Initialize() {
-		CalendarFrame = new CalendarFrame(frame);
 	}
 	
 	private void panelInit(JFrame frame) {
@@ -103,34 +98,15 @@ public class BoardWritePanel extends JPanel {
 	    wridateTxt.setOpaque(true);
 	    wridateTxt.setHorizontalAlignment(JLabel.CENTER);
 	    this.add(wridateTxt);
-	    
-	    //작성 기간 선택(CalendarFrame 연결 - 수정 필요)
-	    JButton CalendarBtn = new JButton("일정선택");
-	    CalendarBtn.setFont(new Font("고딕", Font.BOLD, 14));
-	    CalendarBtn.setBackground(new Color(217, 217, 217));
-	    CalendarBtn.setBounds(275, 150, 120, 30);
-	    CalendarBtn.setBorderPainted(false);
-	    CalendarBtn.setFocusPainted(false);
-	    this.add(CalendarBtn);
-	    
-	    CalendarBtn.addActionListener(new ActionListener() {
-	         public void actionPerformed(ActionEvent e) {
-	        	 CalendarFrame c = new CalendarFrame(frame);
-	        	 c.setVisible(true);
-	         }
-	      });
 		
-		
-	    CalendarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-         public void mouseEntered(java.awt.event.MouseEvent evt) {
-        	 CalendarBtn.setBackground(Color.black);
-        	 CalendarBtn.setForeground(Color.white);
-         }
-         public void mouseExited(java.awt.event.MouseEvent evt) {
-        	 CalendarBtn.setBackground(new Color(242,242,242));
-        	 CalendarBtn.setForeground(Color.black);
-        }
-       });
+	  //작성 기간 입력
+	    JTextField inputwridate = new JTextField("");
+	    inputwridate.setBounds(250, 150, 200, 40);
+	    inputwridate.setFont(new Font("고딕", Font.BOLD, 20)); // Font
+	    inputwridate.setForeground(Color.black); // Color
+	    inputwridate.setBackground(new Color(255,255,255));
+	    inputwridate.requestFocusInWindow();
+	    this.add(inputwridate);
 	    
 	    //비밀번호 글자
 	    JLabel pwTxt = new JLabel("비밀번호");
@@ -225,6 +201,36 @@ public class BoardWritePanel extends JPanel {
 	    regisBtn.setBorderPainted(false);
 	    regisBtn.setFocusPainted(false);
 	    this.add(regisBtn);
+	    
+	 // 적용버튼 리스너
+		 regisBtn.addActionListener(new ActionListener() {
+			 public void actionPerformed(ActionEvent e) {
+				
+			 	//connectDB cDB = new connectDB();
+			 	String regis;
+				regis = (String) inputcontent.getText();
+			 	
+			 	//MsgVO data = new MsgVO();
+			 	ArrayList<BoardDTO> list = new ArrayList<BoardDTO>(); // 게터세터를 받아줄 배열을 먼저 만들어줌
+			 	BoardDTO data = new BoardDTO(); // 해당 클래스를 호출
+			 	
+			 	data.setUserID(regis);
+			 	data.setwriter(regis);
+			 	data.setpw(regis);
+			 	data.settitle(regis);
+			 	data.setcontent(regis);
+			 	data.setfile(regis);
+			 	
+			 	list.add(data); // data를 list에 저장시켜줌
+			 	
+			 	BoardDB s = new BoardDB(); // DB함수를 호출
+			 	s.uploadDB(data); // 해당 함수에 data를 보내줌
+			 	
+				// 임시 출력
+			 	System.out.println(data.getUserID() + data.getwriter() + data.getwridate() + data.getpw() + data.gettitle() +  data.getcontent() + data.getfile());
+				
+			 }
+	      });
 	      
 	}
 }
