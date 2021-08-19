@@ -21,19 +21,21 @@ public class cheermsgPanel extends JPanel {
 	
 	int count =0;
 	String color = null;
+	JTextField content;
+	JButton redbtn, yellowbtn, orangebtn, greenbtn, skybluebtn, whitebtn;
 	
 	public cheermsgPanel(JFrame frame) {
 		super();
 		panelInit(frame);
 	}
-
-	private void panelInit(JFrame frame) {
+	
+	public void panelInit(JFrame frame) {
 		
 		// 메인 화면 패널
 		this.setBackground(new Color(255, 255, 255));
 	    this.setBounds(0, 0, 1280, 960);
 	    this.setLayout(null);
-	    
+	   
 	    
 	    // Title
  		JLabel tilteLabel = new JLabel("응원 메시지 남기기");
@@ -65,7 +67,7 @@ public class cheermsgPanel extends JPanel {
 
 		this.add(content);
 		*/
-		JTextField content = new JTextField("내용작성");
+		content = new JTextField("내용작성");
 		content.setBounds(330, 110, 420, 420);
 		content.setFont(new Font("맑은 고딕", Font.BOLD, 15)); // Font
 
@@ -96,12 +98,12 @@ public class cheermsgPanel extends JPanel {
 		
 		this.add(btnChangeColor);
 		
-		JButton redbtn = new JButton("");
-		JButton yellowbtn = new JButton("");
-		JButton orangebtn = new JButton("");
-		JButton skybluebtn = new JButton("");
-		JButton greenbtn = new JButton("");
-		JButton whitebtn = new JButton("");
+		redbtn = new JButton("");
+		yellowbtn = new JButton("");
+		orangebtn = new JButton("");
+		skybluebtn = new JButton("");
+		greenbtn = new JButton("");
+		whitebtn = new JButton("");
 		
 		redbtn.setBounds(148, 200, 20, 28);
 		redbtn.setBackground(new Color(247,146,129));
@@ -225,6 +227,8 @@ public class cheermsgPanel extends JPanel {
              btnChangeColor.setForeground(Color.black);
          }
         });
+                
+        
         
         // input 결과물 출력 (응원메시지 작성)
  		// 등록버튼
@@ -263,9 +267,21 @@ public class cheermsgPanel extends JPanel {
  			 	
  				// 임시 출력
  			 	System.out.println(data.getColor() + data.getCheertext());
- 				
- 			 }
- 	      });
-		
+ 			 	BtnInit();
+ 	      }
+ 		 });
 	}
+	
+	// 등록버튼 클릭시 초기화 함수
+	private void BtnInit() {
+		content.setText("내용작성");
+		content.setBackground(new Color(166, 166, 166));
+		redbtn.setVisible(false);
+        yellowbtn.setVisible(false);
+        orangebtn.setVisible(false);
+        skybluebtn.setVisible(false);
+        greenbtn.setVisible(false);
+        whitebtn.setVisible(false);
+	}
+			 	
 }

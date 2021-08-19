@@ -8,8 +8,8 @@ import java.sql.Statement;
 
 import javax.swing.JOptionPane;
 
+import Cheering.cheermsgPanel;
 import Cheering.cheermsgVO;
-
 //import test.GetterSetter;
 
 public class cheermsgDB {
@@ -19,14 +19,13 @@ public class cheermsgDB {
 	
 	ConnectionDB cDB = null;
 	Connection con = null;
-	
+
+
 	//ArrayList<GetterSetter> ar = new ArrayList<GetterSetter>(); // 게터를 부를때는 이부분이 필요없음
 	public cheermsgDB() {
 		//public Connection con; // DB 커넥션 연결 객체
 		cDB = new ConnectionDB();
 		con = cDB.getConnection();
-		
-
 	}
 	
 	public void sendDB(cheermsgVO s) { // MsgVO 에서 data를 GET 해서 사용함
@@ -46,6 +45,7 @@ public class cheermsgDB {
 			
 			query= "SELECT * from cheermsg";
 			ResultSet rs = state.executeQuery(query);
+
 			
 			try {
 				rs.close();
@@ -57,8 +57,7 @@ public class cheermsgDB {
 			System.out.println("ERROR : query문 DB로 전송 실패");
 		    e.printStackTrace();
 		}
-}
 	
-	
+	}
 	
 }
