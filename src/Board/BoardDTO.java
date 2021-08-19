@@ -1,97 +1,68 @@
 package Board;
 
 public class BoardDTO {
-   private int bno;
-   private int seq;
-   private String name;
-   private String title;
-   private String password;
-   private String content;
-   private String regDate;
-   private int Date;
-   private int count;
-   private String writer;
-   private String writeday;
-   private int readcount;
+   String UserID;
+   String writer;
+   String wridate;
+   int pw;
+   String title;
+   String content;
+   String file;
 
-   public int getBno() {
-      return bno;
-   }
-   
-   public void setBno(int bno) {
-      this.bno = bno;
-   }
-   
-   public int getSeq() {
-	   return seq;
-   }
-   
-   public void setSeq(int seq) {
-	   this.seq = seq;
+   public String getUserID() {
+      return UserID;
    }
 
-   public String getTitle() {
+   public void setUserID(String userID) {
+      this.UserID = userID;
+   }
+   
+   public String getwriter() {
+	   return writer;
+   }
+   
+   public void setwriter(String writer) {
+	   this.writer = writer;
+   }
+   
+   public String getwridate() {
+      return wridate;
+   }
+   
+   public void setwridate(String setwridate) {
+	   this.wridate = wridate;
+   }
+   
+   public int getpw() {
+	   return pw;
+   }
+   
+   public void setpw(int pw) {
+      this.pw = pw;
+   }
+
+   public String gettitle() {
       return title;
    }
-
-   public void setTitle(String title) {
-      this.title = title;
-   }
    
-   public String getPassword() {
-	   return password;
-   }
-   
-   public void setPassword(String password) {
-	   this.password = password;
-   }
-   
-   public String getName() {
-      return name;
-   }
-   
-   public void setName(String name) {
-      this.name = name;
+   public void settitle(String title) {
+	   this.title = title;
    }
 
-   public String getContent() {
-      return content;
-   }
-
-   public void setContent(String content) {
+   public String getcontent() {
+	      return content;
+	   }
+   
+   public void setcontent(String content) {
       this.content = content;
    }
-
-   public int getReadCount() {
-      return readcount;
-   }
    
-   public void setReadCount(int readcount) {
-      this.readcount = readcount;
-   }
+   public String getfile() {
+	      return file;
+	   }
    
-   public String getWriter() {
-      return writer;
+   public void setfile(String file) {
+      this.file = file;
    }
 
-   public void setWriter(String writer) {
-      this.writer = writer;
-   }
-   
-   public String getWriteday() {
-	   return writeday;
-   }
-   
-   public void setWriteday(String writeday) {
-	   this.writeday = writeday;
-   }
-
-   public String getRegdate() {
-      return regDate;
-   }
-
-   public void setRegdate(String regdate) {
-      this.regDate = regdate;
-   }
-   
 }

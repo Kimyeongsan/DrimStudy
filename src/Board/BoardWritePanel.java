@@ -22,6 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import Main.MainFrame;
+import Database.BoardDB;
 
 
 public class BoardWritePanel extends JPanel {
@@ -57,8 +58,27 @@ public class BoardWritePanel extends JPanel {
 	    this.add(writetitle);
 	    
 	    // 작성자 글자
-	    JLabel writerTxt = new JLabel("작성자");
-	    writerTxt.setBounds(130, 100, 100, 40);
+	    JLabel UserIDTxt = new JLabel("작성자");
+	    UserIDTxt.setBounds(130, 100, 100, 40);
+	    UserIDTxt.setFont(new Font("고딕", Font.BOLD, 20)); // Font
+	    UserIDTxt.setForeground(Color.black); // Color
+	    UserIDTxt.setBackground(new Color(166, 166, 166));
+	    UserIDTxt.setOpaque(true);
+	    UserIDTxt.setHorizontalAlignment(JLabel.CENTER);
+	    this.add(UserIDTxt);
+	    
+	    // 작성자 입력
+	    JTextField inputUserID = new JTextField("");
+	    inputUserID.setBounds(250, 100, 200, 40);
+	    inputUserID.setFont(new Font("고딕", Font.BOLD, 20)); // Font
+	    inputUserID.setForeground(Color.black); // Color
+	    inputUserID.setBackground(new Color(255,255,255));
+	    inputUserID.requestFocusInWindow();
+	    this.add(inputUserID);
+	    
+	    //작성자 표시 글자
+	    JLabel writerTxt = new JLabel("작성자 표시");
+	    writerTxt.setBounds(500, 100, 120, 40);
 	    writerTxt.setFont(new Font("고딕", Font.BOLD, 20)); // Font
 	    writerTxt.setForeground(Color.black); // Color
 	    writerTxt.setBackground(new Color(166, 166, 166));
@@ -66,32 +86,13 @@ public class BoardWritePanel extends JPanel {
 	    writerTxt.setHorizontalAlignment(JLabel.CENTER);
 	    this.add(writerTxt);
 	    
-	    // 작성자 입력
-	    JTextField inputwriter = new JTextField("");
-	    inputwriter.setBounds(250, 100, 200, 40);
-	    inputwriter.setFont(new Font("고딕", Font.BOLD, 20)); // Font
-	    inputwriter.setForeground(Color.black); // Color
-	    inputwriter.setBackground(new Color(255,255,255));
-	    inputwriter.requestFocusInWindow();
-	    this.add(inputwriter);
-	    
-	    //작성자 표시 글자
-	    JLabel namekindTxt = new JLabel("작성자 표시");
-	    namekindTxt.setBounds(500, 100, 120, 40);
-	    namekindTxt.setFont(new Font("고딕", Font.BOLD, 20)); // Font
-	    namekindTxt.setForeground(Color.black); // Color
-	    namekindTxt.setBackground(new Color(166, 166, 166));
-	    namekindTxt.setOpaque(true);
-	    namekindTxt.setHorizontalAlignment(JLabel.CENTER);
-	    this.add(namekindTxt);
-	    
 	    //작성자 표시 종류 선택(드롭박스)
 	    String[] optionsToChoose = {"이름", "닉네임", "익명"};
-	    JComboBox<String> nameoptions = new JComboBox<>(optionsToChoose);
-	    nameoptions.setBounds(650, 100, 200, 40);
+	    JComboBox<String> writeroptions = new JComboBox<>(optionsToChoose);
+	    writeroptions.setBounds(650, 100, 200, 40);
 	    JLabel jLabel = new JLabel();
 	    jLabel.setBounds(90, 100, 400, 100);
-	    this.add(nameoptions);
+	    this.add(writeroptions);
 	    
 	    //작성 기간 글자
 	    JLabel wridateTxt = new JLabel("작성 기간");
