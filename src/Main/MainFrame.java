@@ -16,7 +16,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
-import Board.BoardWriteFrame;
+import Board.boardwriteFrame;
 import Cheering.cheerFrame;
 import Cheering.cheermsgFrame;
 import Database.ConnectionDB;
@@ -48,7 +48,7 @@ public class MainFrame {
    private myPageFrame myPagePanel;
    private regMemFrame regMemPanel;
    private cheermsgFrame cheermsgPanel;
-   private BoardWriteFrame BoardWritePanel;
+   private boardwriteFrame BoardWritePanel;
    
    public MainFrame() {
          frame = new JFrame();
@@ -69,7 +69,7 @@ public class MainFrame {
          myPagePanel = new myPageFrame(frame);
          regMemPanel = new regMemFrame(frame);
          cheermsgPanel = new cheermsgFrame(frame);
-         BoardWritePanel = new BoardWriteFrame(frame);
+         BoardWritePanel = new boardwriteFrame(frame);
 
          funVisible btnVisible = new funVisible();
          btnVisible.mainVisible(boardPanel1, boardPanel2, CheerPanel, BoardWritePanel, cheermsgPanel,

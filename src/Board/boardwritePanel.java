@@ -13,24 +13,28 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 
-import javax.swing.AbstractButton;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import Main.MainFrame;
-import Database.BoardDB;
+import Database.boardwriteDB;
 
 
-public class BoardWritePanel extends JPanel {
-	private JFrame frame;
+public class boardwritePanel extends JPanel {
+
 	
-	public BoardWritePanel(JFrame frame) {
+	int count = 0;
+	String UserID, wridate, pw, title, file;
+	JTextField content;
+	JComboBox<String> writer;
+	
+	public boardwritePanel(JFrame frame) {
 		super();
 		panelInit(frame);
 		
@@ -211,27 +215,25 @@ public class BoardWritePanel extends JPanel {
 				regis = (String) inputcontent.getText();
 			 	
 			 	//MsgVO data = new MsgVO();
-			 	ArrayList<BoardDTO> list = new ArrayList<BoardDTO>(); // 게터세터를 받아줄 배열을 먼저 만들어줌
-			 	BoardDTO data = new BoardDTO(); // 해당 클래스를 호출
+			 	ArrayList<boardwriteVO> list = new ArrayList<boardwriteVO>(); // 게터세터를 받아줄 배열을 먼저 만들어줌
+			 	boardwriteVO data = new boardwriteVO(); // 해당 클래스를 호출
 			 	
-			 	data.setUserID(regis);
-			 	data.setwriter(regis);
-			 	data.setpw(regis);
-			 	data.settitle(regis);
-			 	data.setcontent(regis);
-			 	data.setfile(regis);
+			 	data.setUserID(UserID);
+			 	data.setwriter(writer);
+			 	data.setwridate(wridate);
+			 	data.setpw(pw);
+			 	data.settitle(title);
+			 	data.setcontent(content);
+			 	data.setfile(file);
 			 	
 			 	list.add(data); // data를 list에 저장시켜줌
 			 	
-			 	BoardDB s = new BoardDB(); // DB함수를 호출
+			 	boardwriteDB s = new boardwriteDB(); // DB함수를 호출
 			 	s.uploadDB(data); // 해당 함수에 data를 보내줌
 			 	
-				// 임시 출력
-			 	System.out.println(data.getUserID() + data.getwriter() + data.getwridate() + data.getpw() + data.gettitle() +  data.getcontent() + data.getfile());
-				
 			 }
 	      });
-	      
 	}
+	
 }
 

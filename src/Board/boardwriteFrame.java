@@ -6,12 +6,12 @@ import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class BoardWriteFrame extends JPanel {
+public class boardwriteFrame extends JPanel {
    private JFrame frame;
-   private BoardWritePanel BoardWritePanel;
+   private boardwritePanel BoardWritePanel;
    
 
-   public BoardWriteFrame(JFrame frame) {
+   public boardwriteFrame(JFrame frame) {
       super();
       FrameInit(frame);
       PanelInit();
@@ -27,7 +27,7 @@ public class BoardWriteFrame extends JPanel {
    }
    
    private void PanelInit() {
-      BoardWritePanel = new BoardWritePanel(frame);
+      BoardWritePanel = new boardwritePanel(frame);
 
       BoardWritePanel.setBounds(80, 200, 1100, 600);
       BoardWritePanel.setBackground(new Color(242, 242, 242));

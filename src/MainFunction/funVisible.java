@@ -8,7 +8,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import Board.BoardWriteFrame;
+import Board.boardwriteFrame;
 import Cheering.cheerFrame;
 import Cheering.cheermsgFrame;
 import GameInf.GameInfFrame;
@@ -23,7 +23,7 @@ import regMember.regMemFrame;
 public class funVisible {
    //홈화면
    public void mainVisible(BoardFrame1 boardPanel1, BoardFrame2 boardPanel2, cheerFrame CheerPanel,
-         BoardWriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
+         boardwriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
          PlayerFrame playerPanel, RankComparePanel rankComparePanel, myPageFrame myPagePanel,
          loginFrame loginPanel, regMemFrame regMemPanel, JButton player_Btn, JButton cheering_Btn, 
          JButton gameInf_Btn, JButton rank_Btn) {
@@ -97,7 +97,7 @@ public class funVisible {
    }
    //login
    public void loginVisible(BoardFrame1 boardPanel1, BoardFrame2 boardPanel2, cheerFrame CheerPanel,
-         BoardWriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
+         boardwriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
          PlayerFrame playerPanel, RankComparePanel rankComparePanel, myPageFrame myPagePanel,
          loginFrame loginPanel, regMemFrame regMemPanel, JButton player_Btn, JButton cheering_Btn, 
          JButton gameInf_Btn, JButton rank_Btn) {
@@ -169,7 +169,7 @@ public class funVisible {
    }
    //mypage
    public void mypageVisible(BoardFrame1 boardPanel1, BoardFrame2 boardPanel2, cheerFrame CheerPanel,
-         BoardWriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
+         boardwriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
          PlayerFrame playerPanel, RankComparePanel rankComparePanel, myPageFrame myPagePanel,
          loginFrame loginPanel, regMemFrame regMemPanel, JButton player_Btn, JButton cheering_Btn, 
          JButton gameInf_Btn, JButton rank_Btn) {
@@ -242,7 +242,7 @@ public class funVisible {
    }
    //regmem
    public void regVisible(BoardFrame1 boardPanel1, BoardFrame2 boardPanel2, cheerFrame CheerPanel,
-         BoardWriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
+         boardwriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
          PlayerFrame playerPanel, RankComparePanel rankComparePanel, myPageFrame myPagePanel,
          loginFrame loginPanel, regMemFrame regMemPanel, JButton player_Btn, JButton cheering_Btn, 
          JButton gameInf_Btn, JButton rank_Btn) {
@@ -317,7 +317,7 @@ public class funVisible {
    
    //글작성패널
       public void boardWriteVisible(BoardFrame1 boardPanel1, BoardFrame2 boardPanel2, cheerFrame CheerPanel,
-            BoardWriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
+            boardwriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
             PlayerFrame playerPanel, RankComparePanel rankComparePanel, myPageFrame myPagePanel,
             loginFrame loginPanel, regMemFrame regMemPanel, JButton player_Btn, JButton cheering_Btn, 
             JButton gameInf_Btn, JButton rank_Btn) {
@@ -353,7 +353,7 @@ public class funVisible {
       
       //글작성패널
       public void cheermsgvisible(BoardFrame1 boardPanel1, BoardFrame2 boardPanel2, cheerFrame CheerPanel,
-            BoardWriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
+            boardwriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
             PlayerFrame playerPanel, RankComparePanel rankComparePanel, myPageFrame myPagePanel,
             loginFrame loginPanel, regMemFrame regMemPanel, JButton player_Btn, JButton cheering_Btn, 
             JButton gameInf_Btn, JButton rank_Btn) {
@@ -422,7 +422,7 @@ public class funVisible {
       
       //선수게시판
       public void playerVisible(BoardFrame1 boardPanel1, BoardFrame2 boardPanel2, cheerFrame CheerPanel,
-            BoardWriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
+            boardwriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
             PlayerFrame playerPanel, RankComparePanel rankComparePanel, myPageFrame myPagePanel,
             loginFrame loginPanel, regMemFrame regMemPanel, JButton player_Btn, JButton cheering_Btn, 
             JButton gameInf_Btn, JButton rank_Btn) {
@@ -446,7 +446,7 @@ public class funVisible {
       }
       //응원게시판
       public void cheeringVisible(BoardFrame1 boardPanel1, BoardFrame2 boardPanel2, cheerFrame CheerPanel,
-            BoardWriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
+            boardwriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
             PlayerFrame playerPanel, RankComparePanel rankComparePanel, myPageFrame myPagePanel,
             loginFrame loginPanel, regMemFrame regMemPanel, JButton player_Btn, JButton cheering_Btn, 
             JButton gameInf_Btn, JButton rank_Btn) {
@@ -502,7 +502,7 @@ public class funVisible {
       }
       //랭킹게시판
       public void rankVisible(BoardFrame1 boardPanel1, BoardFrame2 boardPanel2, cheerFrame CheerPanel,
-            BoardWriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
+            boardwriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
             PlayerFrame playerPanel, RankComparePanel rankComparePanel, myPageFrame myPagePanel,
             loginFrame loginPanel, regMemFrame regMemPanel, JButton player_Btn, JButton cheering_Btn, 
             JButton gameInf_Btn, JButton rank_Btn) {
@@ -526,7 +526,7 @@ public class funVisible {
       }
       //
       public void gameInfVisible(BoardFrame1 boardPanel1, BoardFrame2 boardPanel2, cheerFrame CheerPanel,
-            BoardWriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
+            boardwriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
             PlayerFrame playerPanel, RankComparePanel rankComparePanel, myPageFrame myPagePanel,
             loginFrame loginPanel, regMemFrame regMemPanel, JButton player_Btn, JButton cheering_Btn, 
             JButton gameInf_Btn, JButton rank_Btn) {

@@ -1,27 +1,26 @@
 package Board;
 
-public class BoardDTO {
-   String UserID;
-   String writer;
-   String wridate;
-   String pw;
-   String title;
-   String content;
-   String file;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+
+public class boardwriteVO {
+   String UserID, wridate, pw, title, file;
+   JComboBox<String> writer;
+   JTextField content;
 
    public String getUserID() {
       return UserID;
    }
 
-   public void setUserID(String userID) {
-      this.UserID = userID;
+   public void setUserID(String UserID) {
+      this.UserID = UserID;
    }
    
-   public String getwriter() {
+   public JComboBox<String> getwriter() {
 	   return writer;
    }
    
-   public void setwriter(String writer) {
+   public void setwriter(JComboBox<String> writer) {
 	   this.writer = writer;
    }
    
@@ -29,7 +28,7 @@ public class BoardDTO {
       return wridate;
    }
    
-   public void setwridate(String setwridate) {
+   public void setwridate(String wridate) {
 	   this.wridate = wridate;
    }
    
@@ -49,17 +48,17 @@ public class BoardDTO {
 	   this.title = title;
    }
 
-   public String getcontent() {
+   public JTextField getcontent() {
 	      return content;
-	   }
+}
    
-   public void setcontent(String content) {
+   public void setcontent(JTextField content) {
       this.content = content;
    }
    
    public String getfile() {
 	      return file;
-	   }
+   }
    
    public void setfile(String file) {
       this.file = file;
