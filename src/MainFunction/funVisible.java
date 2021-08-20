@@ -19,11 +19,6 @@ import RankCompare.RankComparePanel;
 
 public class funVisible {
    
-//   , myPageFrame myPagePanel,
-//    loginFrame loginPanel, regMemFrame regMemPanel, JButt
-//    JButton gameInf_Btn, JButton rank_Btn
-   
-   
    public void panelVisible(String label, BoardFrame1 boardPanel1, BoardFrame2 boardPanel2, cheerFrame CheerPanel,
          BoardWriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
          PlayerFrame playerPanel, RankComparePanel rankComparePanel) {
@@ -46,7 +41,7 @@ public class funVisible {
                           boardPanel2.setVisible(false);
                           CheerPanel.setVisible(false);
                           cheermsgPanel.setVisible(false);
-                       //   gameInfPanel.setVisible(false);
+                         // gameInfPanel.setVisible(false);
                           playerPanel.setVisible(false);
                           rankComparePanel.setVisible(false);
                           break;
@@ -57,7 +52,7 @@ public class funVisible {
                          CheerPanel.setVisible(false);
                          
                          cheermsgPanel.setVisible(true);
-                       gameInfPanel.setVisible(false);
+                         gameInfPanel.setVisible(false);
                          playerPanel.setVisible(false);
                          rankComparePanel.setVisible(false);
                          break;
@@ -67,7 +62,7 @@ public class funVisible {
                       boardPanel2.setVisible(false);
                       CheerPanel.setVisible(false);
                       cheermsgPanel.setVisible(false);
-                  //    gameInfPanel.setVisible(false);
+                      gameInfPanel.setVisible(false);
                       playerPanel.setVisible(true);
                       rankComparePanel.setVisible(false);
                        break;
@@ -77,7 +72,7 @@ public class funVisible {
                       boardPanel2.setVisible(false);
                       CheerPanel.setVisible(false);
                       cheermsgPanel.setVisible(false);
-                  //    gameInfPanel.setVisible(false);
+                      gameInfPanel.setVisible(false);
                       playerPanel.setVisible(false);
                       rankComparePanel.setVisible(true);
                        break;
@@ -205,28 +200,28 @@ public class funVisible {
           c_writebtn.setVisible(true);
 
       }
-//
-//   //취소버튼 누르면 패널txt 초기화
-//   public void initiText(JTextField inputName,JTextField inputEmail,JTextField inputNic,
-//         JTextField inID, JPasswordField inPW2, JPasswordField inPW, JPasswordField inputPW,JTextField inputID) {
-//        inputName.setText("이름을 입력하세요.");
-//          inputEmail.setText("이메일을 입력하세요.");
-//         inputNic.setText("닉네임을 입력하세요.");
-//         inID.setText("ID를 입력하세요.");
-//         inPW2.setText("");
-//         inPW.setText("");
-//       
-//         inputPW.setText("");
-//        inputID.setText("ID를 입력하세요.");
-//   }
-//   
-//   //회원가입 입력창 초기화
-//   public void clickIniti(JTextField text) {
-//      text.addMouseListener(new MouseAdapter(){
-//            @Override
-//            public void mouseClicked(MouseEvent e){
-//               text.setText("");
-//            }
-//        });
-//   }
+
+   //취소버튼 누르면 패널txt 초기화
+   public void initiText(JTextField inputName,JTextField inputEmail,JTextField inputNic,
+         JTextField inID, JPasswordField inPW2, JPasswordField inPW, JPasswordField inputPW,JTextField inputID) {
+        inputName.setText("이름을 입력하세요.");
+          inputEmail.setText("이메일을 입력하세요.");
+         inputNic.setText("닉네임을 입력하세요.");
+         inID.setText("ID를 입력하세요.");
+         inPW2.setText("");
+         inPW.setText("");
+       
+         inputPW.setText("");
+        inputID.setText("ID를 입력하세요.");
+   }
+   
+   //회원가입 입력창 초기화
+   public void clickIniti(JTextField text) {
+      text.addMouseListener(new MouseAdapter(){
+            @Override
+            public void mouseClicked(MouseEvent e){
+               text.setText("");
+            }
+        });
+   }
 }
