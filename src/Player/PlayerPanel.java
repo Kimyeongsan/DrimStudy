@@ -2,15 +2,10 @@ package Player;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -19,6 +14,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import MainFunction.funcBtn;
 
 public class PlayerPanel extends JPanel {
 	String name, event, country, medalCount;
@@ -38,87 +35,41 @@ public class PlayerPanel extends JPanel {
 		this.setBackground(new Color(255, 255, 255));
 		this.setBounds(0, 0, 1280, 960);
 		this.setLayout(null);
+		
+		funcBtn funcbtn = new funcBtn();
 
 		// Title
 		JLabel tilteLabel = new JLabel("선수소개");
-		tilteLabel.setBounds(100, 20, 900, 60);
-
-		tilteLabel.setFont(new Font("맑은 고딕", Font.BOLD, 35)); // Font
-
-		tilteLabel.setForeground(Color.white); // Color
-		tilteLabel.setBackground(Color.black);
-		tilteLabel.setOpaque(true);
-
-		tilteLabel.setHorizontalAlignment(JLabel.CENTER); // Position
-
+		funcbtn.funcMainLabel(tilteLabel,100, 20, 900, 60, 0,0,0);
 		this.add(tilteLabel);
-
 
 		// Name(이름)
 		JLabel Name = new JLabel("이름");
-		Name.setBounds(350, 100, 135, 40);
-
-		Name.setFont(new Font("맑은 고딕", Font.BOLD, 15)); // Font
-
-		Name.setForeground(Color.black); // Color
-		Name.setBackground(new Color(166, 166, 166));
-		Name.setOpaque(true);
-
-		Name.setHorizontalAlignment(JLabel.CENTER); // Position
-
+		funcbtn.funcLabel(Name,350, 100, 135, 40,166, 166, 166);
 		this.add(Name);
 
-		
 		// event(종목)
 		JLabel event = new JLabel("종목");
-		event.setBounds(350, 170, 135, 40);
-
-		event.setFont(new Font("맑은 고딕", Font.BOLD, 15)); // Font
-
-		event.setForeground(Color.black); // Color
-		event.setBackground(new Color(166, 166, 166));
-		event.setOpaque(true);
-
-		event.setHorizontalAlignment(JLabel.CENTER); // Position
-
+		funcbtn.funcLabel(tilteLabel, 350, 170, 135, 40,166, 166, 166);
 		this.add(event);
 
-		
 		// country(국가)
 		JLabel country = new JLabel("국가");
-		country.setBounds(350, 240, 135, 40);
-
-		country.setFont(new Font("맑은 고딕", Font.BOLD, 15)); // Font
-
-		country.setForeground(Color.black); // Color
-		country.setBackground(new Color(166, 166, 166));
-		country.setOpaque(true);
-
-		country.setHorizontalAlignment(JLabel.CENTER); // Position
-
+		funcbtn.funcLabel(country, 350, 240, 135, 40,166, 166, 166);
 		this.add(country);
-
 		
 		// medal (매달)
+		//크롤링
 		JLabel medal = new JLabel("메달");
-		medal.setBounds(350, 310, 135, 40);
-
-		medal.setFont(new Font("맑은 고딕", Font.BOLD, 15)); // Font
-
-		medal.setForeground(Color.black); // Color
-		medal.setBackground(new Color(166, 166, 166));
-		medal.setOpaque(true);
-
-		medal.setHorizontalAlignment(JLabel.CENTER); // Position
-
+		funcbtn.funcLabel(medal, 350, 310, 135, 40,166, 166, 166);
 		this.add(medal);
-
 	}
 
 	
 	private void InputBox() {
 
 		// 이름 입력
+		//크롤링
 		JTextField nameInput = new JTextField("ex)김세영");
 		nameInput.setBounds(515, 100, 240, 40);
 
@@ -207,6 +158,9 @@ public class PlayerPanel extends JPanel {
 				
 				// 임시 출력
 				System.out.println(name + " / " + event + " / " + country);
+				
+				//크롤링 함수호출
+				//메달과 경력사항
 
 			}
 		});

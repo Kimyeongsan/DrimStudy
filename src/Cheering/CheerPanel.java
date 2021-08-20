@@ -33,6 +33,8 @@ public class CheerPanel extends JPanel {
 	      postIt.setFont(new Font("고딕", Font.BOLD, 30)); // Font
 	      postIt.setForeground(Color.black); // Color
 	      postIt.setOpaque(true);
+	      
+	      
 	      //포스트잇 색상변경 - 외부패널에서 값가져오기
 	      /*
 	      switch() { //입력변수를 cheermsgPanel에서 가져오기 필요

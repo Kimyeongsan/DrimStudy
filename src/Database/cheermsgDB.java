@@ -1,6 +1,7 @@
 package Database;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -20,6 +21,10 @@ public class cheermsgDB {
 	ConnectionDB cDB = null;
 	Connection con = null;
 
+	private ResultSet rs=null;
+    private String query=null;
+    private Statement sta;
+    private PreparedStatement ps;
 
 	//ArrayList<GetterSetter> ar = new ArrayList<GetterSetter>(); // 게터를 부를때는 이부분이 필요없음
 	public cheermsgDB() {
@@ -58,6 +63,40 @@ public class cheermsgDB {
 		    e.printStackTrace();
 		}
 	
+	}
+	
+	public String getColor() {
+		try {
+		query = "SELECT EXISTS (SELECT * FROM account_chk WHERE ischeck = 'true' limit 1) AS SUCCESS;";
+        Statement sta = con.createStatement();
+        rs = sta.executeQuery(query);
+        System.out.println(query);
+        if(rs.next()){
+           int i=1;
+            if(i == rs.getInt("SUCCESS")){
+                 System.out.println("로그인 되어있음!!!\n");
+                 query = "SELECT * FROM account_chk Order BY ID DESC LIMIT 1;";
+                 Statement sta1 = con.createStatement();
+                 rs = sta1.executeQuery(query);
+                 System.out.println(query);
+                 if(rs.next()){
+                	 return rs.getString("bgColor");
+                 }
+            }
+            else {
+               System.out.println("로그아웃중!!!!\n");
+            }
+         }
+//        if(sta != null) sta.close();
+//        if(connection != null) connection.close();
+        System.out.println("DB 로그인 완료");
+     }
+      catch (SQLException e){
+        e.printStackTrace();
+        System.out.println("DB islogin 실패!! 사유 : " + e.getMessage());
+     }
+      return null;
+		
 	}
 	
 }

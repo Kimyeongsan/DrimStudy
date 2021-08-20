@@ -73,7 +73,7 @@ public class funcBtn {
 
    public void funcLabel(JLabel label, int x, int y,int w,int l,int r, int g, int b ) {
          label.setBounds(x, y, w, l);
-         label.setFont(new Font("°íµñ", Font.BOLD, 20)); // Font
+         label.setFont(new Font("°íµñ", Font.BOLD, 18)); // Font
          label.setForeground(Color.black); // Color
          label.setBackground(new Color(r, g, b));
          label.setOpaque(true);
