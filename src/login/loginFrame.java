@@ -55,8 +55,8 @@ public class loginFrame extends JFrame{
       this.add(logBtn);   
       this.add(logQuitbtn);
       
-//      funVisible.clickIniti(inID);
-//      funVisible.clickIniti(inPW);
+      funVisible.clickIniti(inID);
+      funVisible.clickIniti(inPW);
       loginVO login = new loginVO();
       
       //로그인
@@ -74,7 +74,7 @@ public class loginFrame extends JFrame{
               boolean DBbool = login.getLoginSelect(myID, myPW);
 
              if(DBbool) {
-                LoginChk.Chk_Login(myID, myPW);
+                LoginChk.isLogin(myID);
                 inPW.setText("");
                 inID.setText("ID를 입력하세요.");
                 dispose();

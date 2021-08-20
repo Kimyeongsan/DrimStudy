@@ -7,6 +7,8 @@ import javax.swing.JOptionPane;
 import Database.ConnectionDB;
 import Database.RegisterDB;
 
+import login.LoginChk;
+
 public class funcRegisterChk {
    private Connection connection;
    private ConnectionDB DB_Connection;
@@ -20,6 +22,7 @@ public class funcRegisterChk {
    public boolean ChkRegister(String myName, String myID, String myPW, String myPW2,
          String myEmail, String myNic, String DBCol, String myRecord) {
       RegisterDB registerDB = new RegisterDB();
+      LoginChk LoginChk = new LoginChk();
       registerDB.getRegisterSelect(DBCol, myRecord);
       boolean DBbool;
       
@@ -46,6 +49,7 @@ public class funcRegisterChk {
              if(DBbool) {
                  //회원가입시도
                 registerDB.getRegisterInsert(myName, myID, myPW, myEmail, myNic);
+                LoginChk.Chk_Login(myID);
                   JOptionPane.showMessageDialog
                     (null, "아이디 : "+myID+ "\n이 름 : "+myName+"\n이메일 : "+myEmail+
                     "\n닉 네 임 : "+myNic, "회원가입 완료", JOptionPane.INFORMATION_MESSAGE); 

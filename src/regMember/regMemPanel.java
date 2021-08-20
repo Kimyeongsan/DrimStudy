@@ -29,33 +29,33 @@ public class regMemPanel extends JPanel{
       
       //이름 글자
       JLabel nameTxt = new JLabel("이름");
-      label.funcLabel(nameTxt, 250, 100, 100, 40, 166, 166, 166);
+      label.funcLabel(nameTxt, 250, 200, 100, 40, 166, 166, 166);
       this.add(nameTxt);
 
 
       //id 글자
       JLabel idTxt = new JLabel("ID");
-      label.funcLabel(idTxt, 250, 150, 100, 40, 166, 166, 166);
+      label.funcLabel(idTxt, 250, 250, 100, 40, 166, 166, 166);
       this.add(idTxt);
       
       //pw 글자
       JLabel pwTxt = new JLabel("PW");
-      label.funcLabel(pwTxt, 250, 200, 100, 40, 166, 166, 166);
+      label.funcLabel(pwTxt, 250, 300, 100, 40, 166, 166, 166);
       this.add(pwTxt);
       
       //pw2 글자
       JLabel pw2Txt = new JLabel("PW 확인");
-      label.funcLabel(pw2Txt, 250, 250, 100, 40, 166, 166, 166);
+      label.funcLabel(pw2Txt, 250, 350, 100, 40, 166, 166, 166);
       this.add(pw2Txt);
 
       //이메일 글자
       JLabel emailTxt = new JLabel("이메일");
-      label.funcLabel(emailTxt, 250, 300, 100, 40, 166, 166, 166);
+      label.funcLabel(emailTxt, 250, 400, 100, 40, 166, 166, 166);
       this.add(emailTxt);
       
       //닉네임 글자
       JLabel nicTxt = new JLabel("닉네임");
-      label.funcLabel(nicTxt, 250, 350, 100, 40, 166, 166, 166);
+      label.funcLabel(nicTxt, 250, 450, 100, 40, 166, 166, 166);
       this.add(nicTxt);
    }
 }
