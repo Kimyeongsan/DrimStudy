@@ -9,7 +9,7 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 public class LoginDB {
-   private Connection connection;
+     private Connection connection;
       private ConnectionDB DB_Connection;
       
       private ResultSet rs=null;
@@ -19,7 +19,7 @@ public class LoginDB {
       
       public LoginDB() {
          ConnectionDB DB_Connection = new ConnectionDB();
-         connection = DB_Connection.getConnection();
+          connection = DB_Connection.getConnection();
       }
 
       //회원가입 전 회원조회

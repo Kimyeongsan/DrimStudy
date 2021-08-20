@@ -1,9 +1,17 @@
 package myPage;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
+
+import MainFunction.funcBtn;
+import MainFunction.funcBtnEffect;
 
 public class myPageFrame extends JFrame {
    private JFrame frame;
@@ -23,6 +31,48 @@ public class myPageFrame extends JFrame {
          this.setBackground(new Color(255, 255, 255));
          this.setBounds(500, 200, 1000, 700);
          this.setLayout(null);
+         
+         funcBtn funcBtn = new funcBtn();
+         funcBtnEffect btnEffect = new funcBtnEffect();
+         //마이페이지    
+         // mypage - 취소 버튼
+         JButton mypgQuitbtn = new JButton("자기소개 내용 지우기");
+         funcBtn.funcbtn(mypgQuitbtn, 750, 400, 170, 40, true);
+         this.add(mypgQuitbtn);
+
+          //자기소개 입력버튼
+           JTextArea introInput = new JTextArea("");
+           funcBtn.funcTextArea(introInput, 330, 170, 605, 200);
+           this.add(introInput);
+                     
+         //마이페이지 자기소개 완료 버튼
+         JButton introBtn = new JButton("완료");
+         funcBtn.funcbtn(introBtn, 650, 400, 80, 40, true);
+         this.add(introBtn);
+
+       //마이페이지
+         //mypage 취소 버튼
+           btnEffect.btnMouseEffect(mypgQuitbtn);   
+           mypgQuitbtn.addActionListener(new ActionListener() {
+                 public void actionPerformed(ActionEvent e) {       
+                   introInput.setText("");
+                   dispose();
+             }
+           });
+         //mypage 자기소개 완료 버튼
+           btnEffect.btnMouseEffect(introBtn);   
+           introBtn.addActionListener(new ActionListener() {
+                 public void actionPerformed(ActionEvent e) {
+                   // cheermsg표시
+                    
+                   String inIntro = introInput.getText();
+                   System.out.println(inIntro);
+                   
+                   
+                   JOptionPane.showMessageDialog
+                    (null, "등록되었습니다.", "Success!", JOptionPane.INFORMATION_MESSAGE); 
+                 }
+           });
    }
 
    private void PanelInit() {
