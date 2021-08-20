@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
+import Database.myPageDB;
 import MainFunction.funcBtn;
 import MainFunction.funcBtnEffect;
 
@@ -56,19 +57,19 @@ public class myPageFrame extends JFrame {
            mypgQuitbtn.addActionListener(new ActionListener() {
                  public void actionPerformed(ActionEvent e) {       
                    introInput.setText("");
-                   dispose();
+//                   dispose();
              }
            });
+           myPageDB myPageDB = new myPageDB();
          //mypage 자기소개 완료 버튼
            btnEffect.btnMouseEffect(introBtn);   
            introBtn.addActionListener(new ActionListener() {
                  public void actionPerformed(ActionEvent e) {
                    // cheermsg표시
-                    
+                   
                    String inIntro = introInput.getText();
+                   myPageDB.insertIntro(inIntro);
                    System.out.println(inIntro);
-                   
-                   
                    JOptionPane.showMessageDialog
                     (null, "등록되었습니다.", "Success!", JOptionPane.INFORMATION_MESSAGE); 
                  }
