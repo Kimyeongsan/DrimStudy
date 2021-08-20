@@ -1,4 +1,4 @@
-package login;
+package Login;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,10 +10,9 @@ import javax.swing.JOptionPane;
 
 import Database.ConnectionDB;
 import Database.LoginDB;
+import Login.loginVO;
 
-import login.loginVO;
-
-public class LoginChk {
+public class LoginCheck {
    loginVO loginVO = new loginVO();
    private Connection connection;
    private ConnectionDB DB_Connection;
@@ -22,7 +21,7 @@ public class LoginChk {
    private Statement sta;
    private PreparedStatement ps;
    
-   public LoginChk() {
+   public LoginCheck() {
          ConnectionDB DB_Connection = new ConnectionDB();
          connection = DB_Connection.getConnection();
          LoginDB loginDB = new LoginDB();

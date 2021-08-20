@@ -1,4 +1,4 @@
-package login;
+package Login;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import MainFunction.funcBtn;
+import Main.funcBtn;
 
 public class loginPanel extends JPanel {
 

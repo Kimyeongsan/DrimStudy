@@ -1,4 +1,4 @@
-package regMember;
+package SignUp;
 
 import java.awt.Color;
 
@@ -6,10 +6,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import MainFunction.funcBtn;
+import Main.funcBtn;
 
-public class regMemPanel extends JPanel{
-   public regMemPanel(JFrame frame) {
+public class SignUpPanel extends JPanel{
+   public SignUpPanel(JFrame frame) {
       super();
       panelInit(frame);
    }

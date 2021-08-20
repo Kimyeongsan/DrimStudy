@@ -1,4 +1,4 @@
-package regMember;
+package SignUp;
 
 import java.sql.Connection;
 
@@ -6,14 +6,13 @@ import javax.swing.JOptionPane;
 
 import Database.ConnectionDB;
 import Database.RegisterDB;
+import Login.LoginCheck;
 
-import login.LoginChk;
-
-public class funcRegisterChk {
+public class SignUpCheck {
    private Connection connection;
    private ConnectionDB DB_Connection;
    
-   public funcRegisterChk() {
+   public SignUpCheck() {
          ConnectionDB DB_Connection = new ConnectionDB();
          connection = DB_Connection.getConnection();
          RegisterDB registerDB = new RegisterDB();
@@ -22,7 +21,7 @@ public class funcRegisterChk {
    public boolean ChkRegister(String myName, String myID, String myPW, String myPW2,
          String myEmail, String myNic, String DBCol, String myRecord) {
       RegisterDB registerDB = new RegisterDB();
-      LoginChk LoginChk = new LoginChk();
+      LoginCheck LoginChk = new LoginCheck();
       registerDB.getRegisterSelect(DBCol, myRecord);
       boolean DBbool;
       

@@ -12,9 +12,9 @@ import javax.swing.JTextArea;
 
 import Database.WithdrawalDB;
 import Database.myPageDB;
-import MainFunction.funcBtn;
-import MainFunction.funcBtnEffect;
-import login.LoginChk;
+import Login.LoginCheck;
+import Main.funcBtn;
+import Main.funcBtnEffect;
 
 public class myPageFrame extends JFrame {
    private JFrame frame;
@@ -85,7 +85,7 @@ public class myPageFrame extends JFrame {
            btnEffect.btnMouseEffect(WithdrawalBtn);   
            WithdrawalBtn.addActionListener(new ActionListener() {
                  public void actionPerformed(ActionEvent e) {
-                	 LoginChk LoginChk = new LoginChk();
+                	 LoginCheck LoginChk = new LoginCheck();
                 	 WithdrawalDB WithdrawalDB = new WithdrawalDB();
                 	 //È¸¿øÅ»Åð ÇÔ¼ö
                 	 String ID = LoginChk.isLogin_chk();

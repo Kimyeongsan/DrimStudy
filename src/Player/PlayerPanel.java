@@ -15,7 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import MainFunction.funcBtn;
+import Main.funcBtn;
 
 public class PlayerPanel extends JPanel {
 	String name, event, country, medalCount;

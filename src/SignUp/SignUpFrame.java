@@ -1,4 +1,4 @@
-package regMember;
+package SignUp;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -11,19 +11,18 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import Database.RegisterDB;
-import MainFunction.funVisible;
-import MainFunction.funcBtn;
-import MainFunction.funcBtnEffect;
+import Login.loginFrame;
+import Main.funVisible;
+import Main.funcBtn;
+import Main.funcBtnEffect;
 
-import login.loginFrame;
-
-public class regMemFrame extends JFrame {
+public class SignUpFrame extends JFrame {
    private JFrame frame;
-   private regMemPanel regMemPanel;
+   private SignUpPanel regMemPanel;
    
    JButton regBtn = new JButton("회원가입");
     
-   public regMemFrame(JFrame frame) {
+   public SignUpFrame(JFrame frame) {
       super();
       FrameInit(frame);
       PanelInit();
@@ -99,7 +98,7 @@ public class regMemFrame extends JFrame {
                String[] arrCol = {"ID", "email", "nicName"};
                String[] arrMY = {myID, myEmail, myNic};
                int i = 0;
-               funcRegisterChk register = new funcRegisterChk();
+               SignUpCheck register = new SignUpCheck();
                DBbool = register.ChkRegister(myName, myID, myPW, myPW2, myEmail, myNic, arrCol[i], arrMY[i]);
             
                //로그인화면으로 전환
@@ -116,7 +115,7 @@ public class regMemFrame extends JFrame {
    }
 
    private void PanelInit() {
-      regMemPanel = new regMemPanel(frame);
+      regMemPanel = new SignUpPanel(frame);
 
       regMemPanel.setBounds(0, 0, 1000, 700);
       regMemPanel.setBackground(new Color(242, 242, 242));

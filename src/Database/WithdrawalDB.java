@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 import javax.swing.JOptionPane;
 
-import login.LoginChk;
+import Login.LoginCheck;
 
 public class WithdrawalDB {
     private Connection connection;
@@ -18,7 +18,7 @@ public class WithdrawalDB {
     private String query=null;
     private Statement sta;
     private PreparedStatement ps;
-    LoginChk LoginChk = new LoginChk();
+    LoginCheck LoginChk = new LoginCheck();
     
     public WithdrawalDB() {
     	ConnectionDB DB_Connection = new ConnectionDB();

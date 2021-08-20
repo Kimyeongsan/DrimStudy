@@ -1,4 +1,4 @@
-package MainFunction;
+package Main;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -11,8 +11,6 @@ import Board.boardwriteFrame;
 import Cheering.cheerFrame;
 import Cheering.cheermsgFrame;
 import GameInf.GameInfFrame;
-import Main.BoardFrame1;
-import Main.BoardFrame2;
 import Player.PlayerFrame;
 import RankCompare.RankComparePanel;
 

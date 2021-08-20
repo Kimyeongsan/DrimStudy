@@ -1,4 +1,4 @@
-package login;
+package Login;
 
 public class loginVO {
    String myID;

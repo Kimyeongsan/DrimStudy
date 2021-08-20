@@ -1,4 +1,4 @@
-package login;
+package Login;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -12,9 +12,9 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import Database.LoginDB;
-import MainFunction.funVisible;
-import MainFunction.funcBtn;
-import MainFunction.funcBtnEffect;
+import Main.funVisible;
+import Main.funcBtn;
+import Main.funcBtnEffect;
 
 public class loginFrame extends JFrame{
    private JFrame frame;
@@ -63,7 +63,7 @@ public class loginFrame extends JFrame{
       btnEffect.btnMouseEffect(logBtn);   
       logBtn.addActionListener(new ActionListener() {
           public void actionPerformed(ActionEvent e) {
-             LoginChk LoginChk = new LoginChk();
+             LoginCheck LoginChk = new LoginCheck();
              
               String myID =inID.getText();
               String myPW= inPW.getText();

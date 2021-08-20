@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import login.LoginChk;
+import Login.LoginCheck;
 
 public class myPageDB {
     private Connection connection;
@@ -16,7 +16,7 @@ public class myPageDB {
      private String query=null;
      private Statement sta;
      private PreparedStatement ps;
-     LoginChk LoginChk = new LoginChk();
+     LoginCheck LoginChk = new LoginCheck();
      
      public myPageDB() {
         ConnectionDB DB_Connection = new ConnectionDB();
