@@ -115,11 +115,6 @@ public class funVisible {
         //메뉴버튼 표시
 =======
    
-//   , myPageFrame myPagePanel,
-//    loginFrame loginPanel, regMemFrame regMemPanel, JButt
-//    JButton gameInf_Btn, JButton rank_Btn
-   
-   
    public void panelVisible(String label, BoardFrame1 boardPanel1, BoardFrame2 boardPanel2, cheerFrame CheerPanel,
          BoardWriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
          PlayerFrame playerPanel, RankComparePanel rankComparePanel) {
@@ -142,7 +137,7 @@ public class funVisible {
                           boardPanel2.setVisible(false);
                           CheerPanel.setVisible(false);
                           cheermsgPanel.setVisible(false);
-                       //   gameInfPanel.setVisible(false);
+                         // gameInfPanel.setVisible(false);
                           playerPanel.setVisible(false);
                           rankComparePanel.setVisible(false);
                           break;
@@ -153,7 +148,7 @@ public class funVisible {
                          CheerPanel.setVisible(false);
                          
                          cheermsgPanel.setVisible(true);
-                       gameInfPanel.setVisible(false);
+                         gameInfPanel.setVisible(false);
                          playerPanel.setVisible(false);
                          rankComparePanel.setVisible(false);
                          break;
@@ -163,7 +158,7 @@ public class funVisible {
                       boardPanel2.setVisible(false);
                       CheerPanel.setVisible(false);
                       cheermsgPanel.setVisible(false);
-                  //    gameInfPanel.setVisible(false);
+                      gameInfPanel.setVisible(false);
                       playerPanel.setVisible(true);
                       rankComparePanel.setVisible(false);
                        break;
@@ -173,7 +168,7 @@ public class funVisible {
                       boardPanel2.setVisible(false);
                       CheerPanel.setVisible(false);
                       cheermsgPanel.setVisible(false);
-                  //    gameInfPanel.setVisible(false);
+                      gameInfPanel.setVisible(false);
                       playerPanel.setVisible(false);
                       rankComparePanel.setVisible(true);
                        break;
@@ -541,6 +536,7 @@ public class funVisible {
 
       }
 <<<<<<< HEAD
+<<<<<<< HEAD
       //랭킹게시판
       public void rankVisible(BoardFrame1 boardPanel1, BoardFrame2 boardPanel2, cheerFrame CheerPanel,
             boardwriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
@@ -590,6 +586,9 @@ public class funVisible {
             cheermsgPanel.setVisible(true);
       }
    
+=======
+
+>>>>>>> 949cab538d9b19fde9ad97df39cf78dca841fa1d
    //취소버튼 누르면 패널txt 초기화
    public void initiText(JTextField inputName,JTextField inputEmail,JTextField inputNic,
          JTextField inID, JPasswordField inPW2, JPasswordField inPW, JPasswordField inputPW,JTextField inputID) {
@@ -613,6 +612,7 @@ public class funVisible {
             }
         });
    }
+<<<<<<< HEAD
 =======
 //
 //   //취소버튼 누르면 패널txt 초기화
@@ -639,4 +639,6 @@ public class funVisible {
 //        });
 //   }
 >>>>>>> 1b0cd06fdc02c6a027a3fbe3e854a23513c50dae
+=======
+>>>>>>> 949cab538d9b19fde9ad97df39cf78dca841fa1d
 }

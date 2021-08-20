@@ -50,7 +50,7 @@ public class MainFrame {
          boardPanel1 = new BoardFrame1(frame);
          boardPanel2 = new BoardFrame2(frame);
          CheerPanel = new cheerFrame(frame);
-      //   gameInfPanel =  new GameInfFrame(frame);
+         gameInfPanel =  new GameInfFrame(frame);
          playerPanel = new PlayerFrame(frame);
          rankComparePanel = new RankComparePanel(frame);
          cheermsgPanel = new cheermsgFrame(frame);
@@ -92,7 +92,7 @@ public class MainFrame {
       funcBtn.funcbtn(regMembtn, 1073, 20, 88, 23, true);
       funcBtn.funcbtn(myPage_Btn, 972, 20, 94, 23, true);
       funcBtn.funcbtn(homebtn, 10, 20, 88, 23, true);
-      funcBtn.funcbtn(c_writebtn, 1085, 800, 120, 30, false);
+      funcBtn.funcbtn(c_writebtn, 1085, 800, 120, 30, true);
       funcBtn.funcbtn(writebtn, 1085, 742, 75, 30, true);
 
       frame.add(loginbtn);
@@ -159,6 +159,7 @@ public class MainFrame {
            public void actionPerformed(ActionEvent e) {
               btnVisible.panelVisible("cheermsg", boardPanel1, boardPanel2, CheerPanel, BoardWritePanel, cheermsgPanel, 
                     gameInfPanel, playerPanel, rankComparePanel);  
+              btnVisible.btnShow(player_Btn, cheering_Btn, gameInf_Btn, rank_Btn);
        }
      });
 
