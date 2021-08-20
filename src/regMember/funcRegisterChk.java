@@ -1,6 +1,5 @@
 package regMember;
 
-import Database.RegisterDB;
 import java.sql.Connection;
 
 import javax.swing.JOptionPane;

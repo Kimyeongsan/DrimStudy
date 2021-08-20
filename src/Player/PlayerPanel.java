@@ -23,7 +23,7 @@ import javax.swing.JTextField;
 public class PlayerPanel extends JPanel {
 	String name, event, country, medalCount;
 	
-	private PlayerParser playerParser; 
+	//private PlayerParser playerParser; 
 	
 	public PlayerPanel(JFrame frame) {
 		super();

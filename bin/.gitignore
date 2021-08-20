@@ -1,23 +1,12 @@
-<<<<<<< HEAD
-/Database/
-/Main/
-/MainFunction/
-/Player/
-/RankCompare/
-/login/
-/myPage/
-/regMember/
-=======
-/chromedriver.exe
 /Board/
 /Cheering/
 /Database/
->>>>>>> 03f97e65b6218d7e9f0cb21ec19b789730ae4db3
 /GameInf/
 /Main/
 /MainFunction/
 /Player/
 /RankCompare/
+/chromedriver.exe
 /login/
 /myPage/
 /regMember/
