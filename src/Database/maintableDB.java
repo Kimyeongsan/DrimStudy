@@ -37,7 +37,7 @@ public class maintableDB {
 				Object data[] = {title, content, writer, wridate};
 				
 				model.addRow(data);
-				System.out.println(title +", "+ content+ ", "+ writer+", "+wridate);
+				//System.out.println(title +", "+ content+ ", "+ writer+", "+wridate);
 				
 			}
 		} catch(Exception e) {
@@ -71,7 +71,7 @@ public class maintableDB {
  				Object data[] = {title, content, writer, wridate};
  				
  				model.addRow(data);
- 				System.out.println(title +", "+ content+ ", "+ writer+", "+wridate);
+ 				//System.out.println(title +", "+ content+ ", "+ writer+", "+wridate);
  				
  			}
  		} catch(Exception e1) {
@@ -102,7 +102,7 @@ public class maintableDB {
 				Object data[] = {title, content, writer, wridate};
 				
 				model.addRow(data);
-				System.out.println(title +", "+ content+ ", "+ writer+", "+wridate);
+				//System.out.println(title +", "+ content+ ", "+ writer+", "+wridate);
 			}
 		} catch(Exception e1) {
 			System.out.println(e1.getMessage());
