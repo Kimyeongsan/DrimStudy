@@ -22,7 +22,7 @@ public class myPageDB {
         ConnectionDB DB_Connection = new ConnectionDB();
       connection = DB_Connection.getConnection();
      }
-     //
+     //db로 넘겨주기
      public ResultSet insertIntro(String text){
         try {
         	String ID = LoginChk.isLogin_chk();
@@ -40,9 +40,10 @@ public class myPageDB {
         return rs;
      }
      
+     //
      public String nicNameView() {
     	 String ID = LoginChk.isLogin_chk();
-    	 String nicName;
+    	 String nicName=null;
     	 
     	 return nicName;
      }

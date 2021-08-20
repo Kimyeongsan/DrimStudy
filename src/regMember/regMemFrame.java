@@ -70,6 +70,13 @@ public class regMemFrame extends JFrame {
           this.add(regQuitbtn);
           this.add(regBtn);
           
+          funVisible.clickIniti(inputName);
+          funVisible.clickIniti(inPW);
+          funVisible.clickIniti(inID);
+          funVisible.clickIniti(inPW2);
+          funVisible.clickIniti(inputEmail);
+          funVisible.clickIniti(inputNic);
+          
           loginFrame loginFrame = new loginFrame(frame);
           
           //»Æ¿Œ

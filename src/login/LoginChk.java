@@ -32,7 +32,7 @@ public class LoginChk {
    //로그인 DB 등록
    public ResultSet Chk_Login(String myID) {
       try {
-            query = "INSERT INTO account_chk values('" + myID +"', 'null');";
+            query = "INSERT INTO account_chk values('" + myID +"', '"+null+"');";
             Statement sta = connection.createStatement();
             sta.executeUpdate(query);
             System.out.println(query);

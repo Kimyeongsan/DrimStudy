@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class ConnectionDB {
    public Connection getConnection(){
    Connection connection=null;
-   final String URL = "jdbc:mysql://192.168.123.57/drimDB";
+   final String URL = "jdbc:mysql://127.0.0.1/drimDB";
    final String USER = "test1";
    final String PW = "drim1234";
    
