@@ -1,21 +1,15 @@
 package Board;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
-import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.awt.Font;
-import java.io.File;
-import java.io.IOException;
-import java.sql.Connection;
-import java.text.SimpleDateFormat;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -39,7 +33,6 @@ public class boardwritePanel extends JPanel {
 	public boardwritePanel(JFrame frame) {
 		super();
 		panelInit(frame);
-		
 	}
 	
 	private void panelInit(JFrame frame) {
@@ -77,6 +70,13 @@ public class boardwritePanel extends JPanel {
 	    UserID.setOpaque(true);
 	    UserID.setHorizontalAlignment(JLabel.CENTER);
 	    this.add(UserID);
+	    
+	    UserID.addMouseListener(new MouseAdapter(){
+	    	@Override
+	    	public void mouseClicked(MouseEvent e) {
+	    		UserID.setText("");
+	    	}
+	    });
 	    
 	    //작성자 표시 글자
 	    JLabel writerTxt = new JLabel("작성자 표시");
@@ -116,6 +116,13 @@ public class boardwritePanel extends JPanel {
 	    wridate.setHorizontalAlignment(JLabel.CENTER);
 	    this.add(wridate);
 	    
+	    wridate.addMouseListener(new MouseAdapter(){
+	    	@Override
+	    	public void mouseClicked(MouseEvent e) {
+	    		wridate.setText("");
+	    	}
+	    });
+	    
 	    //비밀번호 글자
 	    JLabel pwTxt = new JLabel("비밀번호");
 	    pwTxt.setBounds(500, 150, 100, 40);
@@ -135,6 +142,13 @@ public class boardwritePanel extends JPanel {
 	    pw.setOpaque(true);
 	    pw.setHorizontalAlignment(JLabel.CENTER);
 	    this.add(pw);
+	    
+	    pw.addMouseListener(new MouseAdapter(){
+	    	@Override
+	    	public void mouseClicked(MouseEvent e) {
+	    		pw.setText("");
+	    	}
+	    });
 	    
 	    //제목 글자
 	    JLabel titleTxt = new JLabel("제목");
@@ -156,6 +170,13 @@ public class boardwritePanel extends JPanel {
 	    title.setHorizontalAlignment(JLabel.CENTER);
 	    this.add(title);
 	    
+	    title.addMouseListener(new MouseAdapter(){
+	    	@Override
+	    	public void mouseClicked(MouseEvent e) {
+	    		title.setText("");
+	    	}
+	    });
+	    
 	    //내용 글자
 	    JLabel contentTxt = new JLabel("내용");
 	    contentTxt.setBounds(130, 250, 100, 40);
@@ -175,6 +196,13 @@ public class boardwritePanel extends JPanel {
 	    content.setOpaque(true);
 	    content.setHorizontalAlignment(JLabel.CENTER);
 	    this.add(content);
+	    
+	    content.addMouseListener(new MouseAdapter(){
+	    	@Override
+	    	public void mouseClicked(MouseEvent e) {
+	    		content.setText("");
+	    	}
+	    });
 	    
 	    //첨부파일 글자
 	    JLabel fileTxt = new JLabel("첨부파일");
@@ -204,6 +232,13 @@ public class boardwritePanel extends JPanel {
 	    file.setOpaque(true);
 	    file.setHorizontalAlignment(JLabel.CENTER);
 	    this.add(file);
+	    
+	    file.addMouseListener(new MouseAdapter(){
+	    	@Override
+	    	public void mouseClicked(MouseEvent e) {
+	    		file.setText("");
+	    	}
+	    });
 	    
 	    //등록 버튼
 	    JButton regisBtn = new JButton("등록");

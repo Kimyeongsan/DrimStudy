@@ -32,12 +32,11 @@ public class LoginDB {
             if(rs.next()){
                if(myPW.equals(rs.getString("PW")) && myID.equals(rs.getString("ID"))){
                     System.out.println("로그인 완료!!!\n");
-                   JOptionPane.showMessageDialog(null, "환영!", "login", JOptionPane.INFORMATION_MESSAGE);
-                   return true;
+                    JOptionPane.showMessageDialog(null, "환영!", "login", JOptionPane.INFORMATION_MESSAGE);
+                    return true;
                }
                else {
                   System.out.println("로그인 실패!!! 회원정보없음\n");
-//                  JOptionPane.showMessageDialog(null, "회원정보가 없습니", "login 실패", JOptionPane.ERROR_MESSAGE);
                }
             }
          }

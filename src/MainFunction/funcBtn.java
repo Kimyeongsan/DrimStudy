@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -42,4 +43,41 @@ public class funcBtn {
       inputText.setForeground(Color.black); // 9Color
       inputText.setBackground(new Color(255,255,255));
    }
+   
+   public void funcTiTleLabel(JLabel label, int x, int y,int w,int l,int r, int g, int b ) {
+      label.setBounds(x, y, w, l);
+      label.setFont(new Font("Arial", Font.BOLD, 35)); // Font
+      label.setForeground(Color.white); // Color
+      label.setBackground(new Color(r, g, b));
+      label.setOpaque(true);
+      label.setHorizontalAlignment(JLabel.CENTER); // Position
+      }
+   
+   public void funcFooterLabel(JLabel label, int x, int y,int w,int l,int r, int g, int b ) {
+      label.setFont(new Font("¸¼Àº°íµñ", Font.PLAIN, 13));
+      label.setForeground(Color.black);
+      label.setBackground(new Color(r, g, b));
+      label.setOpaque(true);
+      label.setHorizontalAlignment(JLabel.CENTER);
+      label.setBounds(x, y, w, l);
+      }
+   
+   public void funcMainLabel(JLabel label, int x, int y,int w,int l,int r, int g, int b ) {
+         label.setBounds(x, y, w, l);
+         label.setFont(new Font("°íµñ", Font.BOLD, 30)); // Font
+         label.setForeground(Color.white); // Color
+         label.setBackground(new Color(r, g, b));
+         label.setOpaque(true);
+         label.setHorizontalAlignment(JLabel.CENTER);
+      }
+
+   public void funcLabel(JLabel label, int x, int y,int w,int l,int r, int g, int b ) {
+         label.setBounds(x, y, w, l);
+         label.setFont(new Font("°íµñ", Font.BOLD, 20)); // Font
+         label.setForeground(Color.black); // Color
+         label.setBackground(new Color(r, g, b));
+         label.setOpaque(true);
+         label.setHorizontalAlignment(JLabel.CENTER);
+      }
+
 }
