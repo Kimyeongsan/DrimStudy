@@ -204,10 +204,8 @@ public class BoardPanel2 extends JPanel {
 		
 		btnprev.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("prev:"+now);
 				if(now==1) now=1;
 				else now = now-1;
-				System.out.println("prev:"+now);
 				s.btn_active(model, now);
 			}
 		});
@@ -215,7 +213,6 @@ public class BoardPanel2 extends JPanel {
 		btn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				now =1;
-				System.out.println("1:"+now);
 				s.btn_active(model, now);
 			}
 		});
@@ -223,7 +220,6 @@ public class BoardPanel2 extends JPanel {
 		btn2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				now =2;
-				System.out.println("2:"+now);
 				s.btn_active(model, now);
 			}
 		});
