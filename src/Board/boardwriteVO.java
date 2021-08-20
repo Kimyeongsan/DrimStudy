@@ -4,24 +4,22 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 public class boardwriteVO {
-   String UserID, wridate, content, pw, title, file;
-   JComboBox<String> writer;
+   String UserID, writer, wridate, content, pw, title, file;
 
    public String getUserID() {
       return UserID;
    }
    
-   public void setUserID(String regis) {
+   public void setUserID(String UserID) {
 	    this.UserID = UserID;
    }
 
-   
-   public JComboBox<String> getwriter() {
+   public String getwriter() {
 	   return writer;
    }
    
    public void setwriter(String regis) {
-	   this.writer = writer;
+	   this.writer = regis;
    }
    
    public String getwridate() {

@@ -30,7 +30,7 @@ public class boardwriteDB {
 			JOptionPane.showMessageDialog
 			(null, "등록되었습니다!", "BOARD MESSAGE", JOptionPane.INFORMATION_MESSAGE);
 			
-			System.out.println("작성자: " + s.getUserID() + " / 작성자 표시: " + s.getwriter() + " / 작성 기간: " + s.getwridate() + " / 비밀번호: " + s.getpw() + " / 제목: " + s.gettitle() + " / 내용: " + s.gettitle() + "/ 첨부파일: " + s.getfile() + " 가 " + "DB로 전송되었습니다!");
+			System.out.println("작성자: " + s.getUserID() + " / 작성자 표시: " + s.getwriter() + " / 작성 기간: " + s.getwridate() + " / 비밀번호: " + s.getpw() + " / 제목: " + s.gettitle() + " / 내용: " + s.getcontent() + "/ 첨부파일: " + s.getfile() + " 가 " + "DB로 전송되었습니다!");
 			Statement state = con.createStatement();
 			
 			int x = state.executeUpdate(query);

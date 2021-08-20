@@ -16,9 +16,11 @@ import Main.BoardFrame1;
 import Main.BoardFrame2;
 import Player.PlayerFrame;
 import RankCompare.RankComparePanel;
+import login.loginFrame;
+import myPage.myPageFrame;
+import regMember.regMemFrame;
 
 public class funVisible {
-<<<<<<< HEAD
    //홈화면
    public void mainVisible(BoardFrame1 boardPanel1, BoardFrame2 boardPanel2, cheerFrame CheerPanel,
          boardwriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
@@ -111,12 +113,12 @@ public class funVisible {
         myPagePanel.setVisible(false);
         loginPanel.setVisible(true);
         regMemPanel.setVisible(false);
+   }
 
         //메뉴버튼 표시
-=======
    
    public void panelVisible(String label, BoardFrame1 boardPanel1, BoardFrame2 boardPanel2, cheerFrame CheerPanel,
-         BoardWriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
+         boardwriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
          PlayerFrame playerPanel, RankComparePanel rankComparePanel) {
       switch(label) {
      //home 화면 출력
@@ -198,7 +200,6 @@ public class funVisible {
    //menu 버튼 보이기와 menu 버튼에 효과없음 함수
    public void btnShow(JButton player_Btn, JButton cheering_Btn, 
           JButton gameInf_Btn, JButton rank_Btn) {
->>>>>>> 1b0cd06fdc02c6a027a3fbe3e854a23513c50dae
         player_Btn.setVisible(true);
         cheering_Btn.setVisible(true);
         gameInf_Btn.setVisible(true);
@@ -213,7 +214,6 @@ public class funVisible {
         rank_Btn.setBorderPainted(false);
         rank_Btn.setFocusPainted(false);
    }
-<<<<<<< HEAD
    public void loginbtnVisible( JButton loginbtn, JButton logOutbtn, JButton myPage_Btn,
          JButton regMembtn, JButton writebtn, JButton c_writebtn, JButton regQuitbtn, JTextField inID, 
          JTextField inputEmail, JPasswordField inPW2, JTextField inputNic, JButton regBtn,
@@ -286,7 +286,7 @@ public class funVisible {
         gameInf_Btn.setFocusPainted(false);
         rank_Btn.setBorderPainted(false);
         rank_Btn.setFocusPainted(false);
-=======
+   }
    
    public void menuBtnShow(String label, JButton player_Btn, JButton cheering_Btn, 
           JButton gameInf_Btn, JButton rank_Btn) {
@@ -328,7 +328,6 @@ public class funVisible {
                      rank_Btn.setFocusPainted(false);
                        break;
       }
->>>>>>> 1b0cd06fdc02c6a027a3fbe3e854a23513c50dae
    }
    
    //login 했을때 버튼
@@ -343,7 +342,6 @@ public class funVisible {
        //메인패널
        writebtn.setVisible(true);
    }
-<<<<<<< HEAD
    //regmem
    public void regVisible(BoardFrame1 boardPanel1, BoardFrame2 boardPanel2, cheerFrame CheerPanel,
          boardwriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
@@ -362,8 +360,7 @@ public class funVisible {
         myPagePanel.setVisible(false);
         loginPanel.setVisible(false);
         regMemPanel.setVisible(true);
-=======
->>>>>>> 1b0cd06fdc02c6a027a3fbe3e854a23513c50dae
+   }
 
    //login 안했을때 home 버튼
    public void freeModeTitleBtn( JButton loginbtn, JButton logOutbtn, JButton myPage_Btn,
@@ -377,7 +374,6 @@ public class funVisible {
         //메인패널
         writebtn.setVisible(false);
    }
-<<<<<<< HEAD
    
    //글작성패널
       public void boardWriteVisible(BoardFrame1 boardPanel1, BoardFrame2 boardPanel2, cheerFrame CheerPanel,
@@ -397,15 +393,13 @@ public class funVisible {
             myPagePanel.setVisible(false);
             loginPanel.setVisible(false);
             regMemPanel.setVisible(false);
-=======
->>>>>>> 1b0cd06fdc02c6a027a3fbe3e854a23513c50dae
+      }
 
     //cheer패널
       public void loginModeCheering(JButton c_writebtn){          
             c_writebtn.setVisible(true);
       }
       
-<<<<<<< HEAD
       //글작성패널
       public void cheermsgvisible(BoardFrame1 boardPanel1, BoardFrame2 boardPanel2, cheerFrame CheerPanel,
             boardwriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
@@ -523,9 +517,7 @@ public class funVisible {
                loginPanel.setVisible(false);
                myPagePanel.setVisible(false);
       }
-=======
 
->>>>>>> 1b0cd06fdc02c6a027a3fbe3e854a23513c50dae
       public void cheeringbtnVisible(JButton loginbtn, JButton logOutbtn, JButton myPage_Btn,
       JButton regMembtn, JButton writebtn, JButton c_writebtn) {
        //메인패널
@@ -535,8 +527,7 @@ public class funVisible {
           c_writebtn.setVisible(true);
 
       }
-<<<<<<< HEAD
-<<<<<<< HEAD
+
       //랭킹게시판
       public void rankVisible(BoardFrame1 boardPanel1, BoardFrame2 boardPanel2, cheerFrame CheerPanel,
             boardwriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
@@ -586,9 +577,7 @@ public class funVisible {
             cheermsgPanel.setVisible(true);
       }
    
-=======
 
->>>>>>> 949cab538d9b19fde9ad97df39cf78dca841fa1d
    //취소버튼 누르면 패널txt 초기화
    public void initiText(JTextField inputName,JTextField inputEmail,JTextField inputNic,
          JTextField inID, JPasswordField inPW2, JPasswordField inPW, JPasswordField inputPW,JTextField inputID) {
@@ -612,8 +601,9 @@ public class funVisible {
             }
         });
    }
-<<<<<<< HEAD
-=======
+   
+}
+
 //
 //   //취소버튼 누르면 패널txt 초기화
 //   public void initiText(JTextField inputName,JTextField inputEmail,JTextField inputNic,
@@ -638,7 +628,3 @@ public class funVisible {
 //            }
 //        });
 //   }
->>>>>>> 1b0cd06fdc02c6a027a3fbe3e854a23513c50dae
-=======
->>>>>>> 949cab538d9b19fde9ad97df39cf78dca841fa1d
-}

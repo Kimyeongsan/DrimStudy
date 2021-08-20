@@ -27,8 +27,8 @@ import Database.boardwriteDB;
 public class boardwritePanel extends JPanel {
 
 	int count = 0;
-	JTextField UserID, wridate, pw, title, content, file;
-	JComboBox<String> writer;
+	JTextField UserID, writer, wridate, pw, title, content, file;
+	/*JComboBox<String> writer;*/
 	
 	public boardwritePanel(JFrame frame) {
 		super();
@@ -88,13 +88,31 @@ public class boardwritePanel extends JPanel {
 	    writerTxt.setHorizontalAlignment(JLabel.CENTER);
 	    this.add(writerTxt);
 	    
+	    writer = new JTextField("");
+	    writer.setBounds(650, 100, 200, 40);
+	    writer.setFont(new Font("고딕", Font.BOLD, 20)); // Font
+	    writer.setForeground(Color.black); // Color
+	    writer.setBackground(new Color(255,255,255));
+	    writer.setOpaque(true);
+	    writer.setHorizontalAlignment(JLabel.CENTER);
+	    this.add(writer);
+	    
+	    writer.addMouseListener(new MouseAdapter(){
+	    	@Override
+	    	public void mouseClicked(MouseEvent e) {
+	    		writer.setText("");
+	    	}
+	    });
+	    
 	    //작성자 표시 종류 선택(드롭박스)
+	    /*
 	    String[] optionsToChoose = {"이름", "닉네임", "익명"};
 	    JComboBox<String> writer = new JComboBox<>(optionsToChoose);
 	    writer.setBounds(650, 100, 200, 40);
 	    JLabel jLabel = new JLabel();
 	    jLabel.setBounds(90, 100, 400, 100);
 	    this.add(writer);
+	    */
 	    
 	    //작성 기간 글자
 	    JLabel wridateTxt = new JLabel("작성 기간");
@@ -249,6 +267,7 @@ public class boardwritePanel extends JPanel {
 	    regisBtn.setFocusPainted(false);
 	    this.add(regisBtn);
 	    
+	 // input 결과물 출력 (게시물 작성)
 	 // 적용버튼 리스너
 		 regisBtn.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e) {
@@ -256,33 +275,52 @@ public class boardwritePanel extends JPanel {
 				//connectDB cDB = new connectDB();
 			 	String regis;
 			 	regis = (String) UserID.getText();
-			 	regis = (String) writer.getToolTipText();
+			 	regis = (String) writer.getText();
 			 	regis = (String) wridate.getText();
 			 	regis = (String) pw.getText();
 			 	regis = (String) title.getText();
 				regis = (String) content.getText();
 				regis = (String) file.getText();
+				
 			 	
-			 	//MsgVO data = new MsgVO();
 			 	ArrayList<boardwriteVO> list = new ArrayList<boardwriteVO>(); // 게터세터를 받아줄 배열을 먼저 만들어줌
 			 	boardwriteVO data = new boardwriteVO(); // 해당 클래스를 호출
  			 	
-			 	data.setUserID(regis);
-			 	data.setwriter(regis);
-			 	data.setwridate(regis);
-			 	data.setpw(regis);
-			 	data.settitle(regis);
-			 	data.setcontent(regis);
-			 	data.setfile(regis);
+			 	data.setUserID(UserID.getText());
+			 	data.setwriter(writer.getText());
+			 	data.setwridate(wridate.getText());
+			 	data.setpw(pw.getText());
+			 	data.settitle(title.getText());
+			 	data.setcontent(content.getText());
+			 	data.setfile(file.getText());
 			 	
 			 	list.add(data); // data를 list에 저장시켜줌
 			 	
 			 	boardwriteDB s = new boardwriteDB(); // DB함수를 호출
 			 	s.uploadDB(data); // 해당 함수에 data를 보내줌
 			 	
+			 // 임시 출력
+ 			 	System.out.println(data.getUserID() + data.getwriter() + data.getwridate() + data.getpw() + data.gettitle() + data.getcontent() + data.getfile());
+ 			 	BtnInit();
+			 	
 			 }
 	      });
 	}
 	
+	private void BtnInit() {
+		UserID.setText("");
+		UserID.setBackground(new Color(255,255,255));
+		writer.setText("");
+		writer.setBackground(new Color(255,255,255));
+		wridate.setText("");
+		wridate.setBackground(new Color(255,255,255));
+		pw.setText("");
+		pw.setBackground(new Color(255,255,255));
+		title.setText("");
+		title.setBackground(new Color(255,255,255));
+		content.setText("");
+		content.setBackground(new Color(255,255,255));
+		file.setText("");
+		file.setBackground(new Color(255,255,255));
+	}
 }
-
