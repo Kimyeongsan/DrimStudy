@@ -4,20 +4,14 @@ package myPage;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
+import MainFunction.funcBtn;
 
 public class myPagePanel extends JPanel {
    
@@ -32,14 +26,10 @@ public class myPagePanel extends JPanel {
          this.setBounds(0, 0, 1280, 960);
          this.setLayout(null);
 
+         funcBtn funcBtn = new funcBtn();
          //로그인 글자
          JLabel IDtitle = new JLabel("마이페이지");
-         IDtitle.setBounds(130, 50, 800, 35);
-         IDtitle.setFont(new Font("고딕", Font.BOLD, 30)); // Font
-         IDtitle.setForeground(Color.white); // Color
-         IDtitle.setBackground(new Color(24, 23, 23));
-         IDtitle.setOpaque(true);
-         IDtitle.setHorizontalAlignment(JLabel.CENTER);
+         funcBtn.funcMainLabel(IDtitle, 130, 50, 800, 35,24, 23, 23);
          this.add(IDtitle);
 
            JLabel nicInput = new JLabel("닉네임");

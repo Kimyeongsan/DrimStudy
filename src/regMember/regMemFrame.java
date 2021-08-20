@@ -52,14 +52,14 @@ public class regMemFrame extends JFrame {
           JButton regBtn = new JButton("완료");
 
          //회원가입
-          funcBtn.funcTextField(inputName, 510, 330, 250, 40);
-          funcBtn.funcTextField(inID, 510, 380, 250, 40);
-          funcBtn.funcTextField(inPW, 510, 430, 250, 40);
-          funcBtn.funcTextField(inPW2, 510, 480, 250, 40);
-          funcBtn.funcTextField(inputEmail, 510, 530, 250, 40);
-          funcBtn.funcTextField(inputNic, 510, 580, 250, 40);
-          funcBtn.funcbtn(regQuitbtn, 900, 660, 80, 40, true);
-          funcBtn.funcbtn(regBtn, 800, 660, 80, 40, true);
+          funcBtn.funcTextField(inputName, 380, 200, 250, 40);
+          funcBtn.funcTextField(inID, 380, 250, 250, 40);
+          funcBtn.funcTextField(inPW, 380, 300, 250, 40);
+          funcBtn.funcTextField(inPW2, 380, 350, 250, 40);
+          funcBtn.funcTextField(inputEmail, 380, 400, 250, 40);
+          funcBtn.funcTextField(inputNic, 380, 450, 250, 40);
+          funcBtn.funcbtn(regQuitbtn, 800, 550, 80, 40, true);
+          funcBtn.funcbtn(regBtn, 700, 550, 80, 40, true);
 
           this.add(inputName);
           this.add(inID);

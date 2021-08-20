@@ -29,7 +29,7 @@ public class funVisible {
                   BoardWritePanel.setVisible(false);
                   CheerPanel.setVisible(false);
                   cheermsgPanel.setVisible(false);
-               //   gameInfPanel.setVisible(false);
+                  gameInfPanel.setVisible(false);
                   playerPanel.setVisible(false);
                   rankComparePanel.setVisible(false);
                   break;
@@ -40,7 +40,7 @@ public class funVisible {
                           boardPanel2.setVisible(false);
                           CheerPanel.setVisible(false);
                           cheermsgPanel.setVisible(false);
-                         // gameInfPanel.setVisible(false);
+                          gameInfPanel.setVisible(false);
                           playerPanel.setVisible(false);
                           rankComparePanel.setVisible(false);
                           break;
