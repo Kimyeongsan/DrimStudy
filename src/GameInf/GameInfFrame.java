@@ -5,8 +5,6 @@ import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import Player.PlayerPanel;
-
 public class GameInfFrame extends JPanel {
 	
 	private JFrame frame;
