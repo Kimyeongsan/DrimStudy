@@ -16,8 +16,19 @@ public class SearchDAO {
 		return rank;
 	}
 	
+	// News Part
 	public String getNews() {
 		return news;
+	}
+	
+	
+	public String getTitle() {
+		return Title;
+	}
+	
+	
+	public String getContent() {
+		return Content;
 	}
 	
 	
@@ -28,21 +39,20 @@ public class SearchDAO {
 	public void setRank(String rankSearch) {
 		this.rank = rankSearch;
 	}
-
-	public void setNews(String news) {
-		this.news = news;
-	}
-	
 	
 	// News Part
 	
-	public String getNewsContent() {
-		return Title + "\n "+ Content;
+	public void setNews(String news) {
+		this.news = news;
+	}
+
+	public void setTitle(String title) {
+		Title = title;
+	}
+
+	public void setContent(String content) {
+		Content = content;
 	}
 	
-	public void setNewsContent(String title, String content) {
-		this.Title = title;
-		this.Content = content;
-	}
 
 }

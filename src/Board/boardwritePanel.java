@@ -2,15 +2,19 @@ package Board;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.awt.Font;
 import java.io.File;
 import java.io.IOException;
+import java.sql.Connection;
 import java.text.SimpleDateFormat;
 
 import javax.swing.DefaultComboBoxModel;
@@ -28,10 +32,8 @@ import Database.boardwriteDB;
 
 public class boardwritePanel extends JPanel {
 
-	
 	int count = 0;
-	String UserID, wridate, pw, title, file;
-	JTextField content;
+	JTextField UserID, wridate, pw, title, content, file;
 	JComboBox<String> writer;
 	
 	public boardwritePanel(JFrame frame) {
@@ -67,13 +69,14 @@ public class boardwritePanel extends JPanel {
 	    this.add(UserIDTxt);
 	    
 	    // 작성자 입력
-	    JTextField inputUserID = new JTextField("");
-	    inputUserID.setBounds(250, 100, 200, 40);
-	    inputUserID.setFont(new Font("고딕", Font.BOLD, 20)); // Font
-	    inputUserID.setForeground(Color.black); // Color
-	    inputUserID.setBackground(new Color(255,255,255));
-	    inputUserID.requestFocusInWindow();
-	    this.add(inputUserID);
+	    UserID = new JTextField("");
+	    UserID.setBounds(250, 100, 200, 40);
+	    UserID.setFont(new Font("고딕", Font.BOLD, 20)); // Font
+	    UserID.setForeground(Color.black); // Color
+	    UserID.setBackground(new Color(255,255,255));
+	    UserID.setOpaque(true);
+	    UserID.setHorizontalAlignment(JLabel.CENTER);
+	    this.add(UserID);
 	    
 	    //작성자 표시 글자
 	    JLabel writerTxt = new JLabel("작성자 표시");
@@ -87,11 +90,11 @@ public class boardwritePanel extends JPanel {
 	    
 	    //작성자 표시 종류 선택(드롭박스)
 	    String[] optionsToChoose = {"이름", "닉네임", "익명"};
-	    JComboBox<String> writeroptions = new JComboBox<>(optionsToChoose);
-	    writeroptions.setBounds(650, 100, 200, 40);
+	    JComboBox<String> writer = new JComboBox<>(optionsToChoose);
+	    writer.setBounds(650, 100, 200, 40);
 	    JLabel jLabel = new JLabel();
 	    jLabel.setBounds(90, 100, 400, 100);
-	    this.add(writeroptions);
+	    this.add(writer);
 	    
 	    //작성 기간 글자
 	    JLabel wridateTxt = new JLabel("작성 기간");
@@ -104,13 +107,14 @@ public class boardwritePanel extends JPanel {
 	    this.add(wridateTxt);
 		
 	  //작성 기간 입력
-	    JTextField inputwridate = new JTextField("");
-	    inputwridate.setBounds(250, 150, 200, 40);
-	    inputwridate.setFont(new Font("고딕", Font.BOLD, 20)); // Font
-	    inputwridate.setForeground(Color.black); // Color
-	    inputwridate.setBackground(new Color(255,255,255));
-	    inputwridate.requestFocusInWindow();
-	    this.add(inputwridate);
+	    wridate = new JTextField("");
+	    wridate.setBounds(250, 150, 200, 40);
+	    wridate.setFont(new Font("고딕", Font.BOLD, 20)); // Font
+	    wridate.setForeground(Color.black); // Color
+	    wridate.setBackground(new Color(255,255,255));
+	    wridate.setOpaque(true);
+	    wridate.setHorizontalAlignment(JLabel.CENTER);
+	    this.add(wridate);
 	    
 	    //비밀번호 글자
 	    JLabel pwTxt = new JLabel("비밀번호");
@@ -123,13 +127,14 @@ public class boardwritePanel extends JPanel {
 	    this.add(pwTxt);
 	    
 	    //비밀번호 입력
-	    JTextField inputpw = new JTextField("");
-	    inputpw.setBounds(650, 150, 200, 40);
-	    inputpw.setFont(new Font("고딕", Font.BOLD, 20)); // Font
-	    inputpw.setForeground(Color.black); // Color
-	    inputpw.setBackground(new Color(255,255,255));
-	    inputpw.requestFocusInWindow();
-	    this.add(inputpw);
+	    pw = new JTextField("");
+	    pw.setBounds(650, 150, 200, 40);
+	    pw.setFont(new Font("고딕", Font.BOLD, 20)); // Font
+	    pw.setForeground(Color.black); // Color
+	    pw.setBackground(new Color(255,255,255));
+	    pw.setOpaque(true);
+	    pw.setHorizontalAlignment(JLabel.CENTER);
+	    this.add(pw);
 	    
 	    //제목 글자
 	    JLabel titleTxt = new JLabel("제목");
@@ -142,13 +147,14 @@ public class boardwritePanel extends JPanel {
 	    this.add(titleTxt);
 	    
 	    //제목 입력
-	    JTextField inputtitle = new JTextField("");
-	    inputtitle.setBounds(250, 200, 600, 40);
-	    inputtitle.setFont(new Font("고딕", Font.BOLD, 20)); // Font
-	    inputtitle.setForeground(Color.black); // Color
-	    inputtitle.setBackground(new Color(255,255,255));
-	    inputtitle.requestFocusInWindow();
-	    this.add(inputtitle);
+	    title = new JTextField("");
+	    title.setBounds(250, 200, 600, 40);
+	    title.setFont(new Font("고딕", Font.BOLD, 20)); // Font
+	    title.setForeground(Color.black); // Color
+	    title.setBackground(new Color(255,255,255));
+	    title.setOpaque(true);
+	    title.setHorizontalAlignment(JLabel.CENTER);
+	    this.add(title);
 	    
 	    //내용 글자
 	    JLabel contentTxt = new JLabel("내용");
@@ -161,13 +167,14 @@ public class boardwritePanel extends JPanel {
 	    this.add(contentTxt);
 	    
 	    //내용 입력
-	    JTextField inputcontent = new JTextField("");
-	    inputcontent.setBounds(250, 250, 600, 225);
-	    inputcontent.setFont(new Font("고딕", Font.BOLD, 20)); // Font
-	    inputcontent.setForeground(Color.black); // Color
-	    inputcontent.setBackground(new Color(255,255,255));
-	    inputcontent.requestFocusInWindow();
-	    this.add(inputcontent);
+	    content = new JTextField("");
+	    content.setBounds(250, 250, 600, 225);
+	    content.setFont(new Font("고딕", Font.BOLD, 20)); // Font
+	    content.setForeground(Color.black); // Color
+	    content.setBackground(new Color(255,255,255));
+	    content.setOpaque(true);
+	    content.setHorizontalAlignment(JLabel.CENTER);
+	    this.add(content);
 	    
 	    //첨부파일 글자
 	    JLabel fileTxt = new JLabel("첨부파일");
@@ -189,13 +196,14 @@ public class boardwritePanel extends JPanel {
 	    this.add(fileBtn);
 	    
 	    //첨부파일 내용표시 (기능 삽입하면서 일부 수정 예정)
-	    JTextField inputfile = new JTextField("");
-	    inputfile.setBounds(340, 510, 500, 30);
-	    inputfile.setFont(new Font("고딕", Font.BOLD, 20)); // Font
-	    inputfile.setForeground(Color.black); // Color
-	    inputfile.setBackground(new Color(255,255,255));
-	    inputfile.requestFocusInWindow();
-	    this.add(inputfile);
+	    file = new JTextField("");
+	    file.setBounds(340, 510, 500, 30);
+	    file.setFont(new Font("고딕", Font.BOLD, 20)); // Font
+	    file.setForeground(Color.black); // Color
+	    file.setBackground(new Color(255,255,255));
+	    file.setOpaque(true);
+	    file.setHorizontalAlignment(JLabel.CENTER);
+	    this.add(file);
 	    
 	    //등록 버튼
 	    JButton regisBtn = new JButton("등록");
@@ -210,21 +218,27 @@ public class boardwritePanel extends JPanel {
 		 regisBtn.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e) {
 				
-			 	//connectDB cDB = new connectDB();
+				//connectDB cDB = new connectDB();
 			 	String regis;
-				regis = (String) inputcontent.getText();
+			 	regis = (String) UserID.getText();
+			 	regis = (String) writer.getToolTipText();
+			 	regis = (String) wridate.getText();
+			 	regis = (String) pw.getText();
+			 	regis = (String) title.getText();
+				regis = (String) content.getText();
+				regis = (String) file.getText();
 			 	
 			 	//MsgVO data = new MsgVO();
 			 	ArrayList<boardwriteVO> list = new ArrayList<boardwriteVO>(); // 게터세터를 받아줄 배열을 먼저 만들어줌
 			 	boardwriteVO data = new boardwriteVO(); // 해당 클래스를 호출
-			 	
-			 	data.setUserID(UserID);
-			 	data.setwriter(writer);
-			 	data.setwridate(wridate);
-			 	data.setpw(pw);
-			 	data.settitle(title);
-			 	data.setcontent(content);
-			 	data.setfile(file);
+ 			 	
+			 	data.setUserID(regis);
+			 	data.setwriter(regis);
+			 	data.setwridate(regis);
+			 	data.setpw(regis);
+			 	data.settitle(regis);
+			 	data.setcontent(regis);
+			 	data.setfile(regis);
 			 	
 			 	list.add(data); // data를 list에 저장시켜줌
 			 	

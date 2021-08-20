@@ -4,23 +4,23 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 public class boardwriteVO {
-   String UserID, wridate, pw, title, file;
+   String UserID, wridate, content, pw, title, file;
    JComboBox<String> writer;
-   JTextField content;
 
    public String getUserID() {
       return UserID;
    }
-
-   public void setUserID(String UserID) {
-      this.UserID = UserID;
+   
+   public void setUserID(String regis) {
+	    this.UserID = UserID;
    }
+
    
    public JComboBox<String> getwriter() {
 	   return writer;
    }
    
-   public void setwriter(JComboBox<String> writer) {
+   public void setwriter(String regis) {
 	   this.writer = writer;
    }
    
@@ -36,32 +36,32 @@ public class boardwriteVO {
 	   return pw;
    }
    
-   public void setpw(String pw) {
-      this.pw = pw;
+   public void setpw(String regis) {
+      this.pw = regis;
    }
 
    public String gettitle() {
       return title;
    }
    
-   public void settitle(String title) {
-	   this.title = title;
+   public void settitle(String regis) {
+	   this.title = regis;
    }
 
-   public JTextField getcontent() {
+   public String getcontent() {
 	      return content;
 }
    
-   public void setcontent(JTextField content) {
-      this.content = content;
+   public void setcontent(String regis) {
+      this.content = regis;
    }
    
    public String getfile() {
 	      return file;
    }
    
-   public void setfile(String file) {
-      this.file = file;
+   public void setfile(String regis) {
+      this.file = regis;
    }
 
 }
