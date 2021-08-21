@@ -11,20 +11,22 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class CrawlingDAO {
 	
+	static String url = "https://www.naver.com";
+
+	///////////////////////////////////////// 뉴스 출력 부분
+	
 	static void NewsCrawling(String newsSearch, ArrayList<SearchVO> SL) {
-		
+
 		WebDriver driver;
-		WebElement apply_btn, title, content, img;
-		
+		WebElement apply_btn, title, content;
+
 		String newsTitle = null;
 		String newsContent = null;
-		
-		String url = "https://www.naver.com";
 		
 		Game_Parser game_Parser = new Game_Parser();
 
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("headless");
+//		options.addArguments("headless");
 
 		driver = new ChromeDriver(options);
 		driver.get(url);
@@ -50,16 +52,14 @@ public class CrawlingDAO {
 		// 첫번째 뉴스에서 제목과 내용 받아옴
 		title = driver.findElement(By.xpath("//*[@id=\"sp_nws1\"]/div[1]/div/a"));
 		content = driver.findElement(By.xpath("//*[@id=\"sp_nws1\"]/div[1]/div/div[2]"));
-		
-		img = driver.findElement(By.xpath("//*[@id=\"sp_nws1\"]/div[1]/a"));
-		
+
 		newsTitle = title.getText();
 		newsContent = content.getText();
-		
+
 		SL.add(new SearchVO(newsTitle, newsContent));
-		
-		System.out.println(newsTitle + "\n" + newsContent);
-		
+
+		System.out.println(newsTitle + "\n" + newsContent + "\n");
+
 		try {
 			if (driver != null) {
 				driver.close();
@@ -70,19 +70,20 @@ public class CrawlingDAO {
 			throw new RuntimeException(e1.getMessage());
 		}
 	}
-	
-	
-	/////////////////////////////////////////
-	
+
+	///////////////////////////////////////// 메달 순위 부분
+
 	static void RankCrawling(ArrayList<RankVO> SL) {
-		
+
 		WebDriver driver;
-		WebElement apply_btn;
-		
-		String url = "https://www.naver.com";
-		
-		String country, gold, silver, bronze, total;
-		
+		WebElement apply_btn, country, gold, silver, bronze, total;
+
+		String Country = " ";
+		String Gold = " ";
+		String Silver = " ";
+		String Bronze = " ";
+		String Sum = " ";
+
 		Game_Parser game_Parser = new Game_Parser();
 
 		ChromeOptions options = new ChromeOptions();
@@ -101,38 +102,34 @@ public class CrawlingDAO {
 		apply_btn.click();
 
 		
-//		List<WebElement> el2 = driver.findElements(By.className("gold"));
-//		List<WebElement> el3 = driver.findElements(By.className("silver"));
-//		List<WebElement> el4 = driver.findElements(By.className("bronze"));
-//		List<WebElement> el5 = driver.findElements(By.className("total"));
-		
-		for (int i = 0; i < 10; i++) {
-			
-			List<WebElement> el1 = driver.findElements(By.xpath("//*[@id=\"main_pack\"]/section[2]/div/div[2]/div[2]/div[3]/div/div[1]/table/tbody/tr["+ i +"]/td[1]/p/a[2]"));
-			country = el1.get(i).getText();
-			
-			
-//			gold = el2.get(i).getText();
-//			silver = el3.get(i).getText();
-//			bronze = el4.get(i).getText();
-//			total = el5.get(i).getText();
-			
-//			SL.add(new RankVO(country, gold, silver, bronze, total));
-			
-			System.out.println(country);
+		for(int j = 1; j <= 10; j++) {
+
+		country = driver.findElement(
+				By.xpath("//*[@id=\"main_pack\"]/section[2]/div/div[2]/div[2]/div[3]/div/div[1]/table/tbody/tr[" + j
+						+ "]/td[1]/p/a[2]"));
+		gold = driver.findElement(
+				By.xpath("//*[@id=\"main_pack\"]/section[2]/div/div[2]/div[2]/div[3]/div/div[1]/table/tbody/tr[" + j
+						+ "]/td[2]/p"));
+		silver = driver.findElement(
+				By.xpath("//*[@id=\"main_pack\"]/section[2]/div/div[2]/div[2]/div[3]/div/div[1]/table/tbody/tr[" + j
+						+ "]/td[3]/p"));
+		bronze = driver.findElement(
+				By.xpath("//*[@id=\"main_pack\"]/section[2]/div/div[2]/div[2]/div[3]/div/div[1]/table/tbody/tr[" + j
+						+ "]/td[4]/p"));
+		total = driver.findElement(
+				By.xpath("//*[@id=\"main_pack\"]/section[2]/div/div[2]/div[2]/div[3]/div/div[1]/table/tbody/tr[" + j
+						+ "]/td[5]/p"));
+
+		Country = new String(country.getText());
+		Gold = new String(gold.getText());
+		Silver = new String(silver.getText());
+		Bronze = new String(bronze.getText());
+		Sum = new String(total.getText());
+
+		SL.add(new RankVO(Country, Gold, Silver, Bronze, Sum));
+//		System.out.println(Country + "  " + Gold + "  " + Silver + "  " + Bronze + "  " + Sum);
 		}
 		
-		
-//		List<WebElement> el1 = driver.findElements(By.className("menu"));
-//
-//		for (int i = 0; i < el1.size(); i++) {
-//			if (el1.get(i).getText().equals("뉴스")) {
-//				el1.get(i).click();
-//				break;
-//			}
-//		}
-		
-
 		try {
 			if (driver != null) {
 				driver.close();
@@ -143,5 +140,5 @@ public class CrawlingDAO {
 			throw new RuntimeException(e1.getMessage());
 		}
 	}
-	
+
 }

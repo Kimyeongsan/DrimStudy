@@ -15,6 +15,8 @@ public class RankVO {
 		this.Bronze = bronze;
 		this.Sum = sum;
 	}
+	
+	/////////////////////
 
 	public String getCountry() {
 		return Country;
@@ -32,6 +34,8 @@ public class RankVO {
 		Gold = gold;
 	}
 
+	/////////////////////
+	
 	public String getSilver() {
 		return Silver;
 	}
