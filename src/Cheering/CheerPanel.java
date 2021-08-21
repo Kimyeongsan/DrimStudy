@@ -2,13 +2,13 @@ package Cheering;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.util.Random;
 
-import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
+
+import Database.cheermsgDB;
 
 public class CheerPanel extends JPanel {
 
@@ -18,47 +18,42 @@ public class CheerPanel extends JPanel {
 		super();
 		//cheermsgPanel과 연결하기
 		panelInit(frame);
-	}
+	}	
+	
+
 
 	private void panelInit(JFrame frame) {
 		// 메인 화면 패널
 		  this.setBackground(new Color(20, 255, 255));
 	      this.setBounds(0, 0, 1280, 960);
 	      this.setLayout(null);
+	      cheermsgDB cheermsgDB = new cheermsgDB();
+	      JLabel postIT = new JLabel(cheermsgDB.getText(), JLabel.CENTER);
 	      
-	      //포스트잇
-	      JTextArea postIt = new JTextArea("");
-	      postIt.setLineWrap(true);
-	      postIt.setBounds(30, 30, 300, 300); //랜덤값으로 변경하기 - 추가필요
-	      postIt.setFont(new Font("고딕", Font.BOLD, 30)); // Font
-	      postIt.setForeground(Color.black); // Color
-	      postIt.setOpaque(true);
+	      cheermsgDB.callCheerMsg();
 	      
-	      
-	      //포스트잇 색상변경 - 외부패널에서 값가져오기
-	      /*
-	      switch() { //입력변수를 cheermsgPanel에서 가져오기 필요
-	    	  case : //red
-	    	    postIt.setBackground(Color.black); // Color
-	    	  break;
-	    	  case ://yellow
-	    	    postIt.setBackground(Color.black); // Color
-	    	  break;
-	    	  case ://orange
-	    	    postIt.setBackground(Color.black); // Color
-	    	  break;
-	    	  case ://skyblue
-	    	    postIt.setBackground(Color.black); // Color
-	    	  break;
-	    	  case ://green
-	    	    postIt.setBackground(Color.black); // Color
-	    	  break;
-	    	  default:
-	    	    postIt.setBackground(Color.black); // Color
+	      Random rand = new Random();
+	      rand.setSeed(System.currentTimeMillis());
+	      for (int i = 1; i <= 5; i++) {
+	    	  for (int j = 1; j <= 5; j++) {
+	            System.out.print(rand.nextInt(100) + " ");
+	            postIT.setBounds(i, j, 300, 300);
+	        }
 	      }
-
+	      postIT.setBounds(30, 30, 300, 300); //랜덤값으로 변경하기 - 추가필요
+	      postIT.setFont(new Font("고딕", Font.BOLD, 30)); // Font
+	      postIT.setOpaque(true);
+	      this.add(postIT);
+//	      for(int i = 0;i<3;i++) {
+////	      String post = {};
+//	      
+//	      
+//	      
+	      
 		    //위치도 변경 - 랜덤값
-	}*/
-	      this.add(postIt);
+	
+	      
 	}
+	
+
 }

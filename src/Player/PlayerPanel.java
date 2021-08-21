@@ -50,7 +50,7 @@ public class PlayerPanel extends JPanel {
 
 		// event(종목)
 		JLabel event = new JLabel("종목");
-		funcbtn.funcLabel(tilteLabel, 350, 170, 135, 40,166, 166, 166);
+		funcbtn.funcLabel(event, 350, 170, 135, 40,166, 166, 166);
 		this.add(event);
 
 		// country(국가)

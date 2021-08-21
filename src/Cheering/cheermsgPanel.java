@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import Database.cheermsgDB;
+import Main.funcBtn;
 
 public class cheermsgPanel extends JPanel {
 
@@ -105,41 +106,13 @@ public class cheermsgPanel extends JPanel {
 		greenbtn = new JButton("");
 		whitebtn = new JButton("");
 		
-		redbtn.setBounds(148, 200, 20, 28);
-		redbtn.setBackground(new Color(247,146,129));
-		redbtn.setFocusPainted(false);
-		redbtn.setBorderPainted(false);
-		redbtn.setVisible(false);
-		
-		yellowbtn.setBounds(148, 240, 20, 28);
-		yellowbtn.setBackground(new Color(255,255,0));
-		yellowbtn.setFocusPainted(false);
-		yellowbtn.setBorderPainted(false);
-		yellowbtn.setVisible(false);
-		
-		orangebtn.setBounds(148, 280, 20, 28);
-		orangebtn.setBackground(new Color(255,192,0));
-		orangebtn.setFocusPainted(false);
-		orangebtn.setBorderPainted(false);
-		orangebtn.setVisible(false);
-		
-		skybluebtn.setBounds(148, 320, 20, 28);
-		skybluebtn.setBackground(new Color(105,216,255));
-		skybluebtn.setFocusPainted(false);
-		skybluebtn.setBorderPainted(false);
-		skybluebtn.setVisible(false);
-		
-		greenbtn.setBounds(148, 360, 20, 28);
-		greenbtn.setBackground(new Color(85,241,59));
-		greenbtn.setFocusPainted(false);
-		greenbtn.setBorderPainted(false);
-		greenbtn.setVisible(false);
-		
-		whitebtn.setBounds(148, 400, 20, 28);
-		whitebtn.setBackground(new Color(255,255,255));
-		whitebtn.setFocusPainted(false);
-		whitebtn.setBorderPainted(false);
-		whitebtn.setVisible(false);
+		funcBtn funcbtn = new funcBtn();
+		funcbtn.colorbtn(redbtn,148, 200, 20, 28,247,146,129);
+		funcbtn.colorbtn(yellowbtn,148, 240, 20, 28,255,255,0);
+		funcbtn.colorbtn(orangebtn,148, 280, 20, 28,255,192,0);
+		funcbtn.colorbtn(skybluebtn,148, 320, 20, 28,105,216,255);
+		funcbtn.colorbtn(greenbtn,148, 360, 20, 28,85,241,59);
+		funcbtn.colorbtn(whitebtn,148, 400, 20, 28,255,255,255);
 		
 		this.add(redbtn);
 		this.add(yellowbtn);
@@ -233,14 +206,9 @@ public class cheermsgPanel extends JPanel {
         // input 결과물 출력 (응원메시지 작성)
  		// 등록버튼
  		JButton btnPostcheer = new JButton("등록");
- 		btnPostcheer.setBounds(690, 540, 90, 34);
- 		btnPostcheer.setFont(new Font("맑은 고딕", Font.BOLD, 16)); // Font
- 		btnPostcheer.setBackground(new Color(230,230,230));
- 		btnPostcheer.setForeground(Color.black);
- 		btnPostcheer.setBorderPainted(false);
- 	    btnPostcheer.setFocusPainted(false);
- 	    btnPostcheer.setBorderPainted(true);
- 		
+ 		//funcBtn funcbtn = new funcBtn();
+ 		funcbtn.funcbtn(btnPostcheer,690, 540, 90, 34, true);
+ 	    btnPostcheer.setBorderPainted(true);	
  		this.add(btnPostcheer);
  				
  				
@@ -268,6 +236,9 @@ public class cheermsgPanel extends JPanel {
  				// 임시 출력
  			 	System.out.println(data.getColor() + data.getCheertext());
  			 	BtnInit();
+ 			 	//CheerPanel CheerPanel=new CheerPanel();
+ 			 	//포스트잇 색상, 텍스트 변경 함수 호출
+ 			 	//s.callCheerMsg();
  	      }
  		 });
 	}
