@@ -12,7 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.JTextArea;
 
 import Database.cheermsgDB;
 import Main.funcBtn;
@@ -22,7 +22,7 @@ public class cheermsgPanel extends JPanel {
 	
 	int count =0;
 	String color = null;
-	JTextField content;
+	JTextArea content;
 	JButton redbtn, yellowbtn, orangebtn, greenbtn, skybluebtn, whitebtn;
 	
 	public cheermsgPanel(JFrame frame) {
@@ -54,28 +54,16 @@ public class cheermsgPanel extends JPanel {
  		
  		
  	    // 내용작성
- 		/*
-		JLabel content = new JLabel("내용작성");
-		content.setBounds(330, 110, 420, 420);
-
-		content.setFont(new Font("맑은 고딕", Font.BOLD, 15)); // Font
-
-		content.setForeground(Color.black); // Color
-		content.setBackground(new Color(166, 166, 166));
-		content.setOpaque(true);
-
-		content.setHorizontalAlignment(JLabel.CENTER); // Position
-
-		this.add(content);
-		*/
-		content = new JTextField("내용작성");
+ 		
+ 		content = new JTextArea("내용작성");
 		content.setBounds(330, 110, 420, 420);
 		content.setFont(new Font("맑은 고딕", Font.BOLD, 15)); // Font
 
 		content.setForeground(Color.black); // Color
 		content.setBackground(new Color(166, 166, 166));
 		content.setOpaque(true);
-		content.setHorizontalAlignment(JLabel.CENTER); // Position
+		content.setLineWrap(true);
+		//content.setHorizontalAlignment(JLabel.CENTER); // Position -> TextField 쓸경우 중간 정렬 가능
 
 		this.add(content);
 		

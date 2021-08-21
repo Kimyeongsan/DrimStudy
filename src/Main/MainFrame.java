@@ -100,7 +100,7 @@ public class MainFrame {
       funcBtn.funcbtn(myPage_Btn, 972, 20, 94, 23, true);
       funcBtn.funcbtn(homebtn, 10, 20, 88, 23, true);
       //임시로 위치 변경!!!!!!   >>>> 1085, 800
-      funcBtn.funcbtn(c_writebtn, 500, 500, 120, 30, false);
+      funcBtn.funcbtn(c_writebtn, 500, 500, 120, 30, true);
       funcBtn.funcbtn(writebtn, 1085, 742, 75, 30, true);
 
       frame.add(loginbtn);
@@ -165,7 +165,7 @@ public class MainFrame {
              btnVisible.panelVisible("main", boardPanel1, boardPanel2, CheerPanel, boardwritePanel, cheermsgPanel,
                      gameInfPanel, playerPanel, rankComparePanel);
              btnVisible.btnShow(player_Btn, cheering_Btn, gameInf_Btn, rank_Btn);
-             LoginChk.isLogOut(LoginChk.isLogin_chk());
+             //LoginChk.isLogOut(LoginChk.isLogin_chk());
 //             if(LoginChk.isLogin_chk() != null) {
 //                btnVisible.loginModeBtn("main",loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn);
 //             }else {
