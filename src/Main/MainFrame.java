@@ -62,11 +62,11 @@ public class MainFrame {
          btnVisible.panelVisible("main", boardPanel1, boardPanel2, CheerPanel, boardwritePanel, cheermsgPanel,
                  gameInfPanel, playerPanel, rankComparePanel);
          btnVisible.btnShow(player_Btn, cheering_Btn, gameInf_Btn, rank_Btn);
-         if(LoginChk.isLogin_chk() != null) {
-            btnVisible.loginModeBtn("main",loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn);
-         }else {
-            btnVisible.freeModeBtn( loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn);
-         }
+//         if(LoginChk.isLogin_chk() != null) {
+//            btnVisible.loginModeBtn("main",loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn);
+//         }else {
+//            btnVisible.freeModeBtn( loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn);
+//         }
    }
 
    // Main Frame
