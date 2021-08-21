@@ -16,7 +16,7 @@ import Cheering.cheerFrame;
 import Cheering.cheermsgFrame;
 import Database.cheermsgDB;
 import GameInf.GameInfFrame;
-import Login.LoginCheck;
+//import Login.LoginCheck;
 import Login.loginFrame;
 import Player.PlayerFrame;
 import RankCompare.RankComparePanel;
@@ -58,7 +58,7 @@ public class MainFrame {
          boardwritePanel = new boardwriteFrame(frame);
 
          funVisible btnVisible = new funVisible();
-         LoginCheck LoginChk= new LoginCheck();
+//         LoginCheck LoginChk= new LoginCheck();
          btnVisible.panelVisible("main", boardPanel1, boardPanel2, CheerPanel, boardwritePanel, cheermsgPanel,
                  gameInfPanel, playerPanel, rankComparePanel);
          btnVisible.btnShow(player_Btn, cheering_Btn, gameInf_Btn, rank_Btn);
@@ -110,7 +110,7 @@ public class MainFrame {
       frame.add(homebtn);
       frame.add(c_writebtn);
       frame.add(writebtn);
-      LoginCheck LoginChk= new LoginCheck();
+//      LoginCheck LoginChk= new LoginCheck();
       funcBtnEffect btnEffect= new funcBtnEffect();
 
     // home
@@ -165,12 +165,21 @@ public class MainFrame {
              btnVisible.panelVisible("main", boardPanel1, boardPanel2, CheerPanel, boardwritePanel, cheermsgPanel,
                      gameInfPanel, playerPanel, rankComparePanel);
              btnVisible.btnShow(player_Btn, cheering_Btn, gameInf_Btn, rank_Btn);
+<<<<<<< HEAD
              LoginChk.isLogOut(LoginChk.isLogin_chk());
              if(LoginChk.isLogin_chk() != null) {
                 btnVisible.loginModeBtn("main",loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn);
              }else {
                 btnVisible.freeModeBtn( loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn);
              }
+=======
+//             LoginChk.isLogOut(LoginChk.isLogin_chk());
+//             if(LoginChk.isLogin_chk() != null) {
+//                btnVisible.loginModeBtn("main",loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn);
+//             }else {
+//                btnVisible.freeModeBtn( loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn);
+//             }
+>>>>>>> 72af76c1af88e4a8a6c29ba286ab209d01f87b1f
          }
       });
      
