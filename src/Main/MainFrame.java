@@ -14,8 +14,9 @@ import javax.swing.border.LineBorder;
 import Board.boardwriteFrame;
 import Cheering.cheerFrame;
 import Cheering.cheermsgFrame;
+import Database.cheermsgDB;
 import GameInf.GameInfFrame;
-//import Login.LoginCheck;
+import Login.LoginCheck;
 import Login.loginFrame;
 import Player.PlayerFrame;
 import RankCompare.RankComparePanel;
@@ -44,7 +45,7 @@ public class MainFrame {
       }
    
    //초기화
-   private void Initialize() {
+   public void Initialize() {
          frameInit();
          
          boardPanel1 = new BoardFrame1(frame);
@@ -57,14 +58,14 @@ public class MainFrame {
          boardwritePanel = new boardwriteFrame(frame);
 
          funVisible btnVisible = new funVisible();
-//         LoginCheck LoginChk= new LoginCheck();
+         LoginCheck LoginChk= new LoginCheck();
          btnVisible.panelVisible("main", boardPanel1, boardPanel2, CheerPanel, boardwritePanel, cheermsgPanel,
-                 gameInfPanel, playerPanel, rankComparePanel);
+                 gameInfPanel, playerPanel, rankComparePanel, c_writebtn);
          btnVisible.btnShow(player_Btn, cheering_Btn, gameInf_Btn, rank_Btn);
 //         if(LoginChk.isLogin_chk() != null) {
-//            btnVisible.loginModeBtn("main",loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn);
+//            btnVisible.loginModeBtn("main",loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn);
 //         }else {
-//            btnVisible.freeModeBtn( loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn);
+//            btnVisible.freeModeBtn( loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn);
 //         }
    }
 
@@ -99,7 +100,7 @@ public class MainFrame {
       funcBtn.funcbtn(myPage_Btn, 972, 20, 94, 23, true);
       funcBtn.funcbtn(homebtn, 10, 20, 88, 23, true);
       //임시로 위치 변경!!!!!!   >>>> 1085, 800
-      funcBtn.funcbtn(c_writebtn, 500, 500, 120, 30, false);
+      funcBtn.funcbtn(c_writebtn, 500, 500, 120, 30, true);
       funcBtn.funcbtn(writebtn, 1085, 742, 75, 30, true);
 
       frame.add(loginbtn);
@@ -109,7 +110,7 @@ public class MainFrame {
       frame.add(homebtn);
       frame.add(c_writebtn);
       frame.add(writebtn);
-//      LoginCheck LoginChk= new LoginCheck();
+      LoginCheck LoginChk= new LoginCheck();
       funcBtnEffect btnEffect= new funcBtnEffect();
 
     // home
@@ -118,15 +119,15 @@ public class MainFrame {
    
    funVisible btnVisible = new funVisible();
    
-     homebtn.addActionListener(new ActionListener() {
+      homebtn.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {
             btnVisible.panelVisible("main", boardPanel1, boardPanel2, CheerPanel, boardwritePanel, cheermsgPanel,
-                    gameInfPanel, playerPanel, rankComparePanel);
-//            btnVisible.btnShow(player_Btn, cheering_Btn, gameInf_Btn, rank_Btn);
+                    gameInfPanel, playerPanel, rankComparePanel, c_writebtn);
+            btnVisible.btnShow(player_Btn, cheering_Btn, gameInf_Btn, rank_Btn);
 //        if(LoginChk.isLogin_chk() != null) {
-//           btnVisible.loginModeBtn("main",loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn);
+//           btnVisible.loginModeBtn("main",loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn);
 //        }else {
-//           btnVisible.freeModeBtn( loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn);
+//           btnVisible.freeModeBtn( loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn);
 //        }
         }
      });
@@ -162,13 +163,16 @@ public class MainFrame {
      logOutbtn.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
              btnVisible.panelVisible("main", boardPanel1, boardPanel2, CheerPanel, boardwritePanel, cheermsgPanel,
-                     gameInfPanel, playerPanel, rankComparePanel);
+                     gameInfPanel, playerPanel, rankComparePanel, c_writebtn);
              btnVisible.btnShow(player_Btn, cheering_Btn, gameInf_Btn, rank_Btn);
-//             LoginChk.isLogOut(LoginChk.isLogin_chk());
+
+             //LoginChk.isLogOut(LoginChk.isLogin_chk());
+
+
 //             if(LoginChk.isLogin_chk() != null) {
-//                btnVisible.loginModeBtn("main",loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn);
+//                btnVisible.loginModeBtn("main",loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn);
 //             }else {
-//                btnVisible.freeModeBtn( loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn);
+//                btnVisible.freeModeBtn( loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn);
 //             }
          }
       });
@@ -178,12 +182,12 @@ public class MainFrame {
      c_writebtn.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent e) {
               btnVisible.panelVisible("cheermsg", boardPanel1, boardPanel2, CheerPanel, boardwritePanel, cheermsgPanel, 
-                    gameInfPanel, playerPanel, rankComparePanel);  
+                    gameInfPanel, playerPanel, rankComparePanel, c_writebtn);  
               btnVisible.btnShow(player_Btn, cheering_Btn, gameInf_Btn, rank_Btn);
 //              if(LoginChk.isLogin_chk() != null) {
-//                  btnVisible.loginModeBtn("cheermsg",loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn);
+//                  btnVisible.loginModeBtn("cheermsg",loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn);
 //               }else {
-//                  btnVisible.freeModeBtn( loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn);
+//                  btnVisible.freeModeBtn( loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn);
 //               }
        }
      });
@@ -193,12 +197,12 @@ public class MainFrame {
     writebtn.addActionListener(new ActionListener() {
           public void actionPerformed(ActionEvent e) {
             btnVisible.panelVisible("BoardWrite", boardPanel1, boardPanel2, CheerPanel, boardwritePanel, cheermsgPanel,
-                  gameInfPanel, playerPanel, rankComparePanel);             
+                  gameInfPanel, playerPanel, rankComparePanel, c_writebtn);             
             btnVisible.btnShow(player_Btn, cheering_Btn, gameInf_Btn, rank_Btn);
 //            if(LoginChk.isLogin_chk() != null) {
-//                  btnVisible.loginModeBtn("BoardWrite",loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn);
+//                  btnVisible.loginModeBtn("BoardWrite",loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn);
 //               }else {
-//                  btnVisible.freeModeBtn( loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn);
+//                  btnVisible.freeModeBtn( loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn);
 //               }
       }
     });
@@ -209,12 +213,12 @@ public class MainFrame {
       player_Btn.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
             btnVisible.panelVisible("player", boardPanel1, boardPanel2, CheerPanel, boardwritePanel, cheermsgPanel, 
-                  gameInfPanel, playerPanel, rankComparePanel);
+                  gameInfPanel, playerPanel, rankComparePanel, c_writebtn);
             btnVisible.menuBtnShow("player", player_Btn, cheering_Btn, gameInf_Btn, rank_Btn);
 //            if(LoginChk.isLogin_chk() != null) {
-//               btnVisible.loginModeBtn("player",loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn);
+//               btnVisible.loginModeBtn("player",loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn);
 //            }else {
-//               btnVisible.freeModeBtn( loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn);
+//               btnVisible.freeModeBtn( loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn);
 //            }
          }
       });   
@@ -225,13 +229,14 @@ public class MainFrame {
       cheering_Btn = new JButton("응원게시판");
       cheering_Btn.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
+   	      
             btnVisible.panelVisible("cheering", boardPanel1, boardPanel2, CheerPanel, boardwritePanel, cheermsgPanel,
-                    gameInfPanel, playerPanel, rankComparePanel);
+                    gameInfPanel, playerPanel, rankComparePanel, c_writebtn);
            btnVisible.menuBtnShow("cheering", player_Btn, cheering_Btn, gameInf_Btn, rank_Btn);
 //           if(LoginChk.isLogin_chk() != null) {
-//              btnVisible.loginModeBtn("cheering",loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn);
+//              btnVisible.loginModeBtn("cheering",loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn);
 //           }else {
-//              btnVisible.freeModeBtn( loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn);
+//              btnVisible.freeModeBtn( loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn);
 //           }
          }
       });
@@ -243,12 +248,12 @@ public class MainFrame {
       gameInf_Btn.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
             btnVisible.panelVisible("gameInf", boardPanel1, boardPanel2, CheerPanel, boardwritePanel, cheermsgPanel,
-                    gameInfPanel, playerPanel, rankComparePanel);
+                    gameInfPanel, playerPanel, rankComparePanel, c_writebtn);
            btnVisible.menuBtnShow("gameInf", player_Btn, cheering_Btn, gameInf_Btn, rank_Btn);
 //           if(LoginChk.isLogin_chk() != null) {
-//              btnVisible.loginModeBtn("gameInf",loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn);
+//              btnVisible.loginModeBtn("gameInf",loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn);
 //           }else {
-//              btnVisible.freeModeBtn( loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn);
+//              btnVisible.freeModeBtn( loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn);
 //           }
          }
       });
@@ -260,12 +265,12 @@ public class MainFrame {
       rank_Btn.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
             btnVisible.panelVisible("rank", boardPanel1, boardPanel2, CheerPanel, boardwritePanel, cheermsgPanel,
-                    gameInfPanel, playerPanel, rankComparePanel);
+                    gameInfPanel, playerPanel, rankComparePanel, c_writebtn);
             btnVisible.menuBtnShow("rank", player_Btn, cheering_Btn, gameInf_Btn, rank_Btn);
 //            if(LoginChk.isLogin_chk() != null) {
-//               btnVisible.loginModeBtn("rank",loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn);
+//               btnVisible.loginModeBtn("rank",loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn);
 //            }else {
-//               btnVisible.freeModeBtn( loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn, c_writebtn);
+//               btnVisible.freeModeBtn( loginbtn, logOutbtn, myPage_Btn, regMembtn, writebtn);
 //            }
          }
       });

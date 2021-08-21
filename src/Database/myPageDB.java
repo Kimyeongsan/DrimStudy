@@ -20,7 +20,7 @@ public class myPageDB {
      
      public myPageDB() {
         ConnectionDB DB_Connection = new ConnectionDB();
-      connection = DB_Connection.getConnection();
+        connection = DB_Connection.getConnection();
      }
      //db로 넘겨주기
      public ResultSet insertIntro(String text){
@@ -41,11 +41,23 @@ public class myPageDB {
      }
      
      //
-     public String nicNameView() {
-    	 String ID = LoginChk.isLogin_chk();
-    	 String nicName=null;
+     public String nicNameOutPut() {
     	 
-    	 return nicName;
+		try {
+			String ID = LoginChk.isLogin_chk();
+	    	 String nicName=null;
+	    	 query = "SELECT nicName FROM account WHERE ID = '"+ID+"';";
+	    	 Statement sta = connection.createStatement();
+	    	 rs = sta.executeQuery(query);
+			 System.out.println(query);
+			 if(rs.next()){
+			 return rs.getString("nicName");
+			 }
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("DB mypage 닉네임 실패!! 사유 : " + e.getMessage());
+		}
+    	 return null;
      }
-     
 }

@@ -21,6 +21,15 @@ public class funcBtn {
       btn.setFocusPainted(false);
       btn.setVisible(i);
    }
+   
+   public void colorbtn(JButton btn, int x, int y, int w, int l, int r, int g, int b) {
+	   btn.setBounds(x, y, w, l);
+	   btn.setBackground(new Color(r,g,b));
+	   btn.setFocusPainted(false);
+	   btn.setBorderPainted(false);
+	   btn.setVisible(false);
+   }
+   
    public void funcTextField (JTextField inputText, int x, int y,int w,int l) {
       inputText.setBounds(x, y, w, l);
       inputText.setFont(new Font("°íµñ", Font.BOLD, 20)); // Font

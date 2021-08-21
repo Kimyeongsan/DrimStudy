@@ -1,27 +1,66 @@
-//package Player;
-//
-//public class PlayerParser {
-//   //WebDriver
-//    private WebDriver driver;
-//    
-//    //Properties
-//    public static final String WEB_DRIVER_ID = "webdriver.chrome.driver";
-//    public static final String WEB_DRIVER_PATH = "src/chromedriver.exe";
-//    
-//    //크롤링 할 URL
-//    private String base_url;
-//    
-//    public SeleniumTest() {
-//        super();
-// 
-//        //System Property SetUp
-//        System.setProperty(WEB_DRIVER_ID, WEB_DRIVER_PATH);
-//        
-//        //Driver SetUp
-//        driver = new ChromeDriver();
-//        base_url = "https://people.search.naver.com/";
-//    }
-// 
+package Player;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+public class PlayerParser {
+	public static final String WEB_DRIVER_ID = "webdriver.chrome.driver"; // 드라이버 ID
+	public static final String WEB_DRIVER_PATH = "src/chromedriver.exe"; // 드라이버 경로
+	WebDriver driver;
+	WebElement naver_btn, fullName, carrier;
+	
+	
+	public PlayerParser() {
+		try {
+			System.setProperty(WEB_DRIVER_ID, WEB_DRIVER_PATH);
+			PlayerSearch();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void PlayerSearch() {
+		String url = "https://people.search.naver.com/"; //인물 검색창
+		
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--disable-popup-blocking");
+		
+		driver = new ChromeDriver(options);
+
+		      //options.addArguments("headless");
+		      
+		      driver.get(url);
+		      //Thread.sleep(2000);
+		      
+		      //이름 text 입력값
+		      WebElement search = driver.findElement(By.id(" "));
+		      search.clear();
+		      //search.sendKeys(peopleSearch);
+		      
+		      //carrier = driver.findElement(By.xpath('//*[@id="listUI_prize"]/dd[1]'));
+		      
+		      // 검색 버튼 클릭
+		      naver_btn = driver.findElement(By.id("search_btn"));
+		      naver_btn.click();
+		      
+		      //fullName = driver.findElement(By.xpath(peopleSearch));
+		      
+		      System.out.println(fullName.getText() + "\n" + carrier.getText());
+
+		      try {
+		          if (driver != null) {
+		             driver.quit();
+		          }
+
+		       } catch (Exception e) {
+		          throw new RuntimeException(e.getMessage());
+		       }
+	   }
+
+	}
 //    public void crawl() {
 // 
 //        try {
@@ -55,4 +94,3 @@
 // 
 //    }
 //
-//}

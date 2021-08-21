@@ -12,6 +12,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import Database.LoginDB;
+import Main.MainFrame;
 import Main.funVisible;
 import Main.funcBtn;
 import Main.funcBtnEffect;
@@ -58,13 +59,13 @@ public class loginFrame extends JFrame{
       funVisible.clickIniti(inID);
       funVisible.clickIniti(inPW);
       loginVO login = new loginVO();
-      
+//      MainFrame MainFrame = new MainFrame();
       //로그인
       btnEffect.btnMouseEffect(logBtn);   
       logBtn.addActionListener(new ActionListener() {
           public void actionPerformed(ActionEvent e) {
              LoginCheck LoginChk = new LoginCheck();
-             
+              
               String myID =inID.getText();
               String myPW= inPW.getText();
               login.setMyID(myID);
@@ -72,12 +73,15 @@ public class loginFrame extends JFrame{
               System.out.println(myID + " / " + myPW );
               LoginDB login = new LoginDB();
               boolean DBbool = login.getLoginSelect(myID, myPW);
-
+//              frame.setVisible(false);
              if(DBbool) {
                 LoginChk.isLogin(myID);
                 inPW.setText("");
                 inID.setText("ID를 입력하세요.");
                 dispose();
+//                frame.setVisible(false);
+//                frame.setVisible(true);
+                frame.validate();
              }else {
                  JOptionPane.showMessageDialog(null, "회원정보가 존재하지 않습니다.", "login 실패", JOptionPane.ERROR_MESSAGE);
                  inPW.setText("");

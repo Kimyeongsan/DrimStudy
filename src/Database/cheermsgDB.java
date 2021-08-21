@@ -1,17 +1,19 @@
 package Database;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-import Cheering.cheermsgPanel;
 import Cheering.cheermsgVO;
 //import test.GetterSetter;
+import Login.LoginCheck;
 
 public class cheermsgDB {
 	
@@ -26,6 +28,7 @@ public class cheermsgDB {
     private Statement sta;
     private PreparedStatement ps;
 
+    LoginCheck LoginChk = new LoginCheck();
 	//ArrayList<GetterSetter> ar = new ArrayList<GetterSetter>(); // 게터를 부를때는 이부분이 필요없음
 	public cheermsgDB() {
 		//public Connection con; // DB 커넥션 연결 객체
@@ -65,38 +68,60 @@ public class cheermsgDB {
 	
 	}
 	
+	
+	//색을 가져오는 함수
 	public String getColor() {
 		try {
-		query = "SELECT EXISTS (SELECT * FROM account_chk WHERE ischeck = 'true' limit 1) AS SUCCESS;";
+		query = "SELECT bgColor from cheermsg;";
         Statement sta = con.createStatement();
         rs = sta.executeQuery(query);
         System.out.println(query);
-        if(rs.next()){
-           int i=1;
-            if(i == rs.getInt("SUCCESS")){
-                 System.out.println("로그인 되어있음!!!\n");
-                 query = "SELECT * FROM account_chk Order BY ID DESC LIMIT 1;";
-                 Statement sta1 = con.createStatement();
-                 rs = sta1.executeQuery(query);
-                 System.out.println(query);
                  if(rs.next()){
                 	 return rs.getString("bgColor");
-                 }
-            }
-            else {
-               System.out.println("로그아웃중!!!!\n");
-            }
+                 } else {
+               System.out.println("색깔 받아오지 못함!!!!\n");
          }
-//        if(sta != null) sta.close();
-//        if(connection != null) connection.close();
-        System.out.println("DB 로그인 완료");
      }
       catch (SQLException e){
         e.printStackTrace();
-        System.out.println("DB islogin 실패!! 사유 : " + e.getMessage());
+        System.out.println("DB 색깔 받아오지 못함 실패!! 사유 : " + e.getMessage());
      }
-      return null;
-		
+      return "white";
 	}
 	
+	//text을 가져오는 함수
+		public String getText() {
+			try {
+			query = "SELECT cheertext from cheermsg;";
+	        Statement sta = con.createStatement();
+	        rs = sta.executeQuery(query);
+	        System.out.println(query);
+	                 if(rs.next()){
+	                	 return rs.getString("cheertext");
+	                 } else {
+	               System.out.println("text 받아오지 못함!!!!\n");
+	         }
+	     }
+	      catch (SQLException e){
+	        e.printStackTrace();
+	        System.out.println("DB text 받아오지 못함 실패!! 사유 : " + e.getMessage());
+	     }
+	      return null;
+		}
+		
+		public String callCheerMsg() {
+		      cheermsgDB cheermsgDB = new cheermsgDB();
+		      //cheermsgDB cheermsgDB =new cheermsgDB();
+		      //포스트잇
+		      String color = cheermsgDB.getColor();
+		      System.out.println(color);
+		      switch(color) {
+		      case "RED" : return "postIT.setBackground(Color.RED);" ;
+		      case "YELLOW" : return "postIT.setBackground(Color.YELLOW);";
+		      case "ORANGE" : return "postIT.setBackground(Color.ORANGE);";
+		      case "SKYBLUE" : return "postIT.setBackground(new Color(105,216,255));"; 
+		      case "GREEN" : return "postIT.setBackground(Color.GREEN);";
+		      default : return "postIT.setBackground(new Color(166, 166, 166));";
+		      }
+		}
 }

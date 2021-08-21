@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import Database.myPageDB;
 import Main.funcBtn;
 
 public class myPagePanel extends JPanel {
@@ -33,22 +34,14 @@ public class myPagePanel extends JPanel {
          this.add(IDtitle);
 
            JLabel nicInput = new JLabel("닉네임");
-           nicInput.setBounds(330, 120, 200, 40);
-           nicInput.setFont(new Font("고딕", Font.BOLD, 20)); // Font
-           nicInput.setForeground(Color.black); // Color
-           nicInput.setBackground(new Color(166, 166, 166));
-           nicInput.setOpaque(true);
-           nicInput.setHorizontalAlignment(JLabel.CENTER);
+           funcBtn.funcLabel(nicInput, 330, 120, 200, 40,166, 166, 166);
           this.add(nicInput);
            
            // 이름 입력
           //DB 회원 - 닉네임 불러오기
-         JTextField NicInput = new JTextField("닉네임");
-         NicInput.setBounds(535, 120, 400, 40);
-         NicInput.setFont(new Font("고딕", Font.BOLD, 20)); // Font
-         NicInput.setForeground(Color.black); // Color
-         NicInput.setOpaque(true);
-         NicInput.setHorizontalAlignment(JLabel.CENTER);
+          myPageDB myPageDB =new myPageDB();
+         JLabel NicInput = new JLabel(myPageDB.nicNameOutPut());
+         funcBtn.funcLabel(NicInput, 535, 120, 400, 40,255,255,255);
           this.add(NicInput);
           
 
