@@ -6,6 +6,10 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumnModel;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Vector;
+
 import javax.swing.*;
 
 public class RankComparePanel extends JPanel {
@@ -16,50 +20,47 @@ public class RankComparePanel extends JPanel {
 	}
 
 	private void panelInit(JFrame frame) {
+		
 		// 메인 화면 패널
 		this.setBackground(new Color(242, 242, 242));
 		this.setBounds(0, 0, 1280, 960);
 		frame.getContentPane().add(this);
 		this.setLayout(null);
+		
+		//리스트로 바꾸기
+		RankParser getrankparser = new RankParser();
+		getrankparser.addList();
+		
+		ArrayList<String> gameList = getrankparser.getListGame();
+		Iterator<String> itrGame = gameList.iterator();
+		ArrayList<String> m_player_List = getrankparser.getListMP();
+		Iterator<String> itrMP = m_player_List.iterator();
+		ArrayList<String> m_rank_List = getrankparser.getListMR();
+		Iterator<String> itrMR = m_rank_List.iterator();
+		ArrayList<String> f_player_List = getrankparser.getListFP();
+		Iterator<String> itrFP = f_player_List.iterator();
+		ArrayList<String> f_rank_List = getrankparser.getListFR();
+		Iterator<String> itrFR = f_rank_List.iterator();
 
-		//테이블
-		String []header = {"종목", "남자선수명" , "남자기록", "여자선수명", "여자기록"};
-		String [][]contents = {{"가라테", "박희준", "5위", "기록 없음", "기록 없음"}, 
-				{"골프", "안병훈", "11위", "박인비", "금"},
-				{"근대5종", "전웅태", "동", "김세희", "11위"},
-				{"기계체조", "신재환", "금", "여서정", "동"},
-				{"농구", "대표팀", "8위", "대표팀", "은"},
-				{"다이빙", "우하람", "4위", "김수지","15위"},
-				{"럭비", "대표팀", "12위", "기록 없음", "기록 없음"}, 
-				{"리듬체조", "-", "-", "손연재", "4위"},
-				{"레슬링", "김현우", "금", "이나래", "7위"},
-				{"배구", "대표팀", "5위", "대표팀", "동"},
-				{"배드민턴", "하태권-김동문", "금", "방수현", "금"},
-				{"복싱", "박시헌", "금", "오연지", "9위"},
-				{"사격", "진종오", "금", "김장미", "금"},
-				{"사이클 트랙", "조호성", "4위", "이혜진", "8위"},
-				{"사이클 도로", "박성백", "87위", "나아름", "13위"},
-				{"수구", "대표팀", "12위", "기록 없음", "기록 없음"}, 
-				{"수영", "박태환", "금", "남유선", "7위"},
-				{"스포츠 클라이밍", "천종원", "10위", "서채현", "8위"},
-				{"승마", "-", "-", "-", "-"},
-				{"아티스틱 스위밍", "-", "-","장윤경-유나미", "11위"},
-				{"야구", "대표팀", "금", "-", "-"},
-				{"양궁", "대표팀", "금", "안산", "금"},
-				{"역도", "사재혁", "금", "장미란", "금"},
-				{"요트", "하지민", "7위", "주순안", "13위"},
-				{"유도", "송대남", "금", "조민선", "금"},
-				{"육상", "황영조", "금", "백옥자", "13위"},
-				{"조정", "대표팀", "10위", "대표팀", "9위"},
-				{"철인3종", "허민호", "54위", "기록 없음", "기록 없음"}, 
-				{"축구", "대표팀", "동", "기록 없음", "기록 없음"}, 
-				{"카누", "조광희-최민규", "9위", "대표팀", "13위"},
-				{"탁구", "유승민", "금", "현정화-양영자", "금"},
-				{"태권도", "차동민", "금", "오혜리", "금"},
-				{"테니스", "김봉수", "16강", "김일순", "16강"},
-				{"펜싱", "사브르 단체", "금", "김지연", "금"},
-				{"하키", "대표팀", "은", "대표팀", "은"},
-				{"핸드볼", "대표팀", "은", "대표팀", "금"}};
+		
+        //테이블
+	    String []header = {"종목", "남자선수명" , "남자기록", "여자선수명", "여자기록"};
+	    String [][]contents = new String[36][header.length];
+	   
+		   for(int j = 0; j < 36; j++) {
+			   int size = 0;
+			   contents[j][size] = itrGame.next();
+			   size++;
+			   contents[j][size] = itrMP.next();
+			   size++;
+			   contents[j][size] = itrMR.next();
+			   size++;
+			   contents[j][size] = itrFP.next();
+			   size++;
+			   contents[j][size] = itrFR.next();
+			   size++;
+		   }
+		   
 		
 		JTable table = new JTable(contents, header);
 		//테이블 행, 열 크기 조절
@@ -96,6 +97,5 @@ public class RankComparePanel extends JPanel {
 		jscp1.setSize(900, 572);
 		
 		this.add(jscp1);
-			
-}
+	}
 }
