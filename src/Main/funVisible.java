@@ -18,7 +18,7 @@ public class funVisible {
    
    public void panelVisible(String label, BoardFrame1 boardPanel1, BoardFrame2 boardPanel2, cheerFrame CheerPanel,
 		   boardwriteFrame BoardWritePanel, cheermsgFrame cheermsgPanel, GameInfFrame gameInfPanel,
-         PlayerFrame playerPanel, RankComparePanel rankComparePanel) {
+         PlayerFrame playerPanel, RankComparePanel rankComparePanel, JButton c_writebtn) {
       switch(label) {
      //home 화면 출력
       case "main": boardPanel1.setVisible(true);
@@ -30,6 +30,7 @@ public class funVisible {
                   gameInfPanel.setVisible(false);
                   playerPanel.setVisible(false);
                   rankComparePanel.setVisible(false);
+                  c_writebtn.setVisible(false);
                   break;
       //home에 있는 글작성패널
       case "BoardWrite" : BoardWritePanel.setVisible(true);   
@@ -41,6 +42,7 @@ public class funVisible {
                           gameInfPanel.setVisible(false);
                           playerPanel.setVisible(false);
                           rankComparePanel.setVisible(false);
+                          c_writebtn.setVisible(false);
                           break;
         //응원게시판 글작성패널            
       case "cheermsg" :   boardPanel1.setVisible(false);
@@ -52,6 +54,8 @@ public class funVisible {
                          gameInfPanel.setVisible(false);
                          playerPanel.setVisible(false);
                          rankComparePanel.setVisible(false);
+                         c_writebtn.setVisible(false);
+
                          break;
           //선수게시판            
       case "player" :  BoardWritePanel.setVisible(false);   
@@ -62,6 +66,8 @@ public class funVisible {
                       gameInfPanel.setVisible(false);
                       playerPanel.setVisible(true);
                       rankComparePanel.setVisible(false);
+                      c_writebtn.setVisible(false);
+
                        break;
        //rank 게시판            
       case "rank" :  BoardWritePanel.setVisible(false);   
@@ -72,6 +78,8 @@ public class funVisible {
                       gameInfPanel.setVisible(false);
                       playerPanel.setVisible(false);
                       rankComparePanel.setVisible(true);
+                      c_writebtn.setVisible(false);
+
                        break;
        //응원게시판            
       case "cheering" :  BoardWritePanel.setVisible(false);   
@@ -82,6 +90,8 @@ public class funVisible {
                       gameInfPanel.setVisible(false);
                       playerPanel.setVisible(false);
                       rankComparePanel.setVisible(false);
+                      c_writebtn.setVisible(true);
+
                        break;
           //실시간 게시판            
       case "gameInf" :  BoardWritePanel.setVisible(false);   
@@ -92,6 +102,8 @@ public class funVisible {
                       gameInfPanel.setVisible(true);
                       playerPanel.setVisible(false);
                       rankComparePanel.setVisible(false);
+                      c_writebtn.setVisible(false);
+
                        break;
       }
    }
@@ -158,7 +170,7 @@ public class funVisible {
    
    //login 했을때 버튼
    public void loginModeBtn(String label, JButton loginbtn, JButton logOutbtn, JButton myPage_Btn,
-            JButton regMembtn, JButton writebtn, JButton c_writebtn) {
+            JButton regMembtn, JButton writebtn) {
        switch(label) {
       //main          
      case "main" :
@@ -169,7 +181,7 @@ public class funVisible {
          
                   //메인패널
                   writebtn.setVisible(true);
-                  c_writebtn.setVisible(false);
+//                  c_writebtn.setVisible(false);
                     break;
      //main          
      case "cheering" :
@@ -180,7 +192,7 @@ public class funVisible {
          
                   //메인패널
                   writebtn.setVisible(false);
-                  c_writebtn.setVisible(true);
+//                  c_writebtn.setVisible(true);
                     break;
          default :
                      loginbtn.setVisible(false);
@@ -190,14 +202,14 @@ public class funVisible {
 
                   //메인패널
                   writebtn.setVisible(false);
-                  c_writebtn.setVisible(false);
+//                  c_writebtn.setVisible(false);
                   break;
        }
    }
 
    //login 안했을때 버튼
    public void freeModeBtn( JButton loginbtn, JButton logOutbtn, JButton myPage_Btn,
-         JButton regMembtn, JButton writebtn, JButton c_writebtn) {
+         JButton regMembtn, JButton writebtn) {
       //header버튼
         loginbtn.setVisible(true);
         logOutbtn.setVisible(false);
@@ -206,7 +218,7 @@ public class funVisible {
         
         //메인패널
         writebtn.setVisible(false);
-        c_writebtn.setVisible(false);
+//        c_writebtn.setVisible(false);
    }
 
    //취소버튼 누르면 패널txt 초기화
