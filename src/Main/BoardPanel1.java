@@ -7,7 +7,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -15,14 +17,25 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import org.jsoup.Connection;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.awt.Desktop;
 
 
 public class BoardPanel1 extends JPanel {
 
+	int page;
+	
 	public BoardPanel1(JFrame frame) {
 		super();
 		PanelInit(frame);
@@ -33,9 +46,139 @@ public class BoardPanel1 extends JPanel {
 		this.setBackground(new Color(255, 255, 255));
 		this.setBounds(0, 0, 1280, 300);
 		this.setLayout(null);
+		
+		Document doc = null;
+		Elements elem = new Elements();
+		Element href, text;
+		String imagehref, imageTitle;
+		String URL = "https://olympics.com/tokyo-2020/ko/"; // µµÄì¿Ã¸²ÇÈ »çÀÌÆ®
+		
+		try {
+			Connection connection = Jsoup.connect(URL);
+					
+			doc = connection.get();
+			
+			elem = doc.select(".tk-homepage__slider");
+			
+			page = 0;
+			
+			for(int i=0; i<5; i++) {
+				switch(i) {
+					 case 0:
+						href = elem.select("a").get(0);
+						text = elem.select("img").get(0);
+					    
+						imagehref = href.attr("href").toString();
+						imageTitle = text.attr("alt").toString();
+						
+						String url0 = text.getElementsByAttribute("src").attr("src");
 
-		//picture1 
-		ImageIcon icon1 = new ImageIcon("./img/1.jpg");
+						try {
+							URL imgUrl = new URL(url0);
+							BufferedImage jpg = ImageIO.read(imgUrl);
+							File file = new File("C:\\Users\\user\\eclipse-workspace\\DrimStudy\\img\\"+page+".jpg");
+							ImageIO.write(jpg, "jpg", file);
+							ImagePrint(page, imagehref, imageTitle);
+						
+						} catch(IOException e1) {
+							e1.printStackTrace();
+						}
+						break;
+					 case 1:
+						href = elem.select("a").get(1);
+						text = elem.select("img").get(1);
+					    
+						imagehref = href.attr("href").toString();
+						imageTitle = text.attr("alt").toString();
+						
+						String url1 = text.getElementsByAttribute("src").attr("src");
+
+						try {
+							URL imgUrl = new URL(url1);
+							BufferedImage jpg = ImageIO.read(imgUrl);
+							File file = new File("./img\\"+page+".jpg");
+							ImageIO.write(jpg, "jpg", file);
+							ImagePrint(page, imagehref, imageTitle);
+						
+						} catch(IOException e1) {
+							e1.printStackTrace();
+						}
+						break;
+					 case 2:
+						href = elem.select("a").get(2);
+						text = elem.select("img").get(2);
+					    
+						imagehref = href.attr("href").toString();
+						imageTitle = text.attr("alt").toString();
+						
+						String url2 = text.getElementsByAttribute("src").attr("src");
+
+						try {
+							URL imgUrl = new URL(url2);
+							BufferedImage jpg = ImageIO.read(imgUrl);
+							File file = new File("./img\\"+page+".jpg");
+							ImageIO.write(jpg, "jpg", file);
+							ImagePrint(page, imagehref, imageTitle);
+						
+						} catch(IOException e1) {
+							e1.printStackTrace();
+						}
+						break;
+					 case 3:
+						href = elem.select("a").get(3);
+						text = elem.select("img").get(3);
+					    
+						imagehref = href.attr("href").toString();
+						imageTitle = text.attr("alt").toString();
+						
+						String url3 = text.getElementsByAttribute("src").attr("src");
+						
+						try {
+							URL imgUrl = new URL(url3);
+							BufferedImage jpg = ImageIO.read(imgUrl);
+							File file = new File("./img\\"+page+".jpg");
+							ImageIO.write(jpg, "jpg", file);
+							ImagePrint(page, imagehref, imageTitle);
+						
+						} catch(IOException e1) {
+							e1.printStackTrace();
+						}
+						break;
+					 case 4:
+						href = elem.select("a").get(4);
+						text = elem.select("img").get(4);
+					    
+						imagehref = href.attr("href").toString();
+						imageTitle = text.attr("alt").toString();
+						
+						String url4 = text.getElementsByAttribute("src").attr("src");
+
+						try {
+							URL imgUrl = new URL(url4);
+							BufferedImage jpg = ImageIO.read(imgUrl);
+							File file = new File("./img\\"+page+".jpg");
+							ImageIO.write(jpg, "jpg", file);
+							ImagePrint(page, imagehref, imageTitle);
+						
+						} catch(IOException e1) {
+							e1.printStackTrace();
+						}
+						break;
+				}
+				
+				page += 1;
+			}
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		} 
+		
+		
+	}
+	
+	public void ImagePrint(int page, String imagehref, String imageTitle) {
+		
+		ImageIcon icon1 = new ImageIcon("./img/"+page+".jpg");
 		
 		Image playerImg = icon1.getImage();
 		Image changeImg = playerImg.getScaledInstance(200, 140, Image.SCALE_SMOOTH);
@@ -43,146 +186,33 @@ public class BoardPanel1 extends JPanel {
 		ImageIcon changeIcon = new ImageIcon(changeImg);
 		
 		JLabel pictureLabel1 = new JLabel(changeIcon);
-		
-		pictureLabel1.setBounds(40, 0, 200, 140);
+		pictureLabel1.setBounds(40+(230*page), 0, 200, 140);
 		this.add(pictureLabel1);
-		//add(pictureLabel1);
+		TitlePrint(pictureLabel1, imageTitle);
 		
 		pictureLabel1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {
 			         
-			        Desktop.getDesktop().browse(new URI("https://tv.naver.com/v/21690104"));
+			        Desktop.getDesktop().browse(new URI(imagehref));
 			         
 			    } catch (IOException | URISyntaxException e1) {
 			        e1.printStackTrace();
 			    }
 			}
 		});
-
-		// Picture1
-		/*
-		JLabel pictureLabel = new JLabel("»çÁø 1");
-		pictureLabel.setBounds(40,0,200, 140);
-
-		pictureLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 35)); // Font
-
-		pictureLabel.setForeground(Color.black); // Color
-		pictureLabel.setBackground(new Color(166, 166, 166));
-		pictureLabel.setOpaque(true);
-
-		pictureLabel.setHorizontalAlignment(JLabel.CENTER); // Position
-
-		this.add(pictureLabel);
-		*/
-		
-		// Picture2
-		ImageIcon icon2 = new ImageIcon("./img/2.jpg");
-		
-		Image playerImg2 = icon2.getImage();
-		Image changeImg2 = playerImg2.getScaledInstance(200, 140, Image.SCALE_SMOOTH);
-		
-		ImageIcon changeIcon2 = new ImageIcon(changeImg2);
-		
-		JLabel pictureLabel2 = new JLabel(changeIcon2);
-		
-		pictureLabel2.setBounds(270, 0, 200, 140);
-		this.add(pictureLabel2);
-		
-		pictureLabel2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				try {
-			         
-			        Desktop.getDesktop().browse(new URI("https://tv.naver.com/v/21601189"));
-			         
-			    } catch (IOException | URISyntaxException e1) {
-			        e1.printStackTrace();
-			    }
-			}
-		});
-		
-		// Picture3
-		ImageIcon icon3 = new ImageIcon("./img/3.PNG");
-		
-		Image playerImg3 = icon3.getImage();
-		Image changeImg3 = playerImg3.getScaledInstance(200, 140, Image.SCALE_SMOOTH);
-		
-		ImageIcon changeIcon3 = new ImageIcon(changeImg3);
-		
-		JLabel pictureLabel3 = new JLabel(changeIcon3);
-		
-		pictureLabel3.setBounds(500, 0, 200, 140);
-		this.add(pictureLabel3); 
-			
-		pictureLabel3.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				try {
-			         
-			        Desktop.getDesktop().browse(new URI("https://tv.naver.com/v/21610398"));
-			         
-			    } catch (IOException | URISyntaxException e1) {
-			        e1.printStackTrace();
-			    }
-			}
-		});
-		
-		// Picture4
-		ImageIcon icon4 = new ImageIcon("./img/4.PNG");
-		
-		Image playerImg4 = icon4.getImage();
-		Image changeImg4 = playerImg4.getScaledInstance(200, 140, Image.SCALE_SMOOTH);
-		
-		ImageIcon changeIcon4 = new ImageIcon(changeImg4);
-		
-		JLabel pictureLabel4 = new JLabel(changeIcon4);
-		
-		pictureLabel4.setBounds(730, 0, 200, 140);
-		this.add(pictureLabel4);
-			
-		pictureLabel4.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				try {
-			         
-			        Desktop.getDesktop().browse(new URI("https://tv.naver.com/v/21570110"));
-			         
-			    } catch (IOException | URISyntaxException e1) {
-			        e1.printStackTrace();
-			    }
-			}
-		});
+	}
 	
+	public void TitlePrint(JLabel image, String imageTitle) {
 		
-		// Picture5
-		ImageIcon icon5 = new ImageIcon("./img/5.jpg");
-		
-		Image playerImg5 = icon5.getImage();
-		Image changeImg5 = playerImg5.getScaledInstance(200, 140, Image.SCALE_SMOOTH);
-		
-		ImageIcon changeIcon5 = new ImageIcon(changeImg5);
-		
-		JLabel pictureLabel5 = new JLabel(changeIcon5);
-		
-		pictureLabel5.setBounds(960, 0, 200, 140);
-		this.add(pictureLabel5);
-		
-		pictureLabel5.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				try {
-			         
-			        Desktop.getDesktop().browse(new URI("https://tv.naver.com/v/21643693"));
-			         
-			    } catch (IOException | URISyntaxException e1) {
-			        e1.printStackTrace();
-			    }
-			}
-		});
-
-		
+		JLabel text1 = new JLabel("ÀÌ¹ÌÁö¶óº§");
+		text1.setBounds(10, 0, 200, 140);
+		text1.setFont(new Font("¸¼Àº°íµñ", Font.BOLD, 16));
+		text1.setForeground(Color.white);
+		text1.setText(imageTitle);
+		image.add(text1);
+		text1 = new JLabel("");
 		
 	}
 }
