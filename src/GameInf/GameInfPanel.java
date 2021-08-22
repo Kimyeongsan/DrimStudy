@@ -6,6 +6,8 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -25,7 +27,6 @@ import javax.swing.table.TableColumnModel;
 
 public class GameInfPanel extends JPanel {
 	String event, news;
-
 	NewsContent newsContent;
 
 	public GameInfPanel(JFrame frame) {
@@ -55,57 +56,41 @@ public class GameInfPanel extends JPanel {
 		tilteLabel.setHorizontalAlignment(JLabel.CENTER); // Position
 
 		this.add(tilteLabel);
+		
+		try {
+			ImageIcon icon = new ImageIcon(new URL("https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxOTA4MDJfMjEw%2FMDAxNTY0NzM2NTUwNjYy.pOUCyxuUs-cp3gCMsswIYsHobOi7eywSaRUD53FKFdkg.N-XXDY4USY3axcBG9ELC5JvLi1D4PwxupumwVkMHikcg.JPEG.yaya7072001%2F20190802_180133.jpg&type=sc960_832"));
+			
+			Image playerImg = icon.getImage();
+			Image changeImg = playerImg.getScaledInstance(400, 240, Image.SCALE_SMOOTH);
+			
+			ImageIcon changeIcon = new ImageIcon(changeImg);
+			
+			JLabel playerLabel = new JLabel(changeIcon);
+			
+			playerLabel.setBounds(550, 330, 500, 240);
+			this.add(playerLabel);
 
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
 	}
 
 	private void InputBox() {
-		
-		//////////////////////////// 경기 파트
-		
-		// 경기 선택 DropBox
-		String eventList[] = { "축구", "야구", "배구" };
 
-		JComboBox<Object> eventBox = new JComboBox<Object>(eventList);
-		eventBox.setBounds(550, 35, 350, 40);
-
-		this.add(eventBox);
-
-		// 경기 선택 버튼
-		JButton gameBtn = new JButton("경기 선택");
-		gameBtn.setBounds(920, 35, 130, 40);
-
-		gameBtn.setFont(new Font("맑은 고딕", Font.BOLD, 20)); // Font
-
-		gameBtn.setForeground(Color.white); // Color
-		gameBtn.setBackground(Color.black);
-		gameBtn.setOpaque(true);
-
-		gameBtn.setHorizontalAlignment(JLabel.CENTER); // Position
-
-		this.add(gameBtn);
-
-		// 적용버튼 리스너
-		gameBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				event = (String) eventBox.getSelectedItem();
-
-				System.out.println(event);
-			}
-		});
-		
 		//////////////////////////// News 파트
 		
 		// 이름 입력
 		JTextField newsInput = new JTextField("김연경");
-		newsInput.setBounds(550, 315, 350, 40);
+		newsInput.setBounds(550, 35, 350, 40);
 
 		this.add(newsInput);
 
 		// 뉴스 검색 버튼
 		JButton newsBtn = new JButton("검색");
 
-		newsBtn.setBounds(920, 315, 130, 40);
+		newsBtn.setBounds(920, 35, 130, 40);
 
 		newsBtn.setFont(new Font("맑은 고딕", Font.BOLD, 20)); // Font
 
@@ -116,15 +101,6 @@ public class GameInfPanel extends JPanel {
 		newsBtn.setHorizontalAlignment(JLabel.CENTER); // Position
 
 		this.add(newsBtn);
-
-		JPanel NewsPanels = new JPanel();
-		NewsPanels.setBounds(550, 375, 500, 200);
-
-		NewsPanels.setForeground(Color.black); // Color
-		NewsPanels.setBackground(new Color(166, 166, 166));
-		NewsPanels.setOpaque(true);
-
-		this.add(NewsPanels);
 
 		// 적용버튼 리스너
 		newsBtn.addActionListener(new ActionListener() {
@@ -198,20 +174,20 @@ public class GameInfPanel extends JPanel {
 			tcm.getColumn(j).setCellRenderer(dtcr);
 		}
 
-		JScrollPane jscp1 = new JScrollPane(table);
-		jscp1.setLocation(45, 95);
-		jscp1.setSize(450, 480);
+		JScrollPane jscp = new JScrollPane(table);
+		jscp.setLocation(45, 95);
+		jscp.setSize(450, 480);
 
-		this.add(jscp1);
+		this.add(jscp);
 	}
-
+	
 	
 	private void NewsPrint() {
 		newsContent = new NewsContent();
-		newsContent.setBounds(550, 375, 500, 200);
+		newsContent.setBounds(550, 95, 500, 200);
 
 		newsContent.setForeground(Color.black); // Color
-		newsContent.setBackground(new Color(166, 166, 166));
+		newsContent.setBackground(Color.WHITE);
 		newsContent.setOpaque(true);
 
 		this.add(newsContent);
