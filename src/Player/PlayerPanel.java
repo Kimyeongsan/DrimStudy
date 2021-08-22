@@ -15,6 +15,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import Database.playerDB;
+import Main.funVisible;
 import Main.funcBtn;
 
 public class PlayerPanel extends JPanel {
@@ -72,7 +74,8 @@ public class PlayerPanel extends JPanel {
 		//크롤링
 		JTextField nameInput = new JTextField("ex)김세영");
 		nameInput.setBounds(515, 100, 240, 40);
-
+		funVisible funVisible=new funVisible();
+		funVisible.clickIniti(nameInput);
 		this.add(nameInput);
 
 		
@@ -137,14 +140,12 @@ public class PlayerPanel extends JPanel {
 
 		JComboBox countryBox = new JComboBox<Object>(countryList);
 		countryBox.setBounds(515, 240, 235, 40);
-
 		this.add(countryBox);
 		
 		
 		// input 결과물 출력
 		JButton btnCompareSet = new JButton("적용");
 		btnCompareSet.setBounds(870, 310, 130, 40);
-		
 		this.add(btnCompareSet);
 		
 		
@@ -158,10 +159,16 @@ public class PlayerPanel extends JPanel {
 				
 				// 임시 출력
 				System.out.println(name + " / " + event + " / " + country);
+				playerDB playerDB =new playerDB();
+				playerDB.insertSearch(name,event,country);
+				PlayerParser PlayerParser=new PlayerParser();
 				
+				String carrier = PlayerParser.PlayerSearch();
+				System.out.println(carrier);
 				//크롤링 함수호출
-				//메달과 경력사항
-
+				
+				//메달과 경력사항 출력함수 호출
+				playerDB.deleteSearch();
 			}
 		});
 		

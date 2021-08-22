@@ -6,91 +6,97 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import Database.playerDB;
+
 public class PlayerParser {
 	public static final String WEB_DRIVER_ID = "webdriver.chrome.driver"; // 드라이버 ID
 	public static final String WEB_DRIVER_PATH = "src/chromedriver.exe"; // 드라이버 경로
 	WebDriver driver;
-	WebElement naver_btn, fullName, carrier;
-	
-	
+
 	public PlayerParser() {
+
+	}
+
+	public String PlayerSearch() {
 		try {
 			System.setProperty(WEB_DRIVER_ID, WEB_DRIVER_PATH);
-			PlayerSearch();
+			String url = "https://www.naver.com/"; // 인물 검색창
+
+			ChromeOptions options = new ChromeOptions();
+			playerDB playerDB =new playerDB();
+			//options.addArguments("headless");
+
+			driver = new ChromeDriver(options);
+			driver.get(url);
+
+			// Thread.sleep(2000);
+			
+			//db에서 서치값 가져오는 함수
+			String playerName = playerDB.getPlayerName();
+			String event = playerDB.getEvent() + "선수";
+			String country = playerDB.getCountry();
+
+			System.out.println(playerName+"/"+event +"/"+country);
+			// 이름 text 입력값
+			WebElement searchText = driver.findElement(By.id("query"));
+			searchText.clear();
+			searchText.sendKeys(playerName);
+			
+			driver.findElement(By.id("search_btn")).click();
+			
+			while(true) {
+		    int i =1;
+		    WebElement search = driver.findElement(By.xpath("//*[@id=\"people_info_z\"]/div/div[2]/div[1]/div/dl/dd[1]/span"));
+		    WebElement search2 = driver.findElement(By.xpath("//*[@id=\"people_info_z\"]/div/div[2]/div[5]/div/ul/li["+i+"]/div[2]/span[1]"));
+			
+		    //해당 선수가 맞으면 클릭
+			if(event.equals(search.getText())) {
+				System.out.println(search.getText());
+				driver.findElement(By.className("btn_txt_more")).click();
+				break;
+			}
+			else if(event.equals(search2.getText())) {
+				System.out.println(search2.getText());
+				driver.findElement(By.className("scm_cllipsis_ellipsis")).click();
+				break;
+			}
+			else i++;		
+			}
+			Thread.sleep(2000);
+			//#listUI_career > dd:nth-child(2) > p
+//			
+//			driver.switch_to.frame('main')
+//
+//			driver.switchTo();
+			String textCarrier="";
+			String carrier_xpath = "//*[@id=\"listUI_career\"]/dd[1]/p";
+
+			WebElement element = driver.findElement(By.xpath(carrier_xpath));
+			driver.switchTo().frame(element);
+			//driver.findElement(By.xpath(carrier_xpath));
+			Thread.sleep(2000);
+//			Thread.sleep(1000);
+			//driver.get("https://baud.teamwork.com/launchpad/login?continue=%2Fcrm");
+			//WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.carrier_xpath, "//input[@id='loginemail']"))).send_keys("lucas@stackoverflow.com");
+			textCarrier += element.getText()+"\n";
+			return textCarrier;
+			
+			//WebElement element = driver.findElement(By.xpath("//label[contains(text(),'Text2')]"));
+			//String test = element.getText();
+//			List<WebElement> carrier = new ArrayList<>();
+//			//String[] carrier= {};
+//			
+//			for(int i=1;i<5;i++) {
+//				
+//				//carrier[i] = driver.findElement(By.xpath("//*[@id=\"listUI_career\"]/dd["+i+"]/p")).getString();
+//				//carrier.add(driver.findElement(By.xpath(carrier_xpath)));
+//				
+//			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("player parsing 실패!!!!!! 사유 : " + e.getMessage());
 		}
+		return null;
 	}
-	
-	public void PlayerSearch() {
-		String url = "https://people.search.naver.com/"; //인물 검색창
-		
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--disable-popup-blocking");
-		
-		driver = new ChromeDriver(options);
-
-		      //options.addArguments("headless");
-		      
-		      driver.get(url);
-		      //Thread.sleep(2000);
-		      
-		      //이름 text 입력값
-		      WebElement search = driver.findElement(By.id(" "));
-		      search.clear();
-		      //search.sendKeys(peopleSearch);
-		      
-		      //carrier = driver.findElement(By.xpath('//*[@id="listUI_prize"]/dd[1]'));
-		      
-		      // 검색 버튼 클릭
-		      naver_btn = driver.findElement(By.id("search_btn"));
-		      naver_btn.click();
-		      
-		      //fullName = driver.findElement(By.xpath(peopleSearch));
-		      
-		      System.out.println(fullName.getText() + "\n" + carrier.getText());
-
-		      try {
-		          if (driver != null) {
-		             driver.quit();
-		          }
-
-		       } catch (Exception e) {
-		          throw new RuntimeException(e.getMessage());
-		       }
-	   }
-
-	}
-//    public void crawl() {
-// 
-//        try {
-//            //get page (= 브라우저에서 url을 주소창에 넣은 후 request 한 것과 같다)
-//            driver.get(base_url);
-//            System.out.println(driver.getPageSource());
-//            
-//            //종목으로 재검색
-//          //*[@id="content"]/div/div[2]/div[1]/a/img
-//            //사진
-//            
-//            //수상경력
-//            //*[@id="listUI_prize"]/dd[1]
-//
-//            //경력
-//            //*[@id="listUI_career"]
-//          //*[@id="listUI_career"]/dd[1]
-//            
-//            //머넣더라
-//            //국가명, 종목명 -> 드롭박스 이름?
-//            //DB 저장만
-//            
-//        } catch (Exception e) {
-//            
-//            e.printStackTrace();
-//        
-//        } finally {
-// 
-//            driver.close();
-//        }
-// 
-//    }
-//
+}

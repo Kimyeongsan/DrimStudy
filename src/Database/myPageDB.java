@@ -22,6 +22,7 @@ public class myPageDB {
         ConnectionDB DB_Connection = new ConnectionDB();
         connection = DB_Connection.getConnection();
      }
+     
      //db로 넘겨주기
      public ResultSet insertIntro(String text){
         try {

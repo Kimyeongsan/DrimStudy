@@ -1,37 +1,17 @@
 package Player;
 
 public class PlayerVO {
-	String event;
-	String country;	
-	String name;
+	String carrier;
 	
-	public PlayerVO(String event, String country, String name) {
-		this.event = event;
-		this.country = country;
-		this.name = name;
+	public PlayerVO(String carrier) {
+		this.carrier = carrier;
 	}
-	
-	public String getEvent() {
-		return event;
+
+	public String getCarrier() {
+		return carrier;
 	}
-	
-	public String getCountry() {
-		return country;
-	}
-	
-	public String getName() {
-		return name;
-	}
-	
-	public void setEvent(String Event) {
-		event = Event;
-	}
-	
-	public void setCountry(String Country) {
-		country = Country;
-	}
-	
-	public void setName(String Name) {
-		name = Name;
+
+	public void setCarrier(String carrier) {
+		this.carrier = carrier;
 	}
 }

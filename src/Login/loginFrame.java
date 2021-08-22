@@ -12,7 +12,6 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import Database.LoginDB;
-import Main.MainFrame;
 import Main.funVisible;
 import Main.funcBtn;
 import Main.funcBtnEffect;

@@ -76,7 +76,7 @@ public class BoardPanel1 extends JPanel {
 						try {
 							URL imgUrl = new URL(url0);
 							BufferedImage jpg = ImageIO.read(imgUrl);
-							File file = new File("C:\\Users\\user\\eclipse-workspace\\DrimStudy\\img\\"+page+".jpg");
+							File file = new File("./img/"+page+".jpg");
 							ImageIO.write(jpg, "jpg", file);
 							ImagePrint(page, imagehref, imageTitle);
 						
