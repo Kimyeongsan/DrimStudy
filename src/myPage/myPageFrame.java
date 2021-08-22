@@ -69,9 +69,6 @@ public class myPageFrame extends JFrame {
            btnEffect.btnMouseEffect(introBtn);   
            introBtn.addActionListener(new ActionListener() {
                  public void actionPerformed(ActionEvent e) {
-                   // text -> db
-                	 //db -> 화면출력
-                   //화면출력함수는 mypage 패널을 요청할때마다 요청
                    String inIntro = introInput.getText();
                    myPageDB.insertIntro(inIntro);
                    System.out.println(inIntro);

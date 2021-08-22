@@ -78,9 +78,6 @@ public class loginFrame extends JFrame{
                 inPW.setText("");
                 inID.setText("ID를 입력하세요.");
                 dispose();
-//                frame.setVisible(false);
-//                frame.setVisible(true);
-                frame.validate();
              }else {
                  JOptionPane.showMessageDialog(null, "회원정보가 존재하지 않습니다.", "login 실패", JOptionPane.ERROR_MESSAGE);
                  inPW.setText("");

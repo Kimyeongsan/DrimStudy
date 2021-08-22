@@ -79,7 +79,6 @@ public class LoginCheck {
    
    public String isLogin_chk() {
       try {
-         //System.out.println(loginVO.getMyID());
            query = "SELECT EXISTS (SELECT * FROM account_chk WHERE ischeck = 'true' limit 1) AS SUCCESS;";
            Statement sta = connection.createStatement();
            rs = sta.executeQuery(query);
@@ -100,8 +99,6 @@ public class LoginCheck {
                   System.out.println("로그아웃중!!!!\n");
                }
             }
-//           if(sta != null) sta.close();
-//           if(connection != null) connection.close();
            System.out.println("DB 로그인 완료");
         }
          catch (SQLException e){

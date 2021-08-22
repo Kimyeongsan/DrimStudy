@@ -16,7 +16,7 @@ public class RankComparePanel extends JPanel {
 
 	public RankComparePanel(JFrame frame) {
 		super();
-		//panelInit(frame);
+		panelInit(frame);
 	}
 
 	private void panelInit(JFrame frame) {
