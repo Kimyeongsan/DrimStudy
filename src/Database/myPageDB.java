@@ -41,7 +41,7 @@ public class myPageDB {
         return rs;
      }
      
-     //
+     //닉네임 출력
      public String nicNameOutPut() {
     	 
 		try {

@@ -31,8 +31,6 @@ public class RegisterDB {
          Statement sta = connection.createStatement();
          sta.executeUpdate(query);
          System.out.println(query);
-//         if(sta != null) sta.close();
-//         if(connection != null) connection.close();
          System.out.println("DB register 회원등록 완료");
       } catch (SQLException e){
          e.printStackTrace();

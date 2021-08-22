@@ -1,10 +1,11 @@
-<<<<<<< HEAD
+/Board/
+/Cheering/
+/Database/
+/GameInf/
 /Login/
+/Main/
 /Player/
 /RankCompare/
-/Main/
-/Database/
-=======
-/GameInf/
-/RankCompare/
->>>>>>> 2c9159565fc1170f2cde3ed5d8098f40a7907a4d
+/SignUp/
+/chromedriver.exe
+/myPage/

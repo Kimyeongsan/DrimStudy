@@ -25,7 +25,7 @@ public class WithdrawalDB {
         connection = DB_Connection.getConnection();
     }
 
-    //È¸¿øÅ»Åð ÇÔ¼ö
+    //È¸¿øÅ»Åð
     public boolean deleteMember(String myID){
        try {
           query = "DELETE FROM account WHERE ID = '"+ myID+ "';";

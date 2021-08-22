@@ -22,7 +22,7 @@ public class LoginDB {
           connection = DB_Connection.getConnection();
       }
 
-      //회원가입 전 회원조회
+      //로그인 전 회원조회
       public boolean getLoginSelect(String myID, String myPW){
          try {
             query = "SELECT * FROM account WHERE ID = '"+ myID+ "' AND PW = '" + myPW + "';";
