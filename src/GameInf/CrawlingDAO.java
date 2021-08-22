@@ -22,7 +22,7 @@ public class CrawlingDAO {
 
 		String newsTitle = null;
 		String newsContent = null;
-		
+
 		Game_Parser game_Parser = new Game_Parser();
 
 		ChromeOptions options = new ChromeOptions();
@@ -58,7 +58,7 @@ public class CrawlingDAO {
 
 		SL.add(new SearchVO(newsTitle, newsContent));
 
-		System.out.println(newsTitle + "\n" + newsContent + "\n");
+		System.out.println(newsTitle + "\n" + newsContent);
 
 		try {
 			if (driver != null) {
@@ -70,7 +70,7 @@ public class CrawlingDAO {
 			throw new RuntimeException(e1.getMessage());
 		}
 	}
-
+	
 	///////////////////////////////////////// 메달 순위 부분
 
 	static void RankCrawling(ArrayList<RankVO> SL) {
@@ -127,7 +127,6 @@ public class CrawlingDAO {
 		Sum = new String(total.getText());
 
 		SL.add(new RankVO(Country, Gold, Silver, Bronze, Sum));
-//		System.out.println(Country + "  " + Gold + "  " + Silver + "  " + Bronze + "  " + Sum);
 		}
 		
 		try {
