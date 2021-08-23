@@ -27,11 +27,11 @@ public class CheerPanel extends JPanel {
           int count = 0;
 
           JLabel label = new JLabel ("postIT" + count);
-          System.out.print(label); 
+          //System.out.print(label); 
           stringArray = new ArrayList();
           for (int i = 0; i < labelList.size(); i++) {
                           stringArray.add(labelList.get(i).getText());
-                          System.out.print("cheerpanel labeling : "+ stringArray.add(labelList.get(i).getText()));      
+                          //System.out.print("cheerpanel labeling : "+ stringArray.add(labelList.get(i).getText()));      
           }
           
 		  this.setBackground(new Color(20, 255, 255));

@@ -41,7 +41,7 @@ public class PlayerParser {
 				WebElement eventSearch1 = driver.findElement(By.xpath("//*[@id=\"medallist-discipline\"]/li["+i+"]"));
 				System.out.println(eventSearch1.getText());
 				if(event.toString().equals(eventSearch1.getText().toString())) {
-					System.out.println(eventSearch1.getText());
+					//System.out.println(eventSearch1.getText());
 					eventSearch1.click();
 					break;
 				}
@@ -54,7 +54,7 @@ public class PlayerParser {
 				String countrySearch = driver.findElement(By.xpath("//*[@id=\"medallist-country\"]/li["+i+"]")).getText();
 				System.out.println(countrySearch);
 				if(country.toString().equals(countrySearch.toString())) {
-					System.out.println(countrySearch);
+					//System.out.println(countrySearch);
 					driver.findElement(By.xpath("//*[@id=\"medallist-country\"]/li["+i+"]")).click();
 					break;
 				}
