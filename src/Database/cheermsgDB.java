@@ -70,9 +70,9 @@ public class cheermsgDB {
 	
 	
 	//색을 가져오는 함수
-	public String getColor() {
+	public String getColor(int i) {
 		try {
-		query = "SELECT bgColor from cheermsg;";
+		query = "SELECT bgColor from cheermsg WHERE idx = "+i+";";
         Statement sta = con.createStatement();
         rs = sta.executeQuery(query);
         System.out.println(query);
@@ -90,9 +90,9 @@ public class cheermsgDB {
 	}
 	
 	//text을 가져오는 함수
-		public String getText() {
+		public String getText(int i) {
 			try {
-			query = "SELECT cheertext from cheermsg;";
+			query = "SELECT cheertext from cheermsg WHERE idx = '"+i+"';";
 	        Statement sta = con.createStatement();
 	        rs = sta.executeQuery(query);
 	        System.out.println(query);
@@ -109,19 +109,39 @@ public class cheermsgDB {
 	      return null;
 		}
 		
-		public String callCheerMsg() {
+		public void callCheerMsgColor(JLabel postIT1, int i) {
 		      cheermsgDB cheermsgDB = new cheermsgDB();
 		      //cheermsgDB cheermsgDB =new cheermsgDB();
 		      //포스트잇
-		      String color = cheermsgDB.getColor();
+		      String color = cheermsgDB.getColor(i);
 		      System.out.println(color);
 		      switch(color) {
-		      case "RED" : return "postIT.setBackground(Color.RED);" ;
-		      case "YELLOW" : return "postIT.setBackground(Color.YELLOW);";
-		      case "ORANGE" : return "postIT.setBackground(Color.ORANGE);";
-		      case "SKYBLUE" : return "postIT.setBackground(new Color(105,216,255));"; 
-		      case "GREEN" : return "postIT.setBackground(Color.GREEN);";
-		      default : return "postIT.setBackground(new Color(166, 166, 166));";
-		      }
+	    		case "RED" : postIT1.setBackground(Color.RED); break;
+	    		case "YELLOW" : postIT1.setBackground(Color.YELLOW);break;
+	    		case "ORANGE" : postIT1.setBackground(Color.ORANGE);break;
+	    		case "SKYBLUE" : postIT1.setBackground(new Color(105,216,255)); break;
+	    		case "GREEN" : postIT1.setBackground(Color.GREEN);break;
+	    		default : postIT1.setBackground(new Color(166, 166, 166));break;
+		      	}
+		}
+		
+		public int callCountcheermsg() {
+			try {
+				query = "SELECT count(idx) from cheermsg;";
+		        Statement sta = con.createStatement();
+		        rs = sta.executeQuery(query);
+		        //System.out.println(query);
+		                 if(rs.next()){
+		     		        //System.out.println(rs.getInt("count(idx)"));
+		                	 return rs.getInt("count(idx)");
+		                 } else {
+		               System.out.println("text 받아오지 못함!!!!\n");
+		         }
+		     }
+		      catch (SQLException e){
+		        e.printStackTrace();
+		        System.out.println("DB text 받아오지 못함 실패!! 사유 : " + e.getMessage());
+		     }
+			return 0;
 		}
 }

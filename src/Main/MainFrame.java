@@ -100,7 +100,7 @@ public class MainFrame {
       funcBtn.funcbtn(myPage_Btn, 972, 20, 94, 23, true);
       funcBtn.funcbtn(homebtn, 10, 20, 88, 23, true);
       //임시로 위치 변경!!!!!!   >>>> 1085, 800
-      funcBtn.funcbtn(c_writebtn, 500, 500, 120, 30, true);
+      funcBtn.funcbtn(c_writebtn, 1085, 800, 120, 30, true);
       funcBtn.funcbtn(writebtn, 1085, 742, 75, 30, true);
 
       frame.add(loginbtn);
