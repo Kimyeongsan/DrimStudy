@@ -1,28 +1,30 @@
 package Player;
 
 public class PlayerVO {
-	String medal, carrier;
-	
-	
-	public PlayerVO(String carrier) {
-		//this.medal = medal;
-		this.carrier = carrier;
+	private String Carrier;
+	private String Rank;
+
+
+	public PlayerVO(String carrier, String rank) {
+
+		this.Rank = rank;
+		this.Carrier = carrier;
 	}
 
-//	public String getMedal() {
-//		return medal;
-//	}
-//
-//	public void setMedal(String medal) {
-//		this.medal = medal;
-//	}
-
-
 	public String getCarrier() {
-		return carrier;
+		return Carrier;
 	}
 
 	public void setCarrier(String carrier) {
-		this.carrier = carrier;
+		this.Carrier = carrier;
 	}
+
+	public String getRank() {
+		return Rank;
+	}
+
+	public void setRank(String rank) {
+		Rank = rank;
+	}
+
 }
