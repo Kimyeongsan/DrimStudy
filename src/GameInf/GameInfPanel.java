@@ -107,7 +107,7 @@ public class GameInfPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 
 				news = (String) newsInput.getText();
-
+				
 				ArrayList<SearchVO> SL = new ArrayList<SearchVO>();
 
 				CrawlingDAO.NewsCrawling(news, SL);
@@ -121,6 +121,8 @@ public class GameInfPanel extends JPanel {
 		});
 
 	}
+	
+
 	
 
 	private void RankPrint() {

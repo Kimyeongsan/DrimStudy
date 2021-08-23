@@ -18,7 +18,10 @@ public class PlayerParser {
 	static void PlayerSearch(String name, String event, String country, ArrayList<PlayerVO> SL) {
 
 			WebDriver driver;
-			WebElement carrier;
+			WebElement rank;
+			
+			String Rank = " ";
+			String Carrier = " ";
 			
 			System.setProperty(WEB_DRIVER_ID, WEB_DRIVER_PATH);
 			String url = "https://olympics.com/tokyo-2020/olympic-games/ko/results/all-sports/athletes.htm"; // 인물 검색창
@@ -30,6 +33,8 @@ public class PlayerParser {
 			driver = new ChromeDriver(options);
 			driver.get(url);
 			
+			try {Thread.sleep(2000);} catch (InterruptedException e) {}
+			
 			WebElement cookies = driver.findElement(By.xpath("//*[@id=\"onetrust-accept-btn-handler\"]"));
 			cookies.click();
 
@@ -39,9 +44,13 @@ public class PlayerParser {
 			//event 선택
 			for(int i=1;i<=47;i++) {
 				WebElement eventSearch1 = driver.findElement(By.xpath("//*[@id=\"medallist-discipline\"]/li["+i+"]"));
-				System.out.println(eventSearch1.getText());
+//				System.out.println(eventSearch1.getText());
 				if(event.toString().equals(eventSearch1.getText().toString())) {
+<<<<<<< HEAD
+//					System.out.println(eventSearch1.getText());
+=======
 					//System.out.println(eventSearch1.getText());
+>>>>>>> 5843bfe3ac98cdafe80ce24fe5be23557bf53f12
 					eventSearch1.click();
 					break;
 				}
@@ -52,9 +61,13 @@ public class PlayerParser {
 			
 			for(int i=1;i<=207;i++) {
 				String countrySearch = driver.findElement(By.xpath("//*[@id=\"medallist-country\"]/li["+i+"]")).getText();
-				System.out.println(countrySearch);
+//				System.out.println(countrySearch);
 				if(country.toString().equals(countrySearch.toString())) {
+<<<<<<< HEAD
+//					System.out.println(countrySearch);
+=======
 					//System.out.println(countrySearch);
+>>>>>>> 5843bfe3ac98cdafe80ce24fe5be23557bf53f12
 					driver.findElement(By.xpath("//*[@id=\"medallist-country\"]/li["+i+"]")).click();
 					break;
 				}
@@ -74,12 +87,24 @@ public class PlayerParser {
 			
 			//List<WebElement> el1 = driver.findElements(By.className("col-sm-6"));
 			//flex-grow-1
-			for (int i = 1; i < 4; i++) {
-					carrier = driver.findElement(By.xpath("//*[@id=\"BDM1364408\"]/div/table/tbody/tr["+i+"]/td[3]/div/div/div[1]/div/div[1]/a"));
-					SL.add(new PlayerVO(carrier.getText()));
+			
+			try {Thread.sleep(2000);} catch (InterruptedException e) {}
+			
+			List<WebElement> el1 = driver.findElements(By.className("eventTagLink"));
+		
+			
+			for (int i = 0; i < el1.size(); i++) {
+				int j = 1;
+				
+					rank = driver.findElement(By.xpath("//*[@id=\"mainContainer\"]/div/div[1]/div[1]/div[2]/a[1]/div/table/tbody/tr[" + j + "]/td[3]"));
+					Carrier = el1.get(i).getText();
+					
+					SL.add(new PlayerVO(Carrier, Rank));
+					
+					j++;
 			}
 			
-			//try {Thread.sleep(1000);} catch (InterruptedException e) {}
+			try {Thread.sleep(1000);} catch (InterruptedException e) {}
 
 			try {
 				if(driver != null) {
