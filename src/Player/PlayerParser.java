@@ -44,13 +44,8 @@ public class PlayerParser {
 			//event º±≈√
 			for(int i=1;i<=47;i++) {
 				WebElement eventSearch1 = driver.findElement(By.xpath("//*[@id=\"medallist-discipline\"]/li["+i+"]"));
-//				System.out.println(eventSearch1.getText());
 				if(event.toString().equals(eventSearch1.getText().toString())) {
-<<<<<<< HEAD
-//					System.out.println(eventSearch1.getText());
-=======
-					//System.out.println(eventSearch1.getText());
->>>>>>> 5843bfe3ac98cdafe80ce24fe5be23557bf53f12
+
 					eventSearch1.click();
 					break;
 				}
@@ -61,13 +56,8 @@ public class PlayerParser {
 			
 			for(int i=1;i<=207;i++) {
 				String countrySearch = driver.findElement(By.xpath("//*[@id=\"medallist-country\"]/li["+i+"]")).getText();
-//				System.out.println(countrySearch);
 				if(country.toString().equals(countrySearch.toString())) {
-<<<<<<< HEAD
-//					System.out.println(countrySearch);
-=======
-					//System.out.println(countrySearch);
->>>>>>> 5843bfe3ac98cdafe80ce24fe5be23557bf53f12
+
 					driver.findElement(By.xpath("//*[@id=\"medallist-country\"]/li["+i+"]")).click();
 					break;
 				}
