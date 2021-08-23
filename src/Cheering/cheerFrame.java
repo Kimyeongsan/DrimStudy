@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 public class cheerFrame extends JPanel {
 	private JFrame frame;
@@ -31,5 +32,13 @@ public class cheerFrame extends JPanel {
 		CheerPanel.setBorder(null); 
 
 		this.add(CheerPanel);
+		
+		JScrollPane scroll = new JScrollPane(CheerPanel);
+		scroll.setBounds(80,  200, 1100, 600);
+		this.add(scroll);
+		//JScrollPane scroll = new JScrollPane(CheerPanel);
+        //scroll.setLocation(80, 200);
+        //scroll.setSize(1100, 1000);
+		//this.add(scroll);
 	}
 }
